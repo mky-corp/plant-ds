@@ -1,0 +1,10 @@
+# modules yarn
+node_modules
+
+# enviroment variables
+.env
+
+# config files
+.idea
+*.xml
+*.iml
