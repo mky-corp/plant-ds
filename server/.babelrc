@@ -4,6 +4,6 @@
     "@babel/preset-typescript"
   ],
   "ignore": [
-    "./node_modules"
+    "node_modules"
   ]
 }
