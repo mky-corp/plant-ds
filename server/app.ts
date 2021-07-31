@@ -22,7 +22,7 @@ app.set('view engine', 'pug');
 
 // middlewares
 app.use(cors({
-  origin: 'http:localhost:3000',
+  origin: 'http://localhost:3000',
   credentials: true
 }));
 app.use(logger('dev'));
