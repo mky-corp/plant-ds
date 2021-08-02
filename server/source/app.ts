@@ -5,6 +5,7 @@ import cors from 'cors';
 import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 import createError from 'http-errors';
+import fileUpload from 'express-fileupload';
 
 import HttpException from './utils/HttpException';
 import normalizePort from './utils/ServerExceptions';
@@ -14,6 +15,7 @@ import indexRouter from './routes/index.routes';
 
 // routes api
 import usersRouter from './routes/api/user.routes';
+import imagesRouter from './routes/api/image.routes';
 
 app.set('PORT', normalizePort(process.env.PORT || '5200'));
 // view engine setup
@@ -22,7 +24,7 @@ app.set('view engine', 'pug');
 
 // middlewares
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'http://localhost:4000',
   credentials: true
 }));
 app.use(logger('dev'));
@@ -30,12 +32,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(fileUpload());
 
 // routes views
 app.use('/', indexRouter);
 
 // routes api
 app.use('/api/users', usersRouter);
+app.use('/api/images', imagesRouter);
 
 // catch 404 and forward to error handler
 app.use((req: Request, res: Response, next: NextFunction) => {
