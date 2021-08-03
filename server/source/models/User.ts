@@ -1,11 +1,14 @@
-import {Schema, model} from 'mongoose';
+import { Schema, model } from 'mongoose';
+import IUser from '../interface/user';
 
-const userSchema = new Schema({
-  names: {type: String, required: true},
-  surnames: {type: String, required: true},
-  email: {type: String, unique: true, required: true, lowercase: true},
-  password: {type: String, required: true},
-  state: {type: Boolean, default: true}
+const UserSchema: Schema = new Schema({
+  names: { type: String, required: true },
+  surnames: { type: String, required: true },
+  email: { type: String, unique: true, required: true, lowercase: true },
+  password: { type: String, required: true },
+  state: { type: Boolean, default: true }
+}, {
+  timestamps: true
 });
 
-export default model('Users', userSchema);
+export default model<IUser>('Users', UserSchema);
