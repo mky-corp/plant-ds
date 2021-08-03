@@ -16,6 +16,7 @@ import indexRouter from './routes/index.routes';
 // routes api
 import usersRouter from './routes/api/user.routes';
 import imagesRouter from './routes/api/image.routes';
+import authRouter from './routes/api/auth.routes';
 
 app.set('PORT', normalizePort(process.env.PORT || '5200'));
 // view engine setup
@@ -40,6 +41,7 @@ app.use('/', indexRouter);
 // routes api
 app.use('/api/users', usersRouter);
 app.use('/api/images', imagesRouter);
+app.use('/api/auth', authRouter);
 
 // catch 404 and forward to error handler
 app.use((req: Request, res: Response, next: NextFunction) => {
