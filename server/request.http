@@ -1,0 +1,18 @@
+GET http://localhost:5200/api/auth
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lcyI6IkpvYW4iLCJpYXQiOjE2MjgwMzExMjAsImV4cCI6MzI1NjQyMjI0MCwiaXNzIjoic3VwZXJlbmNyeXB0ZWRzZWNyZXQifQ.iQhELrgvxb9BnsSI32Rczo929o7I6ktr7xdj4sR6nZ0
+Accept: application/json
+
+###
+POST http://localhost:5200/api/auth
+Content-Type: application/json
+
+{
+  "email": "remnyachizot2015@gmail.com",
+  "password": "jochizan@"
+}
+
+###
+GET http://localhost:5200/api/users
+Accept: application/json
+
+###

@@ -19,12 +19,11 @@ export const loginUser = async (req: Request, res: Response, next: NextFunction)
   const { email, password: firstPass } = req.body;
 
   try {
-    // @ts-ignore
-    const user: IUser = await User.findOne({ email, state: true });
+    const user = await User.findOne({ email, state: true });
 
-    if (!Object.keys(user).length) {
-      res.status(401).json({
-        message: 'Unauthorized'
+    if (user === null) {
+      return res.status(404).json({
+        message: 'Error Not Found user'
       });
     }
 
