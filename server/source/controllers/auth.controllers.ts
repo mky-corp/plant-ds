@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import User from '../models/User';
 import bcrypt from 'bcryptjs';
-import IUser from '../interface/user';
 import { error, info } from '../config/logging';
 import signJWT from '../functions/sign.jwt';
 
