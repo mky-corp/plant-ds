@@ -31,7 +31,7 @@ export const loginUser = async (req: Request, res: Response, next: NextFunction)
 
     if (!validatePass) {
       return res.status(400).send({
-        message: 'Invalid information '
+        message: 'Invalid information'
       });
     }
 
