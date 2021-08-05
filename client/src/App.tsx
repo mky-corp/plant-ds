@@ -1,7 +1,9 @@
+import Start from "./screens/Start";
+
 const App = () => {
   return (
       <>
-        Create React App
+        <Start/>
       </>
   );
 }
