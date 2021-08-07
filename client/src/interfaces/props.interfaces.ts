@@ -4,4 +4,9 @@ interface IPropsChildren {
   children: ReactNode;
 }
 
-export type { IPropsChildren };
+interface IpropsDescOptions {
+  title: string;
+  description: string;
+}
+
+export type { IPropsChildren, IpropsDescOptions };

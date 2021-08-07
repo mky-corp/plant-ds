@@ -2,6 +2,8 @@ import * as tf from '@tensorflow/tfjs';
 import * as jpeg from 'jpeg-js';
 import { useState, useEffect } from 'react';
 
+const API = process.env.REACT_APP_API;
+
 const useTF = () => {
   const [loading, setLoading] = useState(true);
   const [predictions, setPredictions] = useState([]);
@@ -9,9 +11,7 @@ const useTF = () => {
 
   const loadModel = async () => {
     try {
-      const modelPlants = await tf.loadLayersModel(
-        'http://localhost:5200/cnn/model.json'
-      );
+      const modelPlants = await tf.loadLayersModel(`${API}/cnn/model.json`);
       setModel(modelPlants);
     } catch (err) {
       console.error(err);
