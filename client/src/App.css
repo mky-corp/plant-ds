@@ -1,3 +1,4 @@
+/***symbol**/
 .symbol {
   font-size: 1.3em;
 }
@@ -153,21 +154,48 @@
   width: auto;
 }
 
+.m-desc {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.w-90 {
+  width: 90%
+}
+
 .all-animations {
   transition: all 1s ease-in-out;
+}
+
+.w-options__btns {
+  min-width: 240px;
+  width: 100%;
+}
+
+.m-input__files {
+  width: 100%;
 }
 
 .bg__container {
   height: 100vh;
 }
 
+.drop__zone:hover {
+  animation: pulse 1.2s infinite;
+  background: var(--dark-color);
+}
+
 @media (min-width: 576px) {
+  .m-desc {
+    width: 80%;
+  }
 }
 
 @media (min-width: 768px) {
   .bg__start {
     background-image: url(./assets/fondo_start.png);
     background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -186,6 +214,10 @@
     width: 16px;
   }
 
+  .m-desc {
+    width: 70%;
+  }
+
   .options__container {
     flex-direction: row;
   }
@@ -196,6 +228,15 @@
     min-height: 100%;
   }
 
+  .m-input__files {
+    padding: 0 4rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .m-desc {
+    width: 50%;
+  }
 }
 
 @keyframes pulse {
@@ -205,6 +246,6 @@
   }
 
   50% {
-    transform: scale(1.2);
+    transform: scale(1.12);
   }
 }

@@ -4,7 +4,9 @@ import useTF from '../hooks/useTF';
 
 const Detects = () => {
   const { buffers } = useContext(FileContext);
-  const { predictions, loading, predictionsModel } = useTF();
+  const { predictions, errors, loading, predictionsModel } = useTF();
+
+  console.log(errors);
 
   useEffect(() => {
     if (!loading) predictionsModel(buffers);
@@ -15,7 +17,11 @@ const Detects = () => {
     if (predictions.length !== 0) console.log(predictions);
   }, [predictions]);
 
-  return <div>{!loading ? 'Modelo cargado!!!' : 'Cargando el modelo...'}</div>;
+  return (
+    <div className='d-flex flex-column'>
+      <b>{errors &&'Error al cargar el modelo'}</b>
+    </div>
+  );
 };
 
 export default Detects;

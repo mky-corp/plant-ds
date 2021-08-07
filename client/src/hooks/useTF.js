@@ -6,6 +6,7 @@ const API = process.env.REACT_APP_API;
 
 const useTF = () => {
   const [loading, setLoading] = useState(true);
+  const [errors, setErrors] = useState(undefined);
   const [predictions, setPredictions] = useState([]);
   const [model, setModel] = useState(undefined);
 
@@ -14,6 +15,7 @@ const useTF = () => {
       const modelPlants = await tf.loadLayersModel(`${API}/cnn/model.json`);
       setModel(modelPlants);
     } catch (err) {
+      setErrors(err);
       console.error(err);
     } finally {
       setLoading(false);
@@ -47,11 +49,16 @@ const useTF = () => {
   };
 
   const predictionsModel = async (buffers) => {
-    const answers = [];
+    if (model === undefined) {
+      return setErrors({
+        ...errors,
+        message: 'No se puede predecir el modelo no esta cargado'
+      });
+    }
 
+    const answers = [];
     for (let i = 0; i < buffers.length; ++i)
       answers.push(await predictModel(buffers[i]));
-
     setPredictions(answers);
   };
 
@@ -59,7 +66,7 @@ const useTF = () => {
     loadModel();
   }, []);
 
-  return { predictions, loading, predictionsModel };
+  return { predictions, loading, errors, predictionsModel };
 };
 
 export default useTF;

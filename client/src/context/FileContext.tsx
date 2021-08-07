@@ -22,8 +22,6 @@ export const FileProvider = ({ children }: IPropsChildren) => {
     const fileList = e.target.files;
     const fileArray = Array.from(fileList);
 
-    if (!fileList) return;
-
     setFiles(fileArray);
     fileArray.forEach((file) => uploadFile(file, fileBuffers));
   };

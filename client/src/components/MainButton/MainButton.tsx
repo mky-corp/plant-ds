@@ -5,7 +5,7 @@ import './MainButton.css';
 const MainButton = () => {
   return (
     <main className='flex-grow-1'>
-      <Link to='/options' className='principal__btn m-auto fs-3 fw-bold'>
+      <Link to='/options' className='principal__btn m-auto fs-4 fw-bold'>
         START
       </Link>
     </main >

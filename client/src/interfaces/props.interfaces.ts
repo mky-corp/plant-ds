@@ -1,12 +1,19 @@
-import { ReactNode } from 'react';
+import { ReactNode, SyntheticEvent } from 'react';
 
 interface IPropsChildren {
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 interface IpropsDescOptions {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
 }
 
-export type { IPropsChildren, IpropsDescOptions };
+interface IPropsFormUp {
+  title?: string;
+  description?: string;
+  children?: ReactNode;
+  handleSubmit?: (e: SyntheticEvent) => void;
+}
+
+export type { IPropsChildren, IPropsFormUp, IpropsDescOptions };
