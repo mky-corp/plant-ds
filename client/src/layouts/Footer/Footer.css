@@ -1,0 +1,9 @@
+.container__footer {
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 1rem;
+}
+
+.footer {
+  height: 100px!important;
+}

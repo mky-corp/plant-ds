@@ -6,7 +6,11 @@ import signJWT from '../functions/sign.jwt';
 
 const NAMESPACE = 'Auth';
 
-export const validateToken = (req: Request, res: Response, next: NextFunction) => {
+export const validateToken = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   info(NAMESPACE, 'Token validated, user authorized');
 
   return res.status(200).json({
@@ -14,7 +18,11 @@ export const validateToken = (req: Request, res: Response, next: NextFunction) =
   });
 };
 
-export const loginUser = async (req: Request, res: Response, next: NextFunction) => {
+export const loginUser = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   const { email, password: firstPass } = req.body;
 
   try {
@@ -51,7 +59,7 @@ export const loginUser = async (req: Request, res: Response, next: NextFunction)
         });
       }
     });
-  } catch (err) {
+  } catch (err: any) {
     error(NAMESPACE, err.message, err);
 
     return res.status(500).send({

@@ -1,0 +1,27 @@
+/****logo***/
+.principal__logo {
+  height: 127px;
+  width: 127px;
+}
+
+/***button***/
+.principal__btn {
+  min-width: 192px;
+  min-height: 54px;
+  width: calc(4vw + 24vh);
+  background: #41b883;
+  border-radius: 50px;
+  color: var(--white-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.principal__btn:hover {
+  opacity: 0.75;
+  color: var(--white-bg-color);
+}
+
+.principal__title {
+  font-family: var(--font);
+}

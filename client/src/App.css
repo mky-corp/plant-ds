@@ -1,54 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
-/***star principal***/
-.start {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-/***container start***/
-.container_start {
-  width: 70%;
-  height: 600px;
-  margin: auto;
-  background-color: #f4f4f4;
-}
-
-/****logo ***/
-.MainStart_logo {
-  height: 127px;
-  width: 127px;
-}
-
-.MainStart_title {
-  font-family: var(--font);
-}
-
-/***button***/
-.MainStar_btn {
-  width: 170px;
-  height: 45px;
-  background: #41b883;
-  text-decoration: none !important;
-  border-radius: 40px;
-  color: #fff;
-  display: block;
-  padding-top: 0.7em;
-  text-align: center;
-}
-/****Copyright***/
-.Copyright {
-  margin-top: 130px;
-}
-
-.simbolo {
+.symbol {
   font-size: 1.3em;
 }
 
 /***logo footer**/
 .logo_footer {
-  height: 90px;
+  height: auto;
   width: 60px;
 }
 
@@ -118,7 +74,7 @@
 }
 
 .options__input:invalid + span {
-  color: var(--thir-color);
+  color: var(--third-color);
 }
 
 .options__input:valid + span {
@@ -198,18 +154,31 @@
 }
 
 .all-animations {
-  transition: all 1s;
+  transition: all 1s ease-in-out;
 }
 
-@media (min-width: 320px) {
-  .container_start {
-    width: 85%;
-  }
+.bg__container {
+  height: 100vh;
+}
+
+@media (min-width: 576px) {
 }
 
 @media (min-width: 768px) {
-  .container_start {
-    width: 40%;
+  .bg__start {
+    background-image: url(./assets/fondo_start.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .bg__container {
+    background-color: var(--white-bg-color);
+    width: 420px;
+    height: 380px;
+    border-radius: 8px;
   }
 
   .wh-grap {
@@ -226,38 +195,7 @@
     height: 100%;
     min-height: 100%;
   }
-}
 
-@media (min-width: 1024px) {
-  .container_start {
-    width: 35%;
-  }
-}
-
-@media (min-width: 1025px) {
-  .start {
-    background-image: url(./assets/fondo_start.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  .container_start {
-    width: 37%;
-    height: 430px;
-    border-radius: 10px;
-  }
-  .Conte_MainStart {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: auto;
-  }
-  .Copyright {
-    margin-top: 60px;
-  }
-  .MainStar_footer {
-    justify-content: space-between;
-  }
 }
 
 @keyframes pulse {

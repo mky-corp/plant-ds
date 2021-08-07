@@ -6,7 +6,11 @@ export const viewUsers = (req: Request, res: Response, next: NextFunction) => {
   res.send('respond with a resource');
 };
 
-export const getAllUsers = async (req: Request, res: Response, next: NextFunction) => {
+export const getAllUsers = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   try {
     const allUsers = await User.find({ state: true });
 
@@ -14,7 +18,7 @@ export const getAllUsers = async (req: Request, res: Response, next: NextFunctio
       allUsers,
       count: allUsers.length
     });
-  } catch (err) {
+  } catch (err: any) {
     res.status(500).json({
       message: err.message,
       err
@@ -41,7 +45,7 @@ export const createUser = (req: Request, res: Response, next: NextFunction) => {
       });
 
       res.status(201).json({ message: 'Se creo el usuario', _user });
-    } catch (err) {
+    } catch (err: any) {
       res.status(500).json({ message: err.message, err });
     }
   });
