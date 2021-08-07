@@ -8,7 +8,6 @@ const Detects = () => {
 
   useEffect(() => {
     if (!loading) predictionsModel(buffers);
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading]);
 

@@ -2,6 +2,7 @@ import { SyntheticEvent, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Button, Container, Form, ProgressBar } from 'react-bootstrap';
 
+// components
 import DescOptions from '../components/DescOptions';
 import DropZone from '../components/DropZone';
 import FileContext from '../context/FileContext';

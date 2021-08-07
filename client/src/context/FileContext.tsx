@@ -1,12 +1,6 @@
-import { useState, createContext, ChangeEvent, FC } from 'react';
-
-interface IFileContext {
-  files: File[];
-  buffers: Uint8Array[];
-  progress: number | string;
-  progressInner: string;
-  handleImageChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-}
+import { useState, createContext, ChangeEvent } from 'react';
+import { IFileContext } from '../interfaces/file.interfaces';
+import { IPropsChildren } from '../interfaces/props.interfaces';
 
 const defaultState = {
   files: [],
@@ -15,13 +9,11 @@ const defaultState = {
 
 const FileContext = createContext<Partial<IFileContext>>(defaultState);
 
-export const FileProvider: FC = ({ children }: any) => {
+export const FileProvider = ({ children }: IPropsChildren) => {
   const [progress, setProgress] = useState<number | string>('');
   const [progressInner, setProgressInner] = useState<string>('');
   const [buffers, setBuffers] = useState<Uint8Array[]>(defaultState.buffers);
-  const [files, setFiles] = useState<File[]>(
-    defaultState.files
-  );
+  const [files, setFiles] = useState<File[]>(defaultState.files);
 
   const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files === null) return;
@@ -60,7 +52,7 @@ export const FileProvider: FC = ({ children }: any) => {
       setTimeout(() => {
         setProgress('');
         setProgressInner('');
-      }, 2500);
+      }, 1600);
     });
   };
 

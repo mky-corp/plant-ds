@@ -152,12 +152,17 @@
   border-color: var(--second-color);
 }
 
-.second-bg {
-  background-color: var(--second-color);
+.third-bg,
+.third-bg:hover,
+.third-bg:active {
+  background-color: var(--third-color);
+  border-color: var(--third-color);
 }
 
-.third-bg {
+.third-bg:disabled {
+  opacity: 0.75;
   background-color: var(--third-color);
+  border-color: var(--third-color);
 }
 
 .dark-bg {
