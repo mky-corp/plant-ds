@@ -2,22 +2,21 @@ import { CSSProperties, useMemo } from 'react';
 import { useDropzone } from 'react-dropzone';
 
 const baseStyle: CSSProperties = {
-  flex: 1,
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
   textAlign: 'center',
   padding: '2rem',
+  width: 'calc(10vw + 36vh)',
+  height: '36vh',
   cursor: 'pointer',
   backgroundColor: 'var(--title-color)',
   color: 'var(--gray-light-color)',
   outline: 'none',
-  transition: 'pulse 1.2s ease-in-out',
   borderRadius: '4px',
   border: 'dashed 4px var(--second-color)',
-  margin: '0 auto',
-  width: '72%'
+  margin: '0 auto'
 };
 
 const activeStyle: CSSProperties = {
@@ -60,10 +59,7 @@ const DropZone = () => {
 
   return (
     <div className='p-2'>
-      <article
-        className='cursor-pointer focus:outline-none'
-        {...getRootProps({ style })}
-      >
+      <article className='drop__zone' {...getRootProps({ style })}>
         <input {...getInputProps()} />
         <p className='d-flex justify-content-center align-items-center m-0'>
           Drag 'n' drop some files here, or click to select files

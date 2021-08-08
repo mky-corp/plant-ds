@@ -10,6 +10,7 @@ import Home from './screens/Home';
 import { FileProvider } from './context/FileContext';
 
 const App = () => {
+
   return (
     <>
       <Router>

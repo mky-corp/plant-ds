@@ -41,11 +41,13 @@ body {
   overflow-x: hidden;
   color: var(--text-color);
   font-family: var(--font);
+  background-color: var(--white-bg-color);
 }
 
 a {
   color: var(--link-color);
   transition: all 0.5s ease-out;
+  text-decoration: none;
 }
 
 a:hover {

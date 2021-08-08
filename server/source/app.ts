@@ -1,14 +1,16 @@
-import express, { NextFunction, Request, Response } from 'express';
+import express from 'express';
 import app from './index';
 import path from 'path';
 import cors from 'cors';
 import logger from 'morgan';
 import cookieParser from 'cookie-parser';
-import createError from 'http-errors';
-import fileUpload from 'express-fileupload';
 
-import HttpException from './utils/HttpException';
-import normalizePort from './utils/ServerExceptions';
+// utils
+import {
+  handleError,
+  handleNotFound,
+  normalizePort
+} from './utils/ServerExceptions';
 
 // routes views
 import indexRouter from './routes/index.routes';
@@ -49,22 +51,10 @@ app.use('/api/images', imagesRouter);
 app.use('/api/auth', authRouter);
 
 // catch 404 and forward to error handler
-app.use((req: Request, res: Response, next: NextFunction) => {
-  next(createError(404));
-});
+app.use(handleNotFound);
 
 // error handler
-app.use(
-  (err: HttpException, req: Request, res: Response, next: NextFunction) => {
-    // set locals, only providing error in development
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-    // render the error page
-    res.status(err.status || 500);
-    res.render('error');
-  }
-);
+app.use(handleError);
 
 app.listen(app.get('PORT'), () => {
   console.log(`Listen on http://localhost:${app.get('PORT')}`);
