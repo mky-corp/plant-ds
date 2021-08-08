@@ -5,6 +5,7 @@ import cors from 'cors';
 import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 import createError from 'http-errors';
+import fileUpload from 'express-fileupload';
 
 import HttpException from './utils/HttpException';
 import normalizePort from './utils/ServerExceptions';
@@ -14,6 +15,7 @@ import indexRouter from './routes/index.routes';
 
 // routes api
 import usersRouter from './routes/api/user.routes';
+import imagesRouter from './routes/api/image.routes';
 import authRouter from './routes/api/auth.routes';
 
 app.set('PORT', normalizePort(process.env.PORT || '5200'));
@@ -33,6 +35,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(fileUpload());
 
 // models
 app.use('/cnn', express.static(path.join(__dirname, 'cnn_plants')));
@@ -42,6 +45,7 @@ app.use('/', indexRouter);
 
 // routes api
 app.use('/api/users', usersRouter);
+app.use('/api/images', imagesRouter);
 app.use('/api/auth', authRouter);
 
 // catch 404 and forward to error handler
