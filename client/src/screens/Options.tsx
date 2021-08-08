@@ -1,5 +1,4 @@
 import {
-  LegacyRef,
   SyntheticEvent,
   useCallback,
   useContext,
@@ -19,22 +18,22 @@ const Options = () => {
   const { buffers, handleImageChange, progress, progressInner } =
     useContext(FileContext);
 
-  const videoConstraints = {
-    width: '50%',
-    height: '50%',
-    facingMode: 'user'
-  };
+  // const videoConstraints = {
+  //   width: '50%',
+  //   height: '50%',
+  //   facingMode: 'user'
+  // };
 
   const webcamRef = useRef<Webcam>(null);
 
   const capture = useCallback(() => {
-    if (webcamRef.current instanceof Webcam) {
-      const imageSrc = webcamRef.current.getScreenshot({
-        width: 249,
-        height: 249
-      });
-      console.log(imageSrc);
-    }
+    if (webcamRef.current === null) return;
+
+    const imageSrc = webcamRef.current.getScreenshot({
+      width: 249,
+      height: 249
+    });
+    console.log(imageSrc);
   }, [webcamRef]);
 
   const handleSubmit = (e: SyntheticEvent) => {
@@ -122,7 +121,7 @@ const Options = () => {
                 <span
                   className='w-100 d-flex justify-content-center white-color'
                   dangerouslySetInnerHTML={{ __html: progressInner + '' }}
-                ></span>
+                />
                 <Button
                   type='submit'
                   disabled={buffers?.length === 0 || !(progressInner === '')}
