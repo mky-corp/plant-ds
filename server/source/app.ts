@@ -4,6 +4,7 @@ import path from 'path';
 import cors from 'cors';
 import logger from 'morgan';
 import cookieParser from 'cookie-parser';
+import fileUpload from 'express-fileupload';
 
 // utils
 import {

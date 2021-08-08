@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { uploadOneImage, viewImage } from '../../controllers/image.controllers';
+import { uploadImage, viewImage } from '../../controllers/image.controllers';
 
 const router = Router();
 
@@ -7,6 +7,6 @@ const router = Router();
 router.get('/', viewImage);
 
 /* POST users creating. */
-router.post('/uploadone', uploadOneImage);
+router.post('/upload', uploadImage);
 
 export default router;
