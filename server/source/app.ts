@@ -3,6 +3,7 @@ import app from './index';
 import path from 'path';
 import cors from 'cors';
 import logger from 'morgan';
+import fileUpload from 'express-fileupload';
 import cookieParser from 'cookie-parser';
 
 // utils

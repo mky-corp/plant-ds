@@ -12,47 +12,46 @@ export const uploadOneImage = async (
   res: Response,
   next: NextFunction
 ) => {
-    let sampleFile: UploadedFile;
-    let uploadPath: string;
-    
-    uploadPath = __dirname + '/images/';
-    !fs.existsSync(uploadPath) && fs.mkdirSync(uploadPath);
+  let sampleFile: UploadedFile;
+  let uploadPath: string;
 
-    console.log(req.files)
+  uploadPath = __dirname + '/images/';
+  !fs.existsSync(uploadPath) && fs.mkdirSync(uploadPath);
 
-    if (!req.files || Object.keys(req.files).length === 0) {
-      return res.status(400).send('No existen archivos para subir.');
-    }
+  console.log(req.files);
 
-    if (req.files.sampleFile == null){
-      return res.status(400).send('Enviar con el nombre correcto.');
-    }
+  if (!req.files || Object.keys(req.files).length === 0) {
+    return res.status(400).json('No existen archivos para subir.');
+  }
 
-    sampleFile = req.files.sampleFile as UploadedFile;
+  if (req.files.sampleFile == null) {
+    return res.status(400).json('Enviar con el nombre correcto.');
+  }
 
-    let approvedType : string[] = ['image/png', 'image/jpeg'];
-    
-    if (!approvedType.includes(sampleFile.mimetype)) {
-      return res.status(400).send('No tiene el formato adecuado.');
-    }
-    
-    let currentdate = new Date(); 
-    let datetime =  currentdate.getDate() + "-"
-                    + (currentdate.getMonth()+1)  + "-" 
-                    + currentdate.getFullYear() + " "  
-                    + currentdate.getHours() + ":"  
-                    + currentdate.getMinutes() + ":" 
-                    + currentdate.getSeconds();
+  sampleFile = req.files.sampleFile as UploadedFile;
 
-    uploadPath = __dirname + '/images/' + datetime + " " + sampleFile.name;
-  
-    sampleFile.mv(uploadPath, async function(err: any) {
-      if (err)
-        return res.status(500).send(err);
+  let approvedType: string[] = ['image/png', 'image/jpeg', 'image/jpg'];
 
-      console.log(sampleFile.name);
-      console.log(sampleFile.mimetype);
-      console.log('True');
-      res.send('Archivo subido!');
-    });
+  if (!approvedType.includes(sampleFile.mimetype)) {
+    return res.status(400).json('No tiene el formato adecuado.');
+  }
+
+  let currentDate = new Date();
+  let datetime = currentDate.getDate() + '-'
+    + (currentDate.getMonth() + 1) + '-'
+    + currentDate.getFullYear() + ' '
+    + currentDate.getHours() + ':'
+    + currentDate.getMinutes() + ':'
+    + currentDate.getSeconds();
+
+  uploadPath = __dirname + '/images/' + datetime + ' ' + sampleFile.name;
+
+  sampleFile.mv(uploadPath, async (err: any) => {
+    if (err)
+      return res.status(500).json(err);
+
+    console.log(sampleFile.name);
+    console.log(sampleFile.mimetype);
+    res.status(201).json({ image: uploadPath, message: 'File upload!' });
+  });
 };
