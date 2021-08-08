@@ -11,7 +11,8 @@ export const getAllUsers = async (req: Request, res: Response, next: NextFunctio
     const allUsers = await User.find({ state: true });
 
     res.status(200).json({
-      allUsers
+      allUsers,
+      count: allUsers.length
     });
   } catch (err) {
     res.status(500).json({

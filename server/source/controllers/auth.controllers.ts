@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import User from '../models/User';
 import bcrypt from 'bcryptjs';
-import IUser from '../interface/user';
 import { error, info } from '../config/logging';
 import signJWT from '../functions/sign.jwt';
 
@@ -19,12 +18,11 @@ export const loginUser = async (req: Request, res: Response, next: NextFunction)
   const { email, password: firstPass } = req.body;
 
   try {
-    // @ts-ignore
-    const user: IUser = await User.findOne({ email, state: true });
+    const user = await User.findOne({ email, state: true });
 
-    if (!Object.keys(user).length) {
-      res.status(401).json({
-        message: 'Unauthorized'
+    if (user === null) {
+      return res.status(404).json({
+        message: 'Error Not Found user'
       });
     }
 
@@ -33,7 +31,7 @@ export const loginUser = async (req: Request, res: Response, next: NextFunction)
 
     if (!validatePass) {
       return res.status(400).send({
-        message: 'Invalid information '
+        message: 'Invalid information'
       });
     }
 

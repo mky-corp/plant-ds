@@ -4,6 +4,9 @@ node_modules
 # enviroment variables
 .env
 
+# compile ts
+dist
+
 # config files
 .idea
 *.xml
