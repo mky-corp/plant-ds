@@ -10,7 +10,7 @@ interface IPropsChildren {
   children?: ReactNode;
 }
 
-interface IpropsDescOptions {
+interface IPropsDescOptions {
   title?: string;
   description?: string;
 }
@@ -37,6 +37,7 @@ interface IPropsMainButton {
   to?: string | object;
   title?: string;
   type?: string;
+  clName?: string;
   onClick?: (e: SyntheticEvent) => void;
 }
 
@@ -44,6 +45,6 @@ export type {
   IPropsChildren,
   IPropsFormUp,
   IPropsFormGroup,
-  IpropsDescOptions,
+  IPropsDescOptions,
   IPropsMainButton
 };

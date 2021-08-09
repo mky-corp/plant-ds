@@ -1,4 +1,5 @@
 import { IAuthContext, IUserForm } from '../interfaces/auth.interfaces';
+import { IFileContext } from '../interfaces/file.interfaces';
 
 export const initialLogin: IUserForm = {
   email: '',
@@ -20,4 +21,9 @@ export const defaultAuthState: IAuthContext = {
     email: '',
     token: ''
   }
+};
+
+export const defaultFileState: IFileContext = {
+  files: [],
+  buffers: []
 };

@@ -1,4 +1,5 @@
-import logo from '../../assets/favi2.svg';
+import { memo } from 'react';
+import logo from '../../assets/logo.svg';
 import './Header.css';
 
 const Header = () => {
@@ -10,4 +11,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default memo(Header);

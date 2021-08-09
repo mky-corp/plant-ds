@@ -20,8 +20,8 @@ const App = () => {
       <Switch>
         <FileProvider>
           <AuthProvider>
-            <Route exact path='/' component={Start} />
-            <Route path='/home' component={Home} />
+            <Route exact path='/' component={Home} />
+            <Route path='/start' component={Start} />
             <Route path='/login' component={Login} />
             <Route path='/register' component={Register} />
             <Route path='/options' component={Options} />

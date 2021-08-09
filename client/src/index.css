@@ -18,9 +18,11 @@
   --text-color: #171717;
 
   --white-alpha-color: #ffffff80;
-  --white-bg-color: #f4f4f4;
   --black-alpha-color: #00000080;
   --drop-shadow: #ffffff80;
+
+  --gray-bg-color: #e4e4e4;
+  --white-bg-color: #f4f4f4;
 
   --font: 'Poppins', sans-serif;
   --max-width: 1200px;

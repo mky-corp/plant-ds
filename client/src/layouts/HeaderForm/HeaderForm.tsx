@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 const HeaderForm = ({ title }: any) => {
   return (
     <header>
@@ -6,4 +8,4 @@ const HeaderForm = ({ title }: any) => {
   );
 };
 
-export default HeaderForm;
+export default memo(HeaderForm);

@@ -1,4 +1,5 @@
-import logo from '../../assets/favi2.svg';
+import { memo } from 'react';
+import logo from '../../assets/logo.svg';
 import './Footer.css';
 
 const Footer = () => {
@@ -15,4 +16,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default memo(Footer);

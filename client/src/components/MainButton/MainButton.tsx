@@ -3,9 +3,9 @@ import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './MainButton.css';
 
-const MainButton = ({ to, type, title, onClick }: IPropsMainButton) => {
+const MainButton = ({ to, type, title, onClick, clName }: IPropsMainButton) => {
   const classes =
-    'principal__btn d-flex m-auto fs-4 fw-bold justify-content-center align-content-center mb-1';
+    clName + ' principal__btn d-flex m-auto fs-4 fw-bold justify-content-center align-content-center mb-1';
 
   return to ? (
     <Link to={to} className={classes}>

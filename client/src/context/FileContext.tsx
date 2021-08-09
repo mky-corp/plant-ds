@@ -1,19 +1,15 @@
 import { useState, createContext, ChangeEvent } from 'react';
 import { IFileContext } from '../interfaces/file.interfaces';
 import { IPropsChildren } from '../interfaces/props.interfaces';
+import { defaultFileState } from '../libs/default.state';
 
-const defaultState = {
-  files: [],
-  buffers: []
-};
-
-const FileContext = createContext<Partial<IFileContext>>(defaultState);
+const FileContext = createContext<Partial<IFileContext>>(defaultFileState);
 
 export const FileProvider = ({ children }: IPropsChildren) => {
   const [progress, setProgress] = useState<number | string>('');
   const [progressInner, setProgressInner] = useState<string>('');
-  const [buffers, setBuffers] = useState<Uint8Array[]>(defaultState.buffers);
-  const [files, setFiles] = useState<File[]>(defaultState.files);
+  const [buffers, setBuffers] = useState<Uint8Array[]>(defaultFileState.buffers);
+  const [files, setFiles] = useState<File[]>(defaultFileState.files);
 
   const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files === null) return;
