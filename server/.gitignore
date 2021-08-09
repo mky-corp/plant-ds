@@ -3,6 +3,7 @@ node_modules
 
 # enviroment variables
 .env
+http-client.private.env.json
 
 # compile ts
 dist

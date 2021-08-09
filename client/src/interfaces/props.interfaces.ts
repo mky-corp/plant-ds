@@ -1,10 +1,16 @@
-import { ReactNode, SyntheticEvent } from 'react';
+import {
+  ChangeEvent,
+  FocusEvent,
+  FormEvent,
+  ReactNode,
+  SyntheticEvent
+} from 'react';
 
 interface IPropsChildren {
   children?: ReactNode;
 }
 
-interface IpropsDescOptions {
+interface IPropsDescOptions {
   title?: string;
   description?: string;
 }
@@ -16,4 +22,29 @@ interface IPropsFormUp {
   handleSubmit?: (e: SyntheticEvent) => void;
 }
 
-export type { IPropsChildren, IPropsFormUp, IpropsDescOptions };
+interface IPropsFormGroup {
+  id?: string;
+  name?: string;
+  type?: string;
+  label?: string;
+  value?: string | number | string[] | undefined;
+  onBlur?: (e: FocusEvent<HTMLInputElement>) => void;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  placeholder?: string;
+}
+
+interface IPropsMainButton {
+  to?: string | object;
+  title?: string;
+  type?: string;
+  clName?: string;
+  onClick?: (e: SyntheticEvent) => void;
+}
+
+export type {
+  IPropsChildren,
+  IPropsFormUp,
+  IPropsFormGroup,
+  IPropsDescOptions,
+  IPropsMainButton
+};

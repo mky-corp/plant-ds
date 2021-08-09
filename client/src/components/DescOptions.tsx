@@ -1,7 +1,7 @@
 import { Form } from 'react-bootstrap';
-import { IpropsDescOptions } from '../interfaces/props.interfaces';
+import { IPropsDescOptions } from '../interfaces/props.interfaces';
 
-const DescOptions = ({ title, description }: IpropsDescOptions) => {
+const DescOptions = ({ title, description }: IPropsDescOptions) => {
   return (
     <Form.Group className='m-desc d-flex flex-column justify-content-center'>
       <Form.Label className='white-color h3'>{title}</Form.Label>

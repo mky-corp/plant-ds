@@ -3,13 +3,13 @@ import app from './index';
 import path from 'path';
 import cors from 'cors';
 import logger from 'morgan';
+import fileUpload from 'express-fileupload';
 import cookieParser from 'cookie-parser';
 
 // utils
 import {
   handleError,
-  handleNotFound,
-  normalizePort
+  handleNotFound
 } from './utils/ServerExceptions';
 
 // routes views
@@ -20,7 +20,6 @@ import usersRouter from './routes/api/user.routes';
 import imagesRouter from './routes/api/image.routes';
 import authRouter from './routes/api/auth.routes';
 
-app.set('PORT', normalizePort(process.env.PORT || '5200'));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -28,7 +27,7 @@ app.set('view engine', 'pug');
 // middlewares
 app.use(
   cors({
-    origin: 'http://localhost:3000',
+    origin: app.get('FRONT'),
     credentials: true
   })
 );
@@ -39,7 +38,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(fileUpload());
 
-// models
+// cnn models
 app.use('/cnn', express.static(path.join(__dirname, 'cnn_plants')));
 
 // routes views

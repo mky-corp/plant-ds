@@ -49,7 +49,7 @@ const useTF = () => {
   };
 
   const predictionsModel = async (buffers) => {
-    if (model === undefined) {
+    if (!model) {
       return setErrors({
         ...errors,
         message: 'No se puede predecir el modelo no esta cargado'

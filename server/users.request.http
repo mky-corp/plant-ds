@@ -1,0 +1,43 @@
+###
+PUT {{API}}/api/users/610ffb8e95ccf615481139d3
+Content-Type: application/json
+
+{
+  "names": "Luis Sarana",
+  "surnames": "Roster Manzilla",
+  "email": "jochizan.apps40@gmail.com"
+}
+
+###
+DELETE {{API}}/api/users/610ffa39dcc8b937483e985d
+
+###
+POST {{API}}/api/users
+Content-Type: application/json
+
+{
+  "names": "Joan José",
+  "surnames": "Roca Hormaza",
+  "email": "remnyachizot2015@gmail.com",
+  "password": "qweLOL123!#"
+}
+
+###
+GET {{API}}/api/users
+Accept: application/json
+
+###
+POST {{API}}/api/auth
+Content-Type: application/json
+
+{
+  "email": "remnyachizot2015@gmail.com",
+  "password": "jochizan123"
+}
+
+###
+GET {{API}}/api/auth
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lcyI6IkpvYW4gSm9zw6kiLCJpYXQiOjE2Mjg1MTQ1OTQsImV4cCI6MzI1NzUwOTE4OCwiaXNzIjoiMzJmYjhhNjQ5MjA0MmY1NmIyNjRjNDUwZDU0ZjBjNGQifQ.dPTE5_CEC-MmiuGgeNNuKKJyi0HsfT4B256K5Nf8HF0
+Accept: application/json
+
+###

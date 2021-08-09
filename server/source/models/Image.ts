@@ -1,9 +1,13 @@
 import { Schema, model } from 'mongoose';
+import IImage from '../interface/image';
 
-const imageSchema = new Schema({
+const ImageSchema: Schema = new Schema({
   name: { type: String, required: true },
   description: { type: String, required: true },
-  estate: { type: Boolean, default: true }
+  state: { type: Boolean, default: true }
+}, {
+  versionKey: false,
+  timestamps: true
 });
 
-export default model('Images', imageSchema);
+export default model<IImage>('Images', ImageSchema);
