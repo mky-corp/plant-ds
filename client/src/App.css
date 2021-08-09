@@ -1,10 +1,5 @@
-/***symbol**/
-.symbol {
-  font-size: 1.3em;
-}
-
 /***logo footer**/
-.logo_footer {
+.logo__footer {
   height: auto;
   width: 60px;
 }
@@ -97,30 +92,8 @@
   border-color: var(--first-color);
 }
 
-.second-bg,
-.second-bg:hover,
-.second-bg:active {
-  background-color: var(--second-color);
-  border-color: var(--second-color);
-}
-
-.second-bg:disabled {
-  opacity: 0.75;
-  background-color: var(--second-color);
-  border-color: var(--second-color);
-}
-
-.third-bg,
-.third-bg:hover,
-.third-bg:active {
+.third-bg {
   background-color: var(--third-color);
-  border-color: var(--third-color);
-}
-
-.third-bg:disabled {
-  opacity: 0.75;
-  background-color: var(--third-color);
-  border-color: var(--third-color);
 }
 
 .dark-bg {
@@ -150,6 +123,10 @@
   opacity: 0.8;
 }
 
+.h-first:hover {
+  color: var(--first-color);
+}
+
 .wh-grap {
   height: 16px;
   width: auto;
@@ -169,13 +146,9 @@
 }
 
 .fs-text {
-  font-weight: 600;
-  font-size: 1rem !important;
+  font-weight: 500;
+  font-size: 1.1rem !important;
   color: var(--text-color);
-}
-
-.fs-text:hover {
-  color: var(--first-alpha-color);
 }
 
 .letters-s-1 {
