@@ -5,8 +5,8 @@ import DescOptions from '../DescOptions';
 const FormUp = ({
   title,
   children,
-  handleSubmit,
-  description
+  description,
+  handleSubmit
 }: IPropsFormUp) => {
   return (
     <Form

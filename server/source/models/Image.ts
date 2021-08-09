@@ -6,6 +6,7 @@ const ImageSchema: Schema = new Schema({
   description: { type: String, required: true },
   state: { type: Boolean, default: true }
 }, {
+  versionKey: false,
   timestamps: true
 });
 

@@ -12,6 +12,8 @@
 /***text autor**/
 .text_autor {
   font-size: 0.8em;
+  margin: 0;
+  margin-top: 1.25rem;
 }
 
 /***options view**/
@@ -159,8 +161,20 @@
   margin: 0 auto;
 }
 
+.mx-input {
+  margin: 0 2rem;
+}
+
+.fs-small {
+  font-size: 11px;
+}
+
 .w-90 {
-  width: 90%
+  width: 90%;
+}
+
+.flex-g-7 {
+  flex-grow: 0.2;
 }
 
 .all-animations {
@@ -180,6 +194,10 @@
   height: 100vh;
 }
 
+.bg__container-form {
+  height: 100vh;
+}
+
 .drop__zone:hover {
   animation: pulse 1.2s infinite;
   background: var(--dark-color);
@@ -188,6 +206,10 @@
 @media (min-width: 576px) {
   .m-desc {
     width: 80%;
+  }
+
+  .mx-input {
+    margin: 0 5rem;
   }
 }
 
@@ -209,13 +231,37 @@
     border-radius: 8px;
   }
 
+  .bg__container-form {
+    background-color: var(--white-bg-color);
+    height: 528px !important;
+    width: 420px;
+    border-radius: 8px;
+    height: auto;
+  }
+
   .wh-grap {
     height: 100%;
     width: 16px;
   }
 
+  .fs-small {
+    font-size: 11.5px;
+  }
+
   .m-desc {
     width: 70%;
+  }
+
+  .mx-input {
+    margin: 0 3rem;
+  }
+
+  .letters-s-1 {
+    letter-spacing: 0.1rem;
+  }
+
+  .letters-s-05 {
+    letter-spacing: 0.05rem;
   }
 
   .options__container {
@@ -236,6 +282,10 @@
 @media screen and (min-width: 1024px) {
   .m-desc {
     width: 50%;
+  }
+
+  .mx-input {
+    margin: 0 3rem;
   }
 }
 

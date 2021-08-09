@@ -1,0 +1,20 @@
+.formgroup__input {
+  min-height: 32px;
+  min-width: 224px;
+  height: 54px;
+  border-radius: 2.4px !important;
+  letter-spacing: 0.05rem;
+  border-color: var(--third-color);
+}
+
+.formgroup__input:focus {
+  color: var(--text-color) !important;
+  border-color: var(--first-color) !important;
+  box-shadow: 0 0 0 0.2rem var(--first-alpha-color) !important;
+}
+
+@media screen and (min-width: 768px) {
+  .formgroup__input {
+    height: 50px;
+  }
+}

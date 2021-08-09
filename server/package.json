@@ -4,9 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node dist/app.js",
-    "dev": "ts-node source/app.ts --exec=nodemon",
-    "build": "babel --extensions .hbs source --out-dir dist",
-    "view": ""
+    "dev": "tsc-watch --onSuccess \"node dist/app.js\"",
+    "build": "babel --extensions .ts source --out-dir dist"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

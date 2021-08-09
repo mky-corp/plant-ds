@@ -3,10 +3,13 @@ import { uploadOneImage, viewImage } from '../../controllers/image.controllers';
 
 const router = Router();
 
-/* GET users listing. */
-router.get('/', viewImage);
+/* GET image view. */
+router.get('/view', viewImage);
 
-/* POST users creating. */
-router.post('/uploadone', uploadOneImage);
+/* POST one image create . */
+router.post('/', uploadOneImage);
+
+/* POST most image create. */
+// router.post('/', )
 
 export default router;
