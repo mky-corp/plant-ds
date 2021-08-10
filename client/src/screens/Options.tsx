@@ -6,6 +6,7 @@ import {
 } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Button, Container, Form, ProgressBar } from 'react-bootstrap';
+import ModalLogin from '../components/ModalLogin/ModalLogin';
 
 // components
 import DropZone from '../components/DropZone';

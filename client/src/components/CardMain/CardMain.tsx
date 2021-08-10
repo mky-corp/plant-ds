@@ -6,7 +6,7 @@ const CardMain = ({ title, description, img, css }: any) => {
       <img src={img} alt={title} />
       <section className='d-flex flex-column justify-content-center'>
         <h3 className='letters-s-05'>{title}</h3>
-        <p className='fs-text'>{description}</p>
+        <p className='fs-text text-justify'>{description}</p>
       </section>
     </section>
   );

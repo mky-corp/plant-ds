@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }: IPropsChildren) => {
       };
 
       setUser(_user);
-      history.push('/home');
+      history.push('/');
 
     } else {
       toast.error('Error el token de autenticación no existe');
