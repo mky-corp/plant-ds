@@ -14,7 +14,7 @@ const HeaderHome = () => {
           <h1 className='fs-2 letters-s-05 mx-3'>PHG Plants</h1>
         </section>
         <section className='d-none d-sm-flex pt-3 p-lg-0 w-nav-auto justify-content-evenly'>
-          <NavLink to='/' className='p-1 h-first fs-text fw-bold'>Get Started</NavLink>
+          <NavLink to='/options' className='p-1 h-first fs-text fw-bold'>Get Started</NavLink>
           <div className='header__separate' />
           <NavLink to='/' className='p-1 h-first fs-text'>Learn</NavLink>
           <div className='header__separate' />

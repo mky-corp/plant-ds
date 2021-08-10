@@ -1,5 +1,6 @@
-import { CSSProperties, useMemo } from 'react';
+import { CSSProperties, useContext, useEffect, useMemo } from 'react';
 import { useDropzone } from 'react-dropzone';
+import FileContext from '../../context/FileContext';
 
 const baseStyle: CSSProperties = {
   display: 'flex',
@@ -51,11 +52,12 @@ const DropZone = () => {
     [isDragActive, isDragReject, isDragAccept]
   );
 
-  const files = acceptedFiles.map((file: File) => (
-    <li key={file.name}>
-      {file.name} - {file.size} bytes
-    </li>
-  ));
+  const { handleImageDropZone } = useContext(FileContext);
+
+  useEffect(() => {
+    if (handleImageDropZone) handleImageDropZone(acceptedFiles);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [acceptedFiles]);
 
   return (
     <div className='p-2'>
@@ -68,10 +70,6 @@ const DropZone = () => {
           Only jpg, jpeg and png files supported
         </p>
       </article>
-      <aside>
-        {/* <h4>Images</h4> */}
-        <ul>{files}</ul>
-      </aside>
     </div>
   );
 };

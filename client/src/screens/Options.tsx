@@ -58,7 +58,7 @@ const Options = () => {
                 audio={false}
                 ref={webcamRef}
                 width={width / 1.2}
-                height={height / 3}
+                height={height / 2.2}
                 screenshotFormat='image/jpeg'
               />
             )}

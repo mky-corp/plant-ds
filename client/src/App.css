@@ -24,13 +24,6 @@
   min-height: 765px;
 }
 
-.drop__zone.is-active {
-  border: thick dashed var(--third-alpha-color);
-  background-color: var(--second-alpha-color);
-  animation: pulse 1.5s infinite;
-  animation-timing-function: linear;
-}
-
 .drop__zone:hover {
   animation: pulse 1.2s infinite;
   background: var(--dark-color);
