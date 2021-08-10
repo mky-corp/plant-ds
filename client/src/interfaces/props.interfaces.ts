@@ -1,13 +1,21 @@
 import {
   ChangeEvent,
   FocusEvent,
-  FormEvent,
   ReactNode,
   SyntheticEvent
 } from 'react';
 
 interface IPropsChildren {
   children?: ReactNode;
+}
+
+interface IPropsChildrenModal {
+  width?: string | number;
+  height?: string | number;
+  isOpen?: boolean;
+  unClose?: boolean;
+  children?: ReactNode;
+  handleClose?: (e: SyntheticEvent) => void;
 }
 
 interface IPropsDescOptions {
@@ -35,8 +43,9 @@ interface IPropsFormGroup {
 
 interface IPropsMainButton {
   to?: string | object;
-  title?: string;
   type?: string;
+  first?: boolean;
+  title?: string;
   clName?: string;
   onClick?: (e: SyntheticEvent) => void;
 }
@@ -46,5 +55,6 @@ export type {
   IPropsFormUp,
   IPropsFormGroup,
   IPropsDescOptions,
-  IPropsMainButton
+  IPropsMainButton,
+  IPropsChildrenModal
 };

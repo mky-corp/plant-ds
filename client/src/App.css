@@ -186,6 +186,10 @@
   color: var(--white-color);
 }
 
+.webcam__img {
+  max-width: calc(10vw + 36vh);
+}
+
 /***utilities***/
 
 /***colors**/
@@ -200,6 +204,13 @@
   opacity: 0.75;
   background-color: var(--first-color);
   border-color: var(--first-color);
+}
+
+.secondary-bg,
+.secondary-bg:hover,
+.secondary-bg:active {
+  background-color: var(--second-color);
+  border-color: var(--second-color);
 }
 
 .third-bg {

@@ -1,6 +1,6 @@
 import { Form, Container } from 'react-bootstrap';
 import { IPropsFormUp } from '../../interfaces/props.interfaces';
-import DescOptions from '../DescOptions';
+import DescOptions from '../DescOptions/DescOptions';
 
 const FormUp = ({
   title,

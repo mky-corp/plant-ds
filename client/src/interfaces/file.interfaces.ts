@@ -6,6 +6,7 @@ interface IFileContext {
   progress?: number | string;
   progressInner?: string;
   handleImageChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleImageDropZone?: (e: File[]) => void;
 }
 
 export type { IFileContext };

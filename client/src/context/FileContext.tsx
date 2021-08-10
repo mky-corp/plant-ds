@@ -2,23 +2,40 @@ import { useState, createContext, ChangeEvent } from 'react';
 import { IFileContext } from '../interfaces/file.interfaces';
 import { IPropsChildren } from '../interfaces/props.interfaces';
 import { defaultFileState } from '../libs/default.state';
+import { ls } from '../utils/Globals';
 
 const FileContext = createContext<Partial<IFileContext>>(defaultFileState);
 
 export const FileProvider = ({ children }: IPropsChildren) => {
   const [progress, setProgress] = useState<number | string>('');
   const [progressInner, setProgressInner] = useState<string>('');
-  const [buffers, setBuffers] = useState<Uint8Array[]>(defaultFileState.buffers);
   const [files, setFiles] = useState<File[]>(defaultFileState.files);
+  const [buffers, setBuffers] = useState<Uint8Array[]>(
+    defaultFileState.buffers
+  );
 
   const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files === null) return;
+    if (!e.target.files) return;
 
-    const fileBuffers: Uint8Array[] = [];
-    const fileList = e.target.files;
+    processImage(e.target.files);
+  };
+
+  const handleImageDropZone = (files: File[]) => {
+    if (!files.length) return;
+
+    processImage(files);
+  };
+
+  const bufferToJSON = (buffers: Uint8Array[]) => {
+    ls.setItem('imageBuffers', JSON.stringify(buffers));
+  };
+
+  const processImage = (newFiles: File[] | FileList) => {
+    const fileBuffers: Uint8Array[] = buffers;
+    const fileList = newFiles;
     const fileArray = Array.from(fileList);
 
-    setFiles(fileArray);
+    setFiles([...files, ...fileArray]);
     fileArray.forEach((file) => uploadFile(file, fileBuffers));
   };
 
@@ -27,17 +44,17 @@ export const FileProvider = ({ children }: IPropsChildren) => {
     fileReader.readAsArrayBuffer(file);
 
     fileReader.addEventListener('load', (e: ProgressEvent) => {
-      if (fileReader.result === null || typeof fileReader.result === 'string')
-        return;
+      if (!fileReader.result || typeof fileReader.result === 'string') return;
 
       const arrayBuffer = new Uint8Array(fileReader.result);
 
       fileBuffers.push(arrayBuffer);
       setBuffers(fileBuffers);
+      bufferToJSON(fileBuffers);
     });
 
     fileReader.addEventListener('progress', (e: ProgressEvent) => {
-      let progress = parseInt('' + (e.loaded * 100) / e.total);
+      let progress = (e.loaded * 100) / e.total;
       setProgress(progress);
       setProgressInner(`<i class='fs-7'>${file.name} - ${progress}%</i>`);
     });
@@ -52,7 +69,14 @@ export const FileProvider = ({ children }: IPropsChildren) => {
 
   return (
     <FileContext.Provider
-      value={{ files, buffers, progress, progressInner, handleImageChange }}
+      value={{
+        files,
+        buffers,
+        progress,
+        progressInner,
+        handleImageChange,
+        handleImageDropZone
+      }}
     >
       {children}
     </FileContext.Provider>
