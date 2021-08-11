@@ -2,7 +2,7 @@ import * as tf from '@tensorflow/tfjs';
 import * as jpeg from 'jpeg-js';
 import { useState, useEffect } from 'react';
 
-const API = process.env.REACT_APP_API;
+const API = "https://api-phg-plants.herokuapp.com";
 
 const useTF = () => {
   const [loading, setLoading] = useState(true);
