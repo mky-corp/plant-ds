@@ -1,9 +1,4 @@
-import {
-  ChangeEvent,
-  FocusEvent,
-  ReactNode,
-  SyntheticEvent
-} from 'react';
+import { ChangeEvent, FocusEvent, ReactNode, SyntheticEvent } from 'react';
 
 interface IPropsChildren {
   children?: ReactNode;
@@ -21,6 +16,10 @@ interface IPropsChildrenModal {
 interface IPropsDescOptions {
   title?: string;
   description?: string;
+}
+
+interface IPropsHeaderForm {
+  title?: string;
 }
 
 interface IPropsFormUp {
@@ -50,11 +49,20 @@ interface IPropsMainButton {
   onClick?: (e: SyntheticEvent) => void;
 }
 
+interface IPropsCardMain {
+  css?: string;
+  img?: string;
+  title?: string;
+  description?: string;
+}
+
 export type {
-  IPropsChildren,
   IPropsFormUp,
+  IPropsChildren,
+  IPropsCardMain,
   IPropsFormGroup,
-  IPropsDescOptions,
+  IPropsHeaderForm,
   IPropsMainButton,
+  IPropsDescOptions,
   IPropsChildrenModal
 };

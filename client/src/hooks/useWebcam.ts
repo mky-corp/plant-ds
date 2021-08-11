@@ -1,5 +1,6 @@
 import Webcam from 'react-webcam';
 import { useCallback, useState, useRef, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { ls, w } from '../utils/Globals';
 import FileContext from '../context/FileContext';
@@ -7,6 +8,7 @@ import { webCam as stateWebCam } from '../libs/auth.storage';
 
 const useWebcam = () => {
   const webcamRef = useRef<Webcam>(null);
+  const history = useHistory();
   const [webCam, setWebCam] = useState<boolean>(stateWebCam);
   const { handleUint8Array } = useContext(FileContext);
   const width = w.innerWidth;
@@ -22,8 +24,9 @@ const useWebcam = () => {
     const image = await file.arrayBuffer();
     const uint8Array = new Uint8Array(image);
 
-    if (handleUint8Array)
-      handleUint8Array(uint8Array);
+    if (handleUint8Array) handleUint8Array(uint8Array);
+
+    history.push('/detects');
   };
 
   const capture = useCallback(() => {
@@ -35,6 +38,7 @@ const useWebcam = () => {
     });
 
     if (imageSrc) handleImage(imageSrc);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [webcamRef]);
 
   return { capture, webCam, handleWebCam, webcamRef, width, height };

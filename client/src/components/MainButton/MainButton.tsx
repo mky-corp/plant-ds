@@ -5,17 +5,15 @@ import './MainButton.css';
 
 const MainButton = ({
   to,
-  first,
   type,
   title,
+  first,
+  clName,
   onClick,
-  clName
 }: IPropsMainButton) => {
-  const classes =
-    clName +
-    ` ${
-      first ? 'principal__btn' : 'secondary__btn'
-    } d-flex m-auto fs-4 fw-bold justify-content-center align-content-center mb-1`;
+  const classes = `${
+    first ? 'principal__btn' : 'secondary__btn'
+  } d-flex m-auto fs-4 fw-bold justify-content-center align-content-center mb-1 ${clName}`;
 
   return to ? (
     <Link to={to} className={classes}>

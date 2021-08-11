@@ -1,5 +1,5 @@
 import './HeaderHome.css';
-import { memo } from 'react';
+// import { memo } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../../assets/logo.svg';
 
@@ -27,4 +27,4 @@ const HeaderHome = () => {
   );
 };
 
-export default memo(HeaderHome);
+export default (HeaderHome);

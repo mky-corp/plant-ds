@@ -57,8 +57,8 @@ const Options = () => {
               <Webcam
                 audio={false}
                 ref={webcamRef}
-                width={width / 1.2}
-                height={height / 2.2}
+                width={width / 2.4}
+                height={height / 2.4}
                 screenshotFormat='image/jpeg'
               />
             )}
@@ -66,8 +66,8 @@ const Options = () => {
               <img
                 src={webCamImage}
                 alt='WebCam load'
-                width={width / 1.2}
-                height={height / 3}
+                width={width / 2.4}
+                height={height / 2.4}
                 className='webcam__img'
               />
             )}
@@ -78,6 +78,17 @@ const Options = () => {
                 onClick={!webCam ? handleWebCam : capture}
                 title={!webCam ? 'Active Camera' : 'Capture Image'}
               />
+              {webCam && (
+                <section className='w-100 d-flex justify-content-center'>
+                  <button
+                    className='btn btn-dark'
+                    type='button'
+                    onClick={handleWebCam}
+                  >
+                    Deactive Camera
+                  </button>
+                </section>
+              )}
             </Container>
           </FormUp>
         </div>
