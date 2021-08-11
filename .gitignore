@@ -3,3 +3,6 @@
 .vscode
 *.xml
 *.iml
+
+# compile server
+dist
