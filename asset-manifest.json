@@ -1,23 +1,24 @@
 {
   "files": {
-    "main.css": "/phg-plants/static/css/main.6a4504df.chunk.css",
-    "main.js": "/phg-plants/static/js/main.6dfaed5f.chunk.js",
-    "main.js.map": "/phg-plants/static/js/main.6dfaed5f.chunk.js.map",
-    "runtime-main.js": "/phg-plants/static/js/runtime-main.64ec8411.js",
-    "runtime-main.js.map": "/phg-plants/static/js/runtime-main.64ec8411.js.map",
+    "main.css": "/phg-plants/static/css/main.2c1bc56d.chunk.css",
+    "main.js": "/phg-plants/static/js/main.a99ca0f6.chunk.js",
+    "main.js.map": "/phg-plants/static/js/main.a99ca0f6.chunk.js.map",
+    "runtime-main.js": "/phg-plants/static/js/runtime-main.479cc008.js",
+    "runtime-main.js.map": "/phg-plants/static/js/runtime-main.479cc008.js.map",
     "static/css/2.8881e275.chunk.css": "/phg-plants/static/css/2.8881e275.chunk.css",
-    "static/js/2.7438bfff.chunk.js": "/phg-plants/static/js/2.7438bfff.chunk.js",
-    "static/js/2.7438bfff.chunk.js.map": "/phg-plants/static/js/2.7438bfff.chunk.js.map",
-    "static/js/3.2ccf32e6.chunk.js": "/phg-plants/static/js/3.2ccf32e6.chunk.js",
-    "static/js/3.2ccf32e6.chunk.js.map": "/phg-plants/static/js/3.2ccf32e6.chunk.js.map",
+    "static/js/2.6e140a13.chunk.js": "/phg-plants/static/js/2.6e140a13.chunk.js",
+    "static/js/2.6e140a13.chunk.js.map": "/phg-plants/static/js/2.6e140a13.chunk.js.map",
+    "static/js/3.2219b2f9.chunk.js": "/phg-plants/static/js/3.2219b2f9.chunk.js",
+    "static/js/3.2219b2f9.chunk.js.map": "/phg-plants/static/js/3.2219b2f9.chunk.js.map",
     "index.html": "/phg-plants/index.html",
     "static/css/2.8881e275.chunk.css.map": "/phg-plants/static/css/2.8881e275.chunk.css.map",
-    "static/css/main.6a4504df.chunk.css.map": "/phg-plants/static/css/main.6a4504df.chunk.css.map",
-    "static/js/2.7438bfff.chunk.js.LICENSE.txt": "/phg-plants/static/js/2.7438bfff.chunk.js.LICENSE.txt",
+    "static/css/main.2c1bc56d.chunk.css.map": "/phg-plants/static/css/main.2c1bc56d.chunk.css.map",
+    "static/js/2.6e140a13.chunk.js.LICENSE.txt": "/phg-plants/static/js/2.6e140a13.chunk.js.LICENSE.txt",
     "static/media/App.css": "/phg-plants/static/media/bg_start.c44aed3d.png",
     "static/media/card-content-1.3861e5d3.svg": "/phg-plants/static/media/card-content-1.3861e5d3.svg",
     "static/media/card-content-2.7dc504dc.svg": "/phg-plants/static/media/card-content-2.7dc504dc.svg",
     "static/media/cube.6f0de05c.svg": "/phg-plants/static/media/cube.6f0de05c.svg",
+    "static/media/detect_camera.c812207b.png": "/phg-plants/static/media/detect_camera.c812207b.png",
     "static/media/detect_disease.91b57d8f.svg": "/phg-plants/static/media/detect_disease.91b57d8f.svg",
     "static/media/github.71253927.svg": "/phg-plants/static/media/github.71253927.svg",
     "static/media/logo.9fa5235b.svg": "/phg-plants/static/media/logo.9fa5235b.svg",
@@ -26,10 +27,10 @@
     "static/media/spinner-loader.8cab413e.svg": "/phg-plants/static/media/spinner-loader.8cab413e.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.64ec8411.js",
+    "static/js/runtime-main.479cc008.js",
     "static/css/2.8881e275.chunk.css",
-    "static/js/2.7438bfff.chunk.js",
-    "static/css/main.6a4504df.chunk.css",
-    "static/js/main.6dfaed5f.chunk.js"
+    "static/js/2.6e140a13.chunk.js",
+    "static/css/main.2c1bc56d.chunk.css",
+    "static/js/main.a99ca0f6.chunk.js"
   ]
 }
