@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
 
 // images
+import cube from '../assets/cube.svg';
 import logo from '../assets/logo.svg';
 import github from '../assets/github.svg';
 import plant from '../assets/MainHome/pflanze-coloured.svg';
@@ -10,7 +11,6 @@ import disease from '../assets/MainHome/plants_disease.svg';
 import detects from '../assets/MainHome/detect_disease.svg';
 import tfsOne from '../assets/MainHome/card-content-1.svg';
 import tfsTwo from '../assets/MainHome/card-content-2.svg';
-import cube from '../assets/cube.svg';
 
 // components
 import CardMain from '../components/CardMain/CardMain';

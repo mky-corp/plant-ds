@@ -6,17 +6,20 @@ const API = process.env.REACT_APP_API;
 
 const useTF = () => {
   const [loading, setLoading] = useState(true);
-  const [errors, setErrors] = useState(undefined);
+  const [errors, setErrors] = useState({});
   const [predictions, setPredictions] = useState([]);
-  const [model, setModel] = useState(undefined);
+  const [model, setModel] = useState({});
 
   const loadModel = async () => {
     try {
       const modelPlants = await tf.loadLayersModel(`${API}/cnn/model.json`);
       setModel(modelPlants);
     } catch (err) {
-      setErrors(err);
-      console.error(err);
+      setErrors({
+        ...err,
+        model: false,
+        message: 'Error a la carga del modelo'
+      });
     } finally {
       setLoading(false);
     }
@@ -56,6 +59,14 @@ const useTF = () => {
       });
     }
 
+    if (!buffers || !buffers.length) {
+      return setErrors({
+        ...errors,
+        buffers: false,
+        message: 'No hay imagenes que procesar'
+      });
+    }
+
     const answers = [];
     for (let i = 0; i < buffers.length; ++i)
       answers.push(await predictModel(buffers[i]));
@@ -64,6 +75,7 @@ const useTF = () => {
 
   useEffect(() => {
     loadModel();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return { predictions, loading, errors, predictionsModel };

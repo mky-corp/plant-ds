@@ -12,13 +12,12 @@ import {
   handleNotFound
 } from './utils/ServerExceptions';
 
-// routes views
+// routers
 import indexRouter from './routes/index.routes';
-
-// routes api
 import usersRouter from './routes/api/user.routes';
 import imagesRouter from './routes/api/image.routes';
 import authRouter from './routes/api/auth.routes';
+import { extractJWT } from './middlewares/extract.jwt';
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -41,12 +40,10 @@ app.use(fileUpload());
 // cnn models
 app.use('/cnn', express.static(path.join(__dirname, 'cnn_plants')));
 
-// routes views
+// routes
 app.use('/', indexRouter);
-
-// routes api
 app.use('/api/users', usersRouter);
-app.use('/api/images', imagesRouter);
+app.use('/api/images', extractJWT, imagesRouter);
 app.use('/api/auth', authRouter);
 
 // catch 404 and forward to error handler
@@ -55,6 +52,7 @@ app.use(handleNotFound);
 // error handler
 app.use(handleError);
 
+// listenner server
 app.listen(app.get('PORT'), () => {
   console.log(`Listen on http://localhost:${app.get('PORT')}`);
 });
