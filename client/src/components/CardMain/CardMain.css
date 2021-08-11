@@ -16,7 +16,7 @@
   height: 64px;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: #737373;
+  color: var(--gray-dark-color);
   margin: 1rem 0 0;
 }
 

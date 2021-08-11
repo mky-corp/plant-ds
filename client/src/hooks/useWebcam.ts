@@ -4,13 +4,13 @@ import { useHistory } from 'react-router-dom';
 
 import { ls, w } from '../utils/Globals';
 import FileContext from '../context/FileContext';
-import { webCam as stateWebCam } from '../libs/auth.storage';
+import { webCam as stateWebCam } from '../services/auth.storage';
 
 const useWebcam = () => {
   const webcamRef = useRef<Webcam>(null);
-  const history = useHistory();
   const [webCam, setWebCam] = useState<boolean>(stateWebCam);
   const { handleUint8Array } = useContext(FileContext);
+  const history = useHistory();
   const width = w.innerWidth;
   const height = w.innerHeight;
 

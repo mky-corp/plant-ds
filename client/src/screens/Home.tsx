@@ -1,6 +1,4 @@
-import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import AuthContext from '../context/AuthContext';
 
 // images
 import cube from '../assets/cube.svg';
@@ -21,8 +19,6 @@ import FooterHome from '../layouts/FooterHome/FooterHome';
 
 
 const Home = () => {
-  const { user } = useContext(AuthContext);
-  console.log(user);
 
   return (
     <section className='vh-100 d-flex flex-column'>
@@ -40,17 +36,24 @@ const Home = () => {
                justify-content-around justify-content-lg-center align-items-center'
             >
               <section className='w-main d-flex flex-column justify-content-center mb-4 mb-sm-0'>
-                <h2 className='h2 letters-s-05 fw-bold text-center'>PHG Plants</h2>
+                <h2 className='h2 letters-s-5 fw-bold text-center'>PHG Plants</h2>
                 <p className='text-dark text-justify fs-text w-100 m-0 mb-md-4'>
                   Web application for the detection of diseases in common plants
                   in Peru and their possible treatment
                 </p>
               </section>
               <section
-                className='d-flex flex-column flex-md-row justify-content-between justify-content-md-between align-items-center'>
+                className='d-flex flex-column flex-md-row
+                justify-content-between justify-content-md-between align-items-center'
+              >
                 <Link className='button__link-main one' to='/options'>Get Started</Link>
                 <Link className='button__link-main two' to='/why'>Why PHG Plants?</Link>
-                <a className='button__link-main three' href='https://github.com/Uncle-Liquor/phg-plants'>GitHub
+                <a
+                  className='button__link-main three'
+                  href='https://github.com/Uncle-Liquor/phg-plants'
+                  target='_blank'
+                  rel='noreferrer'>
+                  GitHub
                   <img className='m-1' src={github} alt='Logo de Github' />
                 </a>
               </section>
@@ -78,21 +81,24 @@ const Home = () => {
             <CardMain
               title='As it detects?'
               img={detects}
-              css='grid-lg-2'
+              grid='grid-lg-2'
               description='Slate helps you see how many
                 more days you need to work to
                 reach your financial goal for the
                 month and year.'
             />
-            <section className='card__main-principal d-flex flex-column flex-md-row justify-content-evenly align-items-center'>
+            <section
+              className='card__main-principal d-flex flex-column flex-md-row
+              justify-content-evenly align-items-center'
+            >
               <img className='img__card' src={cube} alt='technologies' />
               <div className='d-flex h-dm-100 flex-column align-items-center justify-content-evenly'>
                 <section className='d-flex flex-column justify-content-center'>
-                  <h3 className='letters-s-05 text-center'>Technologies & Frameworks</h3>
+                  <h3 className='letters-s-5 text-center'>Technologies & Frameworks</h3>
                   <img src={tfsOne} alt='Technologies and frameworks' />
                 </section>
                 <section>
-                  <h3 className='letters-s-05 text-center'>Programming Languages</h3>
+                  <h3 className='letters-s-5 text-center'>Programming Languages</h3>
                   <img src={tfsTwo} alt='Programming Languages' />
                 </section>
               </div>

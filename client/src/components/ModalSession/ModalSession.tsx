@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import MainButton from '../MainButton/MainButton';
 
-const ModalSesion = () => {
+const ModalSession = () => {
   return (
     <section className='w-100 h-100 d-flex flex-column justify-content-around'>
       <MainButton first={true} title='SIGN IN' to='/login' />
@@ -13,4 +13,4 @@ const ModalSesion = () => {
   );
 };
 
-export default ModalSesion;
+export default ModalSession;

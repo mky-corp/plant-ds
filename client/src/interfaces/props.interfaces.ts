@@ -50,8 +50,8 @@ interface IPropsMainButton {
 }
 
 interface IPropsCardMain {
-  css?: string;
   img?: string;
+  grid?: string;
   title?: string;
   description?: string;
 }

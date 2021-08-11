@@ -13,7 +13,7 @@ const MainButton = ({
 }: IPropsMainButton) => {
   const classes = `${
     first ? 'principal__btn' : 'secondary__btn'
-  } d-flex m-auto fs-4 fw-bold justify-content-center align-content-center mb-1 ${clName}`;
+  } d-flex m-auto fw-bold justify-content-center align-content-center mb-3 mb-md-1 ${clName}`;
 
   return to ? (
     <Link to={to} className={classes}>

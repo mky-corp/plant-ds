@@ -20,7 +20,7 @@ const Modal = ({
         onClick={handleModalContainerClick}
       >
         {!unClose && (
-          <button className='modal__close' onClick={handleClose}>
+          <button className='modal__close all-animations' onClick={handleClose}>
             X
           </button>
         )}

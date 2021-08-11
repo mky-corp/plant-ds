@@ -11,7 +11,7 @@
 .header__separate {
   max-height: 1.6rem;
   max-width: 1.6rem;
-  border: 1px solid #000000;
+  border: 1px solid var(--dark-color);
   transform: rotate(180deg);
 }
 

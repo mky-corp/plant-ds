@@ -1,9 +1,18 @@
-import loader from '../../assets/spinner-loader.svg';
+import './Loader.css';
 
 const Loader = () => {
   return (
-    <section className='d-flex justify-content-center align-items-center'>
-      <img className='w-auto' src={loader} alt='Cargando...' />
+    <section className='d-flex justify-content-center'>
+      <div className='lds-roller'>
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+      </div>
     </section>
   );
 };
