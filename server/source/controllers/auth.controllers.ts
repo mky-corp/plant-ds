@@ -26,15 +26,15 @@ export const loginUser = async (
   const { email, password: firstPass } = req.body;
 
   try {
-    const user = await User.findOne({ email, state: true });
+    const _user = await User.findOne({ email, state: true });
 
-    if (user === null) {
+    if (_user === null) {
       return res.status(404).json({
         message: 'Error Not Found user'
       });
     }
 
-    const { password } = user;
+    const { password } = _user;
     const validatePass = bcrypt.compareSync(firstPass, password);
 
     if (!validatePass) {
@@ -43,7 +43,7 @@ export const loginUser = async (
       });
     }
 
-    signJWT(user, (_error, token) => {
+    signJWT(_user, (_error, token) => {
       if (_error) {
         error(NAMESPACE, 'Unable to sign token: ', _error);
 
@@ -52,10 +52,11 @@ export const loginUser = async (
           error: _error
         });
       } else if (token) {
+        _user.password = '';
         return res.status(200).json({
           message: 'Auth Successful',
           token,
-          user
+          _user
         });
       }
     });

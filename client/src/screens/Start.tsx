@@ -7,7 +7,9 @@ const Start = () => {
     <div className='bg__start vh-100 w-100'>
       <section className='bg__container d-flex flex-column align-items-center'>
         <Header />
-        <MainButton />
+        <main className='flex-grow-1'>
+          <MainButton to='/login' title='START' />
+        </main>
         <Footer />
       </section>
     </div>

@@ -2,21 +2,24 @@ import * as tf from '@tensorflow/tfjs';
 import * as jpeg from 'jpeg-js';
 import { useState, useEffect } from 'react';
 
-const API = process.env.REACT_APP_API;
+const API = "https://api-phg-plants.herokuapp.com";
 
 const useTF = () => {
   const [loading, setLoading] = useState(true);
-  const [errors, setErrors] = useState(undefined);
+  const [errors, setErrors] = useState({});
   const [predictions, setPredictions] = useState([]);
-  const [model, setModel] = useState(undefined);
+  const [model, setModel] = useState({});
 
   const loadModel = async () => {
     try {
       const modelPlants = await tf.loadLayersModel(`${API}/cnn/model.json`);
       setModel(modelPlants);
     } catch (err) {
-      setErrors(err);
-      console.error(err);
+      setErrors({
+        ...err,
+        model: false,
+        message: 'Error a la carga del modelo'
+      });
     } finally {
       setLoading(false);
     }
@@ -49,10 +52,18 @@ const useTF = () => {
   };
 
   const predictionsModel = async (buffers) => {
-    if (model === undefined) {
+    if (!model) {
       return setErrors({
         ...errors,
         message: 'No se puede predecir el modelo no esta cargado'
+      });
+    }
+
+    if (!buffers || !buffers.length) {
+      return setErrors({
+        ...errors,
+        buffers: false,
+        message: 'No hay imagenes que procesar'
       });
     }
 
@@ -64,6 +75,7 @@ const useTF = () => {
 
   useEffect(() => {
     loadModel();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return { predictions, loading, errors, predictionsModel };

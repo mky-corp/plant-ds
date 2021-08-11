@@ -9,19 +9,16 @@ import fileUpload from 'express-fileupload';
 // utils
 import {
   handleError,
-  handleNotFound,
-  normalizePort
+  handleNotFound
 } from './utils/ServerExceptions';
 
-// routes views
+// routers
 import indexRouter from './routes/index.routes';
-
-// routes api
 import usersRouter from './routes/api/user.routes';
 import imagesRouter from './routes/api/image.routes';
 import authRouter from './routes/api/auth.routes';
+import { extractJWT } from './middlewares/extract.jwt';
 
-app.set('PORT', normalizePort(process.env.PORT || '5200'));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -29,7 +26,7 @@ app.set('view engine', 'pug');
 // middlewares
 app.use(
   cors({
-    origin: 'http://localhost:3000',
+    origin: app.get('FRONT'),
     credentials: true
   })
 );
@@ -38,17 +35,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(fileUpload());
+app.use(fileUpload({limits: { fileSize: 50 * 1024 * 1024 }}));
 
-// models
+// cnn models
 app.use('/cnn', express.static(path.join(__dirname, 'cnn_plants')));
 
-// routes views
+// routes
 app.use('/', indexRouter);
-
-// routes api
 app.use('/api/users', usersRouter);
-app.use('/api/images', imagesRouter);
+app.use('/api/images',  imagesRouter);
 app.use('/api/auth', authRouter);
 
 // catch 404 and forward to error handler
@@ -57,6 +52,7 @@ app.use(handleNotFound);
 // error handler
 app.use(handleError);
 
+// listenner server
 app.listen(app.get('PORT'), () => {
   console.log(`Listen on http://localhost:${app.get('PORT')}`);
 });

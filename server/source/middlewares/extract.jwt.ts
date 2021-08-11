@@ -7,7 +7,6 @@ const NAMESPACE = 'Auth';
 
 export const extractJWT = (req: Request, res: Response, next: NextFunction) => {
   info(NAMESPACE, 'Token validated, user authorized');
-
   let token = req.headers.authorization?.split(' ')[1];
 
   if (token) {
@@ -27,8 +26,4 @@ export const extractJWT = (req: Request, res: Response, next: NextFunction) => {
       message: 'Unauthorized'
     });
   }
-
-  return res.status(200).json({
-    message: 'Authorized'
-  });
 };

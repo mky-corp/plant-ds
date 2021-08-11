@@ -1,8 +1,23 @@
-import { ChangeEvent } from 'react';
+import Cookies from 'universal-cookie';
 
 interface IAuthContext {
   auth: boolean;
-  handleAuth?: (e: ChangeEvent<HTMLElement>) => void;
+  user: {
+    names?: string;
+    surnames?: string;
+    email?: string;
+    token?: string;
+  };
+  cookie?: Cookies;
+  signIn?: (res?: any) => void;
+  signOff?: () => void;
 }
 
-export type { IAuthContext };
+interface IUserForm {
+  names?: string;
+  surnames?: string;
+  email?: string;
+  password?: string;
+}
+
+export type { IAuthContext, IUserForm };

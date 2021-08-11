@@ -1,4 +1,8 @@
+# config files
 .idea
 .vscode
 *.xml
 *.iml
+
+# compile server
+dist

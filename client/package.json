@@ -2,9 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "exports": [
-    "./"
-  ],
+  "homepage": "https://Uncle-Liquor.github.io/phg-plants",
   "dependencies": {
     "@tensorflow/tfjs": "^3.8.0",
     "@testing-library/jest-dom": "^5.11.4",
@@ -16,23 +14,29 @@
     "@types/react-dom": "^17.0.0",
     "@types/react-dropzone": "^5.1.0",
     "@types/react-router-dom": "^5.1.8",
+    "@types/react-toastify": "^4.1.0",
     "bootstrap": "^5.0.2",
+    "gh-pages": "^3.2.3",
     "jpeg-js": "^0.4.3",
     "react": "^17.0.2",
     "react-bootstrap": "^2.0.0-beta.4",
     "react-dom": "^17.0.2",
     "react-dropzone": "^11.3.4",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
+    "react-scripts": "^4.0.3",
+    "react-toastify": "^7.0.4",
     "react-webcam": "^5.2.4",
     "typescript": "^4.1.2",
+    "universal-cookie": "^4.0.4",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [

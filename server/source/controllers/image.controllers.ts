@@ -20,23 +20,21 @@ export const uploadImage = async (
   }
   const storages = __dirname + '/images/';
   !fs.existsSync(storages) && fs.mkdirSync(storages);
-  const dirPath = storages;
   let files = req.files.file;
+  let imgList = ['.png','.jpg','.jpeg','.gif'];
   if (!Array.isArray(files)) {
     files = [files];
   }
-
   try {
     for (const file of files) {
       const dateTime = Date.now();
-      await moveFile(file, dirPath, dateTime);  
+      await moveFile(file, storages, dateTime);  
       try {
         const _image = await Image.create({
-            name: dateTime + file.name,
+            name: file.name,
             description: file.mimetype,
             estate: true
         });
-        //res.status(201).json({ message: 'Se creo la imagen', _image });
       } catch (err: any) {
         res.status(500).json({ message: err.message, err });
       }
@@ -50,14 +48,14 @@ export const uploadImage = async (
     return res.status(400).json({
       success: false,
       message: err.message,
-      path: dirPath
+      path: storages
     });
   }
 
   res.json({
     success: true,
     message: 'Files successfully uploaded',
-    path: dirPath
+    path: storages
   });
 };
 
@@ -67,9 +65,8 @@ export const getImage = async(
   next: NextFunction
 ) => {
   try {
-    const data = req.body;
-    const { name } = data;
-    const oneImage = await Image.findOne({ name: name });
+    const { id } = req.params;
+    const oneImage = await Image.findOne({ _id: id });
     res.status(200).json(oneImage);
   } catch (err: any) {
     res.status(500).json({

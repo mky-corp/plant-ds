@@ -8,21 +8,28 @@
 .principal__btn {
   min-width: 192px;
   min-height: 54px;
-  width: calc(4.2vw + 20vh);
-  background: #41b883;
-  border-radius: 50px;
-  color: var(--white-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background: var(--first-color) !important;
+  box-shadow: 0 0 0 !important;
+  border-color: var(--first-color) !important;
+  border-radius: 50px !important;
+  letter-spacing: 0.16rem;
+}
+
+.secondary__btn {
+  min-width: 192px;
+  min-height: 54px;
+  background: var(--second-color) !important;
+  box-shadow: 0 0 0 !important;
+  border-color: var(--second-color) !important;
+  border-radius: 50px !important;
+  letter-spacing: 0.16rem;
 }
 
 .principal__btn:hover {
-  opacity: 0.75;
+  opacity: 0.8;
   color: var(--white-bg-color);
 }
 
-/****title***/
-.principal__title {
-  font-family: var(--font);
+.principal__btn p {
+  color: var(--white-color);
 }

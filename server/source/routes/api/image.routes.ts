@@ -10,6 +10,9 @@ router.get('/', viewImage);
 router.post('/upload', uploadImage);
 
 /* GET image listing. */
-router.get('/one', getImage);
+router.get('/:id', getImage);
+
+/* POST most image create. */
+// router.post('/', )
 
 export default router;
