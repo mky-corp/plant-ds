@@ -3,7 +3,7 @@ import { IUserForm } from '../interfaces/auth.interfaces';
 import { HelpHttp } from '../utils/HelpHttp';
 import { toast } from 'react-toastify';
 
-const API = process.env.REACT_APP_API;
+const API = process.env.REACT_APP_HEROKU;
 
 const useForm = (
   initialForm: IUserForm,
