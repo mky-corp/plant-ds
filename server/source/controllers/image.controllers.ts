@@ -28,14 +28,15 @@ export const uploadImage = async (
 
   try {
     for (const file of files) {
-      await moveFile(file, dirPath);
+      const dateTime = Date.now();
+      await moveFile(file, dirPath, dateTime);  
       try {
         const _image = await Image.create({
-            name: file.name,
+            name: dateTime + file.name,
             description: file.mimetype,
             estate: true
         });
-        res.status(201).json({ message: 'Se creo la imagen', _image });
+        //res.status(201).json({ message: 'Se creo la imagen', _image });
       } catch (err: any) {
         res.status(500).json({ message: err.message, err });
       }
@@ -59,3 +60,21 @@ export const uploadImage = async (
     path: dirPath
   });
 };
+
+export const getImage = async(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const data = req.body;
+    const { name } = data;
+    const oneImage = await Image.findOne({ name: name });
+    res.status(200).json(oneImage);
+  } catch (err: any) {
+    res.status(500).json({
+      message: err.message,
+      err
+    });
+  }
+}

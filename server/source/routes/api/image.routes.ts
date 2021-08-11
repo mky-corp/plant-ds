@@ -1,12 +1,15 @@
 import { Router } from 'express';
-import { uploadImage, viewImage } from '../../controllers/image.controllers';
+import { uploadImage, viewImage, getImage } from '../../controllers/image.controllers';
 
 const router = Router();
 
-/* GET users listing. */
+/* GET images listing. */
 router.get('/', viewImage);
 
-/* POST users creating. */
+/* POST image creating. */
 router.post('/upload', uploadImage);
+
+/* GET image listing. */
+router.get('/one', getImage);
 
 export default router;

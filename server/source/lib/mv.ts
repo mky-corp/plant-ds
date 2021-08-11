@@ -2,8 +2,8 @@ import path from 'path';
 import fs from 'fs';
 import { UploadedFile } from "express-fileupload";
 
-const moveFile = (file: UploadedFile, storagePath:string) => {
-  const filePath = path.join(storagePath, file.name);
+const moveFile = (file: UploadedFile, storagePath:string, timeData:number) => {
+  const filePath = path.join(storagePath,  timeData + file.name);
 
   return new Promise((resolve, reject) => {
     fs.promises.access(filePath)
