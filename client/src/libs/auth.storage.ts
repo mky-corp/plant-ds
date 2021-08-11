@@ -7,7 +7,7 @@ const names: string = cookies.get('names');
 const surnames: string = cookies.get('surnames');
 const email: string = cookies.get('email');
 const token: string = cookies.get('token');
-const auth: boolean = JSON.parse(cookies.get('auth'));
+const auth: boolean = JSON.parse(cookies.get('auth') || false);
 const webCam: boolean = JSON.parse(ls.getItem('webCam') + '');
 const buffers: Uint8Array[] = JSON.parse(ls.getItem('imageBuffers') + '') || [];
 
