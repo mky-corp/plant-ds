@@ -19,8 +19,12 @@ import { initialLogin } from '../libs/default.state';
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
-  const { form, loading, handleBlur, handleChange, handleSubmit } =
-    useForm(initialLogin, validateLogin, signIn ? signIn : () => '', 'auth');
+  const { form, loading, handleBlur, handleChange, handleSubmit } = useForm(
+    initialLogin,
+    validateLogin,
+    signIn ? signIn : () => '',
+    'auth'
+  );
 
   return (
     <section className='bg__start vh-100 w-100'>
@@ -51,7 +55,7 @@ const Login = () => {
             {loading ? (
               <Loader />
             ) : (
-              <MainButton title='SIGN IN' onClick={handleSubmit} />
+              <MainButton title='SIGN IN' first={true} onClick={handleSubmit} />
             )}
             <Link to='/register' className='text-center fs-small'>
               you don't have an account{' '}

@@ -98,6 +98,7 @@ const Register = () => {
             ) : (
               <MainButton
                 title='CONTINUE'
+                first={true}
                 type='button'
                 onClick={handleSecond}
               />

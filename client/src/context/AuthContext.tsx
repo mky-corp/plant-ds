@@ -18,20 +18,16 @@ export const AuthProvider = ({ children }: IPropsChildren) => {
   const setAll = (name: string, value: string, options = { path: '/' }) =>
     cookie.set(name, value, options);
 
-
-  const removeAll = (name: string) =>
-    cookie.remove(name, { path: '/' });
-
+  const removeAll = (name: string) => cookie.remove(name, { path: '/' });
 
   const signIn = (res?: any) => {
-
     if (res.token) {
-
       setAuth(true);
       setAll('names', res._user.names + '');
       setAll('surnames', res._user.surnames + '');
       setAll('email', res._user.email + '');
       setAll('token', res.token + '');
+      setAll('auth', true + '');
       const _user = {
         names: cookie.get('names'),
         surnames: cookie.get('surnames'),
@@ -40,8 +36,7 @@ export const AuthProvider = ({ children }: IPropsChildren) => {
       };
 
       setUser(_user);
-      history.push('/home');
-
+      history.push('/');
     } else {
       toast.error('Error el token de autenticación no existe');
     }
@@ -53,6 +48,7 @@ export const AuthProvider = ({ children }: IPropsChildren) => {
     removeAll('surnames');
     removeAll('email');
     removeAll('token');
+    removeAll('auth');
     setUser(defaultAuthState.user);
   };
 

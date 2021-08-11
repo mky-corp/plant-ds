@@ -7,6 +7,9 @@ http-client.private.env.json
 
 # compile ts
 dist
+build
+cnn_plants
+cnn
 
 # config files
 .idea
