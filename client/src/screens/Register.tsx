@@ -92,6 +92,7 @@ const Register = () => {
             ) : first ? (
               <MainButton
                 title='SIGN UP'
+                first={true}
                 type='submit'
                 onClick={handleSubmit}
               />
