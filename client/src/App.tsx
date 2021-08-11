@@ -6,29 +6,29 @@ import { AuthProvider } from './context/AuthContext';
 import { ToastContainer } from 'react-toastify';
 
 // Screens
-import Start from './screens/Start';
-import Options from './screens/Options';
-import Detects from './screens/Detects';
 import Home from './screens/Home';
 import Login from './screens/Login';
+import Detects from './screens/Detects';
+import Options from './screens/Options';
 import Register from './screens/Register';
+import NotFound from './screens/NotFound';
 
 const App = () => {
 
   return (
     <Router>
-      <Switch>
-        <FileProvider>
-          <AuthProvider>
+      <FileProvider>
+        <AuthProvider>
+          <Switch>
             <Route exact path='/' component={Home} />
-            <Route path='/start' component={Start} />
             <Route path='/login' component={Login} />
             <Route path='/register' component={Register} />
             <Route path='/options' component={Options} />
             <Route path='/detects' component={Detects} />
-          </AuthProvider>
-        </FileProvider>
-      </Switch>
+            <Route component={NotFound} />
+          </Switch>
+        </AuthProvider>
+      </FileProvider>
       <ToastContainer />
     </Router>
   );

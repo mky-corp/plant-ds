@@ -1,16 +1,5 @@
-/***logo footer**/
-.logo__footer {
-  height: auto;
-  width: 60px;
-}
+/* options view */
 
-/***text autor**/
-.text_autor {
-  font-size: 0.8em;
-  margin: 1.25rem 0 0;
-}
-
-/***options view**/
 .options__container {
   overflow-x: hidden;
   flex-direction: column;
@@ -50,11 +39,6 @@
   font-weight: 400;
 }
 
-.options__input input[type='file'] {
-  position: absolute;
-  top: -1000px;
-}
-
 .options__input:hover {
   background-color: var(--white-bg-color);
 }
@@ -81,10 +65,16 @@
   width: 100%;
 }
 
-/***main view**/
-.m-input__files {
-  width: 100%;
+.webcam__img {
+  max-width: calc(10vw + 36vh);
 }
+
+.logo__footer {
+  height: auto;
+  width: 60px;
+}
+
+/* main view */
 
 .bg__container {
   height: 100vh;
@@ -118,6 +108,7 @@
 }
 
 /***home view**/
+
 .home__main {
   width: 300px;
   height: 704px;
@@ -129,7 +120,6 @@
 .container__buttons-main {
   width: 300px;
 }
-
 
 .card__main-principal {
   width: 300px;
@@ -179,48 +169,48 @@
   color: var(--white-color);
 }
 
-.webcam__img {
-  max-width: calc(10vw + 36vh);
-}
+/* Utilities */
 
-/***utilities***/
+/* colors */
 
-/***colors**/
 .primary-bg,
-.primary-bg:hover,
-.primary-bg:active {
+.primary-bg:hover {
   background-color: var(--first-color);
   border-color: var(--first-color);
 }
 
 .primary-bg:disabled {
-  opacity: 0.75;
+  opacity: 0.8;
   background-color: var(--first-color);
   border-color: var(--first-color);
 }
 
 .secondary-bg,
-.secondary-bg:hover,
-.secondary-bg:active {
+.secondary-bg:hover {
   background-color: var(--second-color);
   border-color: var(--second-color);
 }
 
+.first-bg {
+  background-color: var(--first-color) !important;
+}
+
 .third-bg {
-  background-color: var(--third-color);
+  background-color: var(--third-color) !important;
 }
 
 .dark-bg {
-  background-color: var(--dark-color);
+  background-color: var(--dark-color) !important;
 }
 
 /***text**/
+
 .white-color {
   color: var(--white-color) !important;
 }
 
 .gray-light-color {
-  color: var(--gray-light-color);
+  color: var(--gray-light-color) !important;
 }
 
 .text-justify {
@@ -237,6 +227,30 @@
   opacity: 0.8;
 }
 
+.mx-input {
+  margin: 0 2rem;
+}
+
+/* fonts */
+
+.fs-text {
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+.fs-small {
+  font-size: 12px;
+}
+
+.letters-s-1 {
+  letter-spacing: 0.1rem;
+}
+
+.letters-s-5 {
+  letter-spacing: 0.05rem;
+}
+
 .h-first {
   font-size: 1.1rem !important;
 }
@@ -250,32 +264,7 @@
   width: auto;
 }
 
-.m-desc {
-  width: 100%;
-  margin: 0 auto;
-}
-
-.mx-input {
-  margin: 0 2rem;
-}
-
-.fs-small {
-  font-size: 12px;
-}
-
-.fs-text {
-  font-weight: 500;
-  font-size: 1rem;
-  color: var(--text-color);
-}
-
-.letters-s-1 {
-  letter-spacing: 0.1rem;
-}
-
-.letters-s-05 {
-  letter-spacing: 0.05rem;
-}
+/*  width */
 
 .w-90 {
   width: 90%;
@@ -289,19 +278,16 @@
   flex-grow: 0.2;
 }
 
-.all-animations {
-  transition: all 1s ease-in-out;
-}
-
 .w-main {
   width: 80%;
 }
 
-@media (min-width: 576px) {
-  .m-desc {
-    width: 80%;
-  }
+/* animations */
+.all-animations {
+  transition: all 1s ease-in-out;
+}
 
+@media (min-width: 576px) {
   .mx-input {
     margin: 0 5rem;
   }
@@ -330,11 +316,6 @@
 }
 
 @media (min-width: 768px) {
-  .wh-grap {
-    height: 100%;
-    width: 16px;
-  }
-
   .fs-small {
     font-size: 14px;
   }
@@ -347,8 +328,9 @@
     width: 75%;
   }
 
-  .m-desc {
-    width: 70%;
+  .wh-grap {
+    height: 100%;
+    width: 16px;
   }
 
   .mx-input {
@@ -360,12 +342,12 @@
   }
 
   .bg__start {
-    background-image: url(./assets/bg_start.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
     display: flex;
     justify-content: center;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 99.99%,
+    rgba(255, 255, 255, 0) 100%),
+    url(./assets/background.jpg) center no-repeat;
+    background-size: cover;
     align-items: center;
   }
 
@@ -420,23 +402,19 @@
   .button__link-main {
     margin: 0 0.4rem;
   }
-
-  .m-input__files {
-    padding: 0 4rem;
-  }
 }
 
 @media screen and (min-width: 992px) {
-  .m-desc {
-    width: 50%;
-  }
-
   .mx-input {
     margin: 0 3rem;
   }
 
   .w-nav-auto {
     width: 50%;
+  }
+
+  body {
+    -webkit-text-size-adjust: none;
   }
 }
 
@@ -455,7 +433,6 @@
 
   .card__main-principal .img__card {
     width: 148px;
-    height: auto;
   }
 }
 
@@ -466,6 +443,6 @@
   }
 
   50% {
-    transform: scale(1.12);
+    transform: scale(1.1);
   }
 }

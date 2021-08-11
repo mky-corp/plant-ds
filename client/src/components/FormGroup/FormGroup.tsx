@@ -13,8 +13,8 @@ const FormGroup = ({
   placeholder
 }: IPropsFormGroup) => {
   return (
-    <Form.Group className='mx-input' controlId={id}>
-      <Form.Label className='fw-bold h4 mb-2 mt-2 letters-s-05'>
+    <Form.Group className='mx-4 mx-sm-5 px-sm-3 px-md-3 mx-md-4' controlId={id}>
+      <Form.Label className='fw-bold h4 mb-2 mt-3 letters-s-5'>
         {label}
       </Form.Label>
       <Form.Control

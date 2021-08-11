@@ -1,1 +1,2 @@
-# Frontend
+# Aplicación con "create-react-app"
+

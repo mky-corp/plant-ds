@@ -4,7 +4,7 @@ import { IPropsHeaderForm } from '../../interfaces/props.interfaces';
 const HeaderForm = ({ title }: IPropsHeaderForm) => {
   return (
     <header>
-      <h1 className='h1 text-center pt-4 fw-bold letters-s-05'>{title}</h1>
+      <h1 className='h1 text-center pt-4 fw-bold letters-s-5'>{title}</h1>
     </header>
   );
 };

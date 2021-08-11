@@ -14,8 +14,8 @@ import HeaderForm from '../layouts/HeaderForm/HeaderForm';
 
 // others
 import useForm from '../hooks/useForm';
-import { validateRegister } from '../libs/validate.auth';
-import { initialRegister } from '../libs/default.state';
+import { validateRegister } from '../services/validate.auth';
+import { initialRegister } from '../services/default.state';
 
 const Register = () => {
   const history = useHistory();
@@ -35,7 +35,7 @@ const Register = () => {
   };
 
   return (
-    <section className='bg__start vh-100 w-100'>
+    <section className='bg__start vh-100'>
       <div className='bg__container-form d-flex flex-column'>
         <HeaderForm title='SIGN UP' />
         <Form className='flex-grow-1 d-flex flex-column justify-content-evenly'>

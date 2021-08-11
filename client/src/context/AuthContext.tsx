@@ -2,8 +2,9 @@ import { createContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import { toast } from 'react-toastify';
-import { defaultAuthState } from '../libs/default.state';
 
+// locals
+import { defaultAuthState } from '../services/default.state';
 import { IAuthContext } from '../interfaces/auth.interfaces';
 import { IPropsChildren } from '../interfaces/props.interfaces';
 

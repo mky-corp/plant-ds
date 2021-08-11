@@ -1,5 +1,5 @@
 import './HeaderHome.css';
-// import { memo } from 'react';
+import { memo } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../../assets/logo.svg';
 
@@ -11,7 +11,7 @@ const HeaderHome = () => {
       >
         <section className='d-flex justify-content-between align-items-center'>
           <img className='header__logo-home me-4' src={logo} alt='Logo de la aplicación' />
-          <h1 className='fs-2 letters-s-05 mx-3'>PHG Plants</h1>
+          <h1 className='fs-2 letters-s-5 mx-3'>PHG Plants</h1>
         </section>
         <section className='d-none d-sm-flex pt-3 p-lg-0 w-nav-auto justify-content-evenly'>
           <NavLink to='/options' className='p-1 h-first fs-text fw-bold'>Get Started</NavLink>
@@ -27,4 +27,4 @@ const HeaderHome = () => {
   );
 };
 
-export default (HeaderHome);
+export default memo(HeaderHome);

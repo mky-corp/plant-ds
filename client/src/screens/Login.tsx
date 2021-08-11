@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
+import useForm from '../hooks/useForm';
 
 // components
 import FormGroup from '../components/FormGroup/FormGroup';
@@ -12,22 +13,22 @@ import Loader from '../components/Loader/Loader';
 import Footer from '../layouts/Footer/Footer';
 import HeaderForm from '../layouts/HeaderForm/HeaderForm';
 
-// others
-import useForm from '../hooks/useForm';
-import { validateLogin } from '../libs/validate.auth';
-import { initialLogin } from '../libs/default.state';
+// libs
+import { validateLogin } from '../services/validate.auth';
+import { initialLogin } from '../services/default.state';
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
+
   const { form, loading, handleBlur, handleChange, handleSubmit } = useForm(
     initialLogin,
     validateLogin,
-    signIn ? signIn : () => '',
+    signIn,
     'auth'
   );
 
   return (
-    <section className='bg__start vh-100 w-100'>
+    <section className='bg__start vh-100'>
       <div className='bg__container-form d-flex flex-column'>
         <HeaderForm title='SIGN IN' />
         <Form className='flex-grow-1 d-flex flex-column justify-content-evenly'>

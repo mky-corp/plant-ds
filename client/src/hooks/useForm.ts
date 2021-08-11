@@ -8,7 +8,7 @@ const API = process.env.REACT_APP_API;
 const useForm = (
   initialForm: IUserForm,
   validateForm: (form: IUserForm) => IUserForm,
-  process: (res?: any) => void,
+  process?: (res?: any) => void,
   endpoint?: string
 ) => {
   const [form, setForm] = useState<IUserForm>(initialForm);
@@ -51,7 +51,7 @@ const useForm = (
         toast.error(`Error: ${res.err || 'Unknown'} Status: ${res.status || 404}`);
       } else {
         toast.success('Operación exitosa');
-        process(res);
+        if (process) process(res);
       }
     } else {
       toast.warn('Complete bien los campos de email y contraseña');
