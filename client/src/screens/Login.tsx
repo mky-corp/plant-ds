@@ -16,10 +16,11 @@ import HeaderForm from '../layouts/HeaderForm/HeaderForm';
 // libs
 import { validateLogin } from '../services/validate.auth';
 import { initialLogin } from '../services/default.state';
+import { data } from '../services/data.storage';
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
-
+  const { login } = data;
   const { form, loading, handleBlur, handleChange, handleSubmit } = useForm(
     initialLogin,
     validateLogin,
@@ -33,23 +34,23 @@ const Login = () => {
         <HeaderForm title='SIGN IN' />
         <Form className='flex-grow-1 d-flex flex-column justify-content-evenly'>
           <FormGroup
-            id='emailInput'
+            id='email'
             type='email'
             name='email'
-            label='Email'
-            placeholder='Email*'
+            label={login.form[0]}
+            placeholder={login.form[0]}
             onChange={handleChange}
             onBlur={handleBlur}
             value={form.email}
           />
           <FormGroup
-            id='passwordInput'
-            name='password'
+            id='password'
             type='password'
-            label='Password'
-            placeholder='Password*'
-            onBlur={handleBlur}
+            name='password'
+            label={login.form[1]}
+            placeholder={login.form[1]}
             onChange={handleChange}
+            onBlur={handleBlur}
             value={form.password}
           />
           <section className='d-flex flex-column justify-content-end flex-g-7 mb-2'>
