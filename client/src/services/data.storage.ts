@@ -36,7 +36,7 @@ export const data = {
       { title: 'Comenzar', css: 'one', to: '/options' },
       { title: 'Qué es PlantDS?', css: 'two', to: '/why' },
       {
-        title: `GitHub <img class='m-1' src=${github} alt='Logo de Github' />`,
+        title: `GitHub <img class='m-1 w-25' src=${github} alt='Logo de Github' />`,
         css: 'three',
         href: 'https://github.com/Uncle-Liquor/phg-plants'
       }
