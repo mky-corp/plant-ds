@@ -3,8 +3,8 @@ import app from './index';
 import path from 'path';
 import cors from 'cors';
 import logger from 'morgan';
-import fileUpload from 'express-fileupload';
 import cookieParser from 'cookie-parser';
+import fileUpload from 'express-fileupload';
 
 // utils
 import {
@@ -35,7 +35,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(fileUpload());
+app.use(fileUpload({limits: { fileSize: 50 * 1024 * 1024 }}));
 
 // cnn models
 app.use('/cnn', express.static(path.join(__dirname, 'cnn_plants')));
@@ -43,7 +43,7 @@ app.use('/cnn', express.static(path.join(__dirname, 'cnn_plants')));
 // routes
 app.use('/', indexRouter);
 app.use('/api/users', usersRouter);
-app.use('/api/images', extractJWT, imagesRouter);
+app.use('/api/images',  imagesRouter);
 app.use('/api/auth', authRouter);
 
 // catch 404 and forward to error handler

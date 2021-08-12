@@ -1,57 +1,77 @@
 import { Request, Response, NextFunction, json } from 'express';
-import { UploadedFile } from 'express-fileupload';
-import Image from '../models/Image';
 import fs from 'fs';
+import moveFile from '../lib/mv';
+import Image from '../models/Image';
 
 export const viewImage = (req: Request, res: Response, next: NextFunction) => {
   res.send('respond with a resource');
 };
 
-export const uploadOneImage = async (
+export const uploadImage = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  let sampleFile: UploadedFile;
-  let uploadPath: string;
+  if (!req.files) {
+    return res.status(400).json({
+      success: false,
+      message: 'No files were uploaded'
+    });
+  }
+  const storages = __dirname + '/images/';
+  !fs.existsSync(storages) && fs.mkdirSync(storages);
+  let files = req.files.file;
+  let imgList = ['.png','.jpg','.jpeg','.gif'];
+  if (!Array.isArray(files)) {
+    files = [files];
+  }
+  try {
+    for (const file of files) {
+      const dateTime = Date.now();
+      await moveFile(file, storages, dateTime);  
+      try {
+        const _image = await Image.create({
+            name: file.name,
+            description: file.mimetype,
+            estate: true
+        });
+      } catch (err: any) {
+        res.status(500).json({ message: err.message, err });
+      }
+    }
+  } catch (err) {
+    // Sys error
+    if (err.code) {
+      return next(err);
+    }
 
-  uploadPath = __dirname + '/images/';
-  !fs.existsSync(uploadPath) && fs.mkdirSync(uploadPath);
-
-  console.log(req.files);
-
-  if (!req.files || Object.keys(req.files).length === 0) {
-    return res.status(400).json('No existen archivos para subir.');
+    return res.status(400).json({
+      success: false,
+      message: err.message,
+      path: storages
+    });
   }
 
-  if (req.files.sampleFile == null) {
-    return res.status(400).json('Enviar con el nombre correcto.');
-  }
-
-  sampleFile = req.files.sampleFile as UploadedFile;
-
-  let approvedType: string[] = ['image/png', 'image/jpeg', 'image/jpg'];
-
-  if (!approvedType.includes(sampleFile.mimetype)) {
-    return res.status(400).json('No tiene el formato adecuado.');
-  }
-
-  let currentDate = new Date();
-  let datetime = currentDate.getDate() + '-'
-    + (currentDate.getMonth() + 1) + '-'
-    + currentDate.getFullYear() + ' '
-    + currentDate.getHours() + ':'
-    + currentDate.getMinutes() + ':'
-    + currentDate.getSeconds();
-
-  uploadPath = __dirname + '/images/' + datetime + ' ' + sampleFile.name;
-
-  sampleFile.mv(uploadPath, async (err: any) => {
-    if (err)
-      return res.status(500).json(err);
-
-    console.log(sampleFile.name);
-    console.log(sampleFile.mimetype);
-    res.status(201).json({ image: uploadPath, message: 'File upload!' });
+  res.json({
+    success: true,
+    message: 'Files successfully uploaded',
+    path: storages
   });
 };
+
+export const getImage = async(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const { id } = req.params;
+    const oneImage = await Image.findOne({ _id: id });
+    res.status(200).json(oneImage);
+  } catch (err: any) {
+    res.status(500).json({
+      message: err.message,
+      err
+    });
+  }
+}
