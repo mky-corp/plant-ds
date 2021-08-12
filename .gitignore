@@ -6,6 +6,7 @@
 
 # compile server
 dist
+build
 
 # modules
 node_modules
