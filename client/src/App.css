@@ -1,5 +1,14 @@
 /* options view */
 
+.btn__messages {
+  border-radius: 36px;
+}
+
+.btn-transparent {
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+
 .options__container {
   overflow-x: hidden;
   flex-direction: column;
@@ -344,9 +353,12 @@
   .bg__start {
     display: flex;
     justify-content: center;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 99.99%,
-    rgba(255, 255, 255, 0) 100%),
-    url(./assets/background.jpg) center no-repeat;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.4) 99.99%,
+        rgba(255, 255, 255, 0) 100%
+      ),
+      url(./assets/background.jpg) center no-repeat;
     background-size: cover;
     align-items: center;
   }

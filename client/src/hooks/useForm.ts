@@ -48,14 +48,16 @@ const useForm = (
       setForm(initialForm);
 
       if (res.err || res.status > 400 || res instanceof DOMException) {
-        toast.error(`Error: ${res.err || 'Unknown'} Status: ${res.status || 404}`);
+        toast.error(
+          `Error: ${res.err || 'Desconocido'} Status: ${res.status || 404}`
+        );
       } else {
         toast.success('Operación exitosa');
         if (process) process(res);
       }
     } else {
-      toast.warn('Complete bien los campos de email y contraseña');
-      return;
+      if (errors.password) toast.error(errors.password);
+      if (errors.email) toast.error(errors.email);
     }
   };
 
@@ -63,9 +65,10 @@ const useForm = (
     form,
     errors,
     loading,
+    setLoading,
     handleBlur,
     handleSubmit,
-    handleChange
+    handleChange,
   };
 };
 
