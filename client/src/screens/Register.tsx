@@ -3,7 +3,7 @@ import { Button, Form } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 import { Link, useHistory } from 'react-router-dom';
 import useForm from '../hooks/useForm';
-import left from '../assets/arrow_left.svg';
+import left from '../assets/arrow-left.svg';
 
 // components
 import FormGroup from '../components/FormGroup/FormGroup';

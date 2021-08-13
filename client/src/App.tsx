@@ -24,7 +24,7 @@ const App = () => {
             <Route path='/login' component={Login} />
             <Route path='/register' component={Register} />
             <Route path='/options' component={Options} />
-            <Route path='/detects' component={Detects} />
+            <Route path='/detect' component={Detects} />
             <Route component={NotFound} />
           </Switch>
         </AuthProvider>

@@ -1,6 +1,6 @@
-import plant from '../assets/MainHome/pflanze-coloured.svg';
-import disease from '../assets/MainHome/plants_disease.svg';
-import detects from '../assets/MainHome/detect_disease.svg';
+import plant from '../assets/MainHome/plant-healthy.svg';
+import disease from '../assets/MainHome/plant-disease.svg';
+import detects from '../assets/MainHome/microscope-analysis.svg';
 import tfsOne from '../assets/MainHome/card-content-1.svg';
 import tfsTwo from '../assets/MainHome/card-content-2.svg';
 import github from '../assets/github.svg';
@@ -21,10 +21,10 @@ export const data = {
   },
   headerHome: {
     title: 'PHG Plants',
-    start: 'Comezar',
+    start: 'Comenzar',
     learn: 'Leer',
     contact: 'Contactos',
-    aboutUs: 'Nosostros'
+    aboutUs: 'Nosotros'
   },
   footer: {
     credits: 'sitio diseñado por @jochizan'
@@ -33,11 +33,11 @@ export const data = {
     descMain:
       'Aplicación web para la detección de enfermedades en plantas comunes en Perú y sus posibles tratamientos',
     buttonsHome: [
-      { title: 'Comenzar', css: 'one', to: '/options' },
+      { title: 'COMENZAR', css: 'one fs-5 letters-s-1', to: '/options' },
       { title: 'Qué es PlantDS?', css: 'two', to: '/why' },
       {
         title: `GitHub <img class='m-1 w-25' src=${github} alt='Logo de Github' />`,
-        css: 'three',
+        css: 'three letters-s-5',
         href: 'https://github.com/Uncle-Liquor/phg-plants'
       }
     ],
@@ -58,6 +58,82 @@ export const data = {
         title: 'Como las detecta?',
         img: detects,
         grid: 'grid-lg-2',
+        description:
+          'Slate helps you see how many more days you need to work to reach your financial goal for the month and year.'
+      }
+    ],
+    cardsPlants: [
+      {
+        title: 'Tomate',
+        img: plant,
+        description:
+          'Slate helps you see how many more days you need to work to reach your financial goal for the month and year.'
+      },
+      {
+        title: 'Maíz',
+        img: plant,
+        description:
+          'Slate helps you see how many more days you need to work to reach your financial goal for the month and year.'
+      },
+      {
+        title: 'Papas',
+        img: plant,
+        description:
+          'Slate helps you see how many more days you need to work to reach your financial goal for the month and year.'
+      },
+      {
+        title: 'Apple',
+        img: plant,
+        description:
+          'Slate helps you see how many more days you need to work to reach your financial goal for the month and year.'
+      },
+      {
+        title: 'Arandano',
+        img: plant,
+        description:
+          'Slate helps you see how many more days you need to work to reach your financial goal for the month and year.'
+      },
+      {
+        title: 'Cherry',
+        img: plant,
+        description:
+          'Slate helps you see how many more days you need to work to reach your financial goal for the month and year.'
+      }
+    ],
+    cardsDisease: [
+      {
+        title: 'Diasease 1',
+        img: disease,
+        description:
+          'Slate helps you see how many more days you need to work to reach your financial goal for the month and year.'
+      },
+      {
+        title: 'Disease 2',
+        img: disease,
+        description:
+          'Slate helps you see how many more days you need to work to reach your financial goal for the month and year.'
+      },
+      {
+        title: 'Disease 3',
+        img: disease,
+        description:
+          'Slate helps you see how many more days you need to work to reach your financial goal for the month and year.'
+      },
+      {
+        title: 'Disease 4',
+        img: disease,
+        description:
+          'Slate helps you see how many more days you need to work to reach your financial goal for the month and year.'
+      },
+      {
+        title: 'Disease 5',
+        img: disease,
+        description:
+          'Slate helps you see how many more days you need to work to reach your financial goal for the month and year.'
+      },
+      {
+        title: 'Disease 6',
+        img: disease,
         description:
           'Slate helps you see how many more days you need to work to reach your financial goal for the month and year.'
       }

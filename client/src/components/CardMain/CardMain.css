@@ -8,7 +8,7 @@
 }
 
 .card__main img {
-  min-width: 72px;
+  max-width: 80px;
 }
 
 .card__main section p {
