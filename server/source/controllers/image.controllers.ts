@@ -21,25 +21,25 @@ export const uploadImage = async (
   const storages = __dirname + '/images/';
   !fs.existsSync(storages) && fs.mkdirSync(storages);
   let files = req.files.file;
-  let imgList = ['.png','.jpg','.jpeg','.gif'];
+  let imgList = ['.png', '.jpg', '.jpeg', '.gif'];
   if (!Array.isArray(files)) {
     files = [files];
   }
   try {
     for (const file of files) {
       const dateTime = Date.now();
-      await moveFile(file, storages, dateTime);  
+      await moveFile(file, storages, dateTime);
       try {
         const _image = await Image.create({
-            name: file.name,
-            description: file.mimetype,
-            estate: true
+          name: file.name,
+          description: file.mimetype,
+          estate: true
         });
       } catch (err: any) {
         res.status(500).json({ message: err.message, err });
       }
     }
-  } catch (err) {
+  } catch (err: any) {
     // Sys error
     if (err.code) {
       return next(err);
@@ -59,7 +59,7 @@ export const uploadImage = async (
   });
 };
 
-export const getImage = async(
+export const getImage = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -74,4 +74,4 @@ export const getImage = async(
       err
     });
   }
-}
+};

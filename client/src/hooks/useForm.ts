@@ -71,7 +71,7 @@ const useForm = (
     setLoading,
     handleBlur,
     handleSubmit,
-    handleChange
+    handleChange,
   };
 };
 

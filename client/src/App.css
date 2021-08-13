@@ -93,6 +93,10 @@
   height: 100vh;
 }
 
+.w-image {
+  width: 50%;
+}
+
 .w-main-logo {
   width: 224px;
   height: auto;
@@ -107,6 +111,7 @@
   display: grid;
   grid-template: auto / repeat(1, 1fr);
   justify-items: center;
+  column-gap: 1rem;
   row-gap: 3rem;
   padding-top: 3rem;
   margin: 0 auto;
@@ -128,6 +133,31 @@
 
 .container__buttons-main {
   width: 300px;
+}
+
+.main__grid-fit {
+  display: grid;
+  grid-template: auto / repeat(auto-fit, minmax(300px, 1fr));
+  justify-items: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.card__main-about {
+  min-width: 240px;
+  max-width: 240px;
+  min-height: 280px;
+  text-align: center;
+  border: 1px solid var(--gray-light-color);
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  background-color: var(--white-bg-color);
+}
+
+.card__main-about img {
+  padding: 2rem 2rem 0.5rem 2rem;
+  min-width: 200px;
+  min-height: 224px;
 }
 
 .card__main-principal {
@@ -218,6 +248,10 @@
   color: var(--white-color) !important;
 }
 
+.first-color {
+  color: var(--first-color) !important;
+}
+
 .gray-light-color {
   color: var(--gray-light-color) !important;
 }
@@ -305,6 +339,10 @@
     width: 50%;
   }
 
+  .w-image {
+    width: 25%;
+  }
+
   .w-nav-auto {
     width: 80%;
   }
@@ -335,6 +373,10 @@
 
   .w-main {
     width: 75%;
+  }
+
+  .w-image {
+    width: 25%;
   }
 
   .wh-grap {
@@ -411,6 +453,10 @@
     grid-template: auto / repeat(2, 1fr);
   }
 
+  .grid-lg-3 {
+    grid-column: auto;
+  }
+
   .button__link-main {
     margin: 0 0.4rem;
   }
@@ -423,6 +469,10 @@
 
   .w-nav-auto {
     width: 50%;
+  }
+
+  .grid-lg-3 {
+    grid-column: span 3;
   }
 
   body {
@@ -445,6 +495,10 @@
 
   .card__main-principal .img__card {
     width: 148px;
+  }
+
+  .grid-lg-3 {
+    grid-column: auto;
   }
 }
 
