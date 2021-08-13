@@ -3,7 +3,7 @@ import { IUserForm } from '../interfaces/auth.interfaces';
 import { HelpHttp } from '../utils/HelpHttp';
 import { toast } from 'react-toastify';
 
-const API = process.env.REACT_APP_API;
+const API = 'https://api-phg-plants.herokuapp.com';
 
 const useForm = (
   initialForm: IUserForm,
@@ -51,6 +51,9 @@ const useForm = (
         toast.error(
           `Error: ${res.err || 'Desconocido'} Status: ${res.status || 404}`
         );
+        if (res.status === 404) {
+          toast.info('Hubo un problema vuelva a intentarlo más tarde...');
+        }
       } else {
         toast.success('Operación exitosa');
         if (process) process(res);
