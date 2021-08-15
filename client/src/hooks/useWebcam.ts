@@ -1,5 +1,5 @@
 import Webcam from 'react-webcam';
-import { useCallback, useState, useRef, useContext } from 'react';
+import { useCallback, useContext, useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { ls, w } from '../utils/Globals';
@@ -16,7 +16,7 @@ const useWebcam = () => {
 
   const handleWebCam = () => {
     setWebCam(!webCam);
-    ls.setItem('webCam', true + '');
+    ls.setItem('webCam', !webCam + '');
   };
 
   const handleImage = async (url: string) => {

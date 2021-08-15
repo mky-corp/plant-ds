@@ -76,6 +76,10 @@ interface IPropsCardAbout {
   title?: string;
 }
 
+interface IPropsCardDetect {
+  img?: string;
+}
+
 export type {
   IPropsFormUp,
   IPropsChildren,
@@ -86,6 +90,7 @@ export type {
   IPropsHeaderForm,
   IPropsButtonHome,
   IPropsMainButton,
+  IPropsCardDetect,
   IPropsDescOptions,
   IPropsChildrenModal
 };

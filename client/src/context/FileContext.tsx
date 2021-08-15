@@ -9,6 +9,7 @@ export const FileProvider = ({ children }: IPropsChildren) => {
   const [progress, setProgress] = useState<number | string>('');
   const [progressInner, setProgressInner] = useState<string>('');
   const [files, setFiles] = useState<File[]>(defaultFileState.files);
+  const [images, setImages] = useState<string[]>(defaultFileState.images);
   const [buffers, setBuffers] = useState<Uint8Array[]>(
     defaultFileState.buffers
   );
@@ -27,14 +28,29 @@ export const FileProvider = ({ children }: IPropsChildren) => {
 
   const processImage = (newFiles: File[] | FileList) => {
     const fileBuffers: Uint8Array[] = buffers;
+    const fileImages: string[] = images;
     const fileArray = Array.from(newFiles);
 
     setFiles([...files, ...fileArray]);
+    fileArray.forEach((file) => uploadImage(file, fileImages));
     fileArray.forEach((file) => uploadFile(file, fileBuffers));
   };
 
   const handleUint8Array = (imageRaw: Uint8Array) =>
     setBuffers([...buffers, imageRaw]);
+
+  const uploadImage = (file: File, fileImages: string[]) => {
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+
+    fileReader.addEventListener('load', (e: ProgressEvent) => {
+      if (!fileReader.result || fileReader.result instanceof ArrayBuffer)
+        return;
+
+      fileImages.push(fileReader.result);
+      setImages(fileImages);
+    });
+  };
 
   const uploadFile = (file: File, fileBuffers: Uint8Array[]) => {
     const fileReader = new FileReader();
@@ -67,6 +83,7 @@ export const FileProvider = ({ children }: IPropsChildren) => {
     <FileContext.Provider
       value={{
         files,
+        images,
         buffers,
         progress,
         progressInner,

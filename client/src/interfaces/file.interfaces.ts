@@ -2,6 +2,7 @@ import { ChangeEvent } from 'react';
 
 interface IFileContext {
   files: File[];
+  images: string[];
   buffers: Uint8Array[];
   progress?: number | string;
   progressInner?: string;

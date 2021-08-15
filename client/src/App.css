@@ -145,6 +145,16 @@
   gap: 1rem;
 }
 
+.main__grid-detect {
+  display: grid;
+  grid-template: auto / repeat(auto-fit, minmax(394px, 1fr));
+  justify-items: center;
+  align-items: center;
+  background-color: var(--gray-bg-color);
+  column-gap: .5rem;
+  row-gap: 3rem;
+}
+
 .card__main-principal {
   width: 300px;
   height: min-content;
@@ -401,7 +411,7 @@
         rgba(0, 0, 0, 0.4) 99.99%,
         rgba(255, 255, 255, 0) 100%
       ),
-      url(./assets/background.jpg) center no-repeat;
+      url(./assets/background.png) center no-repeat;
     background-size: cover;
     align-items: center;
   }

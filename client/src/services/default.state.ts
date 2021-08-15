@@ -26,5 +26,6 @@ export const defaultAuthState: IAuthContext = {
 
 export const defaultFileState: IFileContext = {
   files: [],
+  images: [],
   buffers
 };

@@ -29,6 +29,8 @@ const Options = () => {
   const { capture, webCam, handleWebCam, webcamRef, width, height } =
     useWebcam();
 
+  console.log(buffers);
+
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
     history.push('/detect');
@@ -158,7 +160,7 @@ const Options = () => {
                     className='primary-bg primary-border w-100'
                     onClick={handleSubmit}
                   >
-                    Detects
+                    Detect
                   </Button>
                 </section>
               </Form.Group>

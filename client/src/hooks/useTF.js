@@ -12,8 +12,8 @@ const useTF = () => {
 
   const loadModel = async () => {
     try {
-      const modelPlants = await tf.loadLayersModel(`${API}/cnn/model.json`);
-      setModel(modelPlants);
+      // const modelPlants = await tf.loadLayersModel(`${API}/cnn/model.json`);
+      // setModel(modelPlants);
     } catch (err) {
       setErrors({
         ...err,
