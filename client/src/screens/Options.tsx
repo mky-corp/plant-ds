@@ -31,7 +31,7 @@ const Options = () => {
 
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
-    history.push('/detects');
+    history.push('/detect');
   };
 
   useEffect(() => {
@@ -158,7 +158,7 @@ const Options = () => {
                     className='primary-bg primary-border w-100'
                     onClick={handleSubmit}
                   >
-                    Detects
+                    Detect
                   </Button>
                 </section>
               </Form.Group>

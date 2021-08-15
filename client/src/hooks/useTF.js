@@ -63,7 +63,7 @@ const useTF = () => {
       return setErrors({
         ...errors,
         buffers: false,
-        message: 'No hay imagenes que procesar'
+        message: 'No hay imágenes que procesar'
       });
     }
 

@@ -26,7 +26,7 @@ const useWebcam = () => {
 
     if (handleUint8Array) handleUint8Array(uint8Array);
 
-    history.push('/detects');
+    history.push('/detect');
   };
 
   const capture = useCallback(() => {

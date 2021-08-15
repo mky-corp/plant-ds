@@ -395,12 +395,7 @@
   .bg__start {
     display: flex;
     justify-content: center;
-    background: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0.4) 99.99%,
-        rgba(255, 255, 255, 0) 100%
-      ),
-      url(./assets/background.jpg) center no-repeat;
+    background: url(./assets/background.png) center no-repeat;
     background-size: cover;
     align-items: center;
   }

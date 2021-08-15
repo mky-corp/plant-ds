@@ -1,6 +1,6 @@
 import plant from '../assets/MainHome/plant-healthy.svg';
 import disease from '../assets/MainHome/plant-disease.svg';
-import detects from '../assets/MainHome/microscope-analysis.svg';
+import detect from '../assets/MainHome/microscope-analysis.svg';
 import tfsOne from '../assets/MainHome/card-content-1.svg';
 import tfsTwo from '../assets/MainHome/card-content-2.svg';
 import github from '../assets/github.svg';
@@ -56,7 +56,7 @@ export const data = {
       },
       {
         title: 'Como las detecta?',
-        img: detects,
+        img: detect,
         grid: 'grid-lg-2',
         description:
           'Slate helps you see how many more days you need to work to reach your financial goal for the month and year.'
@@ -88,7 +88,7 @@ export const data = {
           'Slate helps you see how many more days you need to work to reach your financial goal for the month and year.'
       },
       {
-        title: 'Arandano',
+        title: 'Arándano',
         img: plant,
         description:
           'Slate helps you see how many more days you need to work to reach your financial goal for the month and year.'
@@ -102,7 +102,7 @@ export const data = {
     ],
     cardsDisease: [
       {
-        title: 'Diasease 1',
+        title: 'Disease 1',
         img: disease,
         description:
           'Slate helps you see how many more days you need to work to reach your financial goal for the month and year.'

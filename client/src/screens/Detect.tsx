@@ -13,7 +13,7 @@ import FileContext from '../context/FileContext';
 import useModal from '../hooks/useModal';
 import useTF from '../hooks/useTF';
 
-const Detects = () => {
+const Detect = () => {
   const history = useHistory();
   const { buffers } = useContext(FileContext);
   const { auth } = useContext(AuthContext);
@@ -47,4 +47,4 @@ const Detects = () => {
   );
 };
 
-export default Detects;
+export default Detect;

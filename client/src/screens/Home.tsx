@@ -94,9 +94,9 @@ const Home = () => {
             <h2 id='#plants' className='fs-2'>
               Que plantas detecta?
             </h2>
-            <p></p>
-            <p></p>
-            <p></p>
+            <p />
+            <p />
+            <p />
           </section>
           <article className='main__grid mx-1 mx-md-5 mt-3 px-1 px-md-5 '>
             {data.home.cardsPlants.map((item, idx) => (
@@ -114,9 +114,9 @@ const Home = () => {
             <h2 id='#disease' className='fs-2'>
               Que enfermedades detecta?
             </h2>
-            <p></p>
-            <p></p>
-            <p></p>
+            <p />
+            <p />
+            <p />
           </section>
           <article className='main__grid mx-1 mx-md-5 mt-3 px-1 px-md-5 '>
             {data.home.cardsDisease.map((item, idx) => (
@@ -134,9 +134,9 @@ const Home = () => {
             <h2 id='#who' className='fs-2'>
               Como los detecta?
             </h2>
-            <p></p>
-            <p></p>
-            <p></p>
+            <p />
+            <p />
+            <p />
           </section>
           <article className='d-flex mt-4 h-75 flex-column flex-lg-row align-items-center justify-content-around'>
             <section className='card__main-principal'>
@@ -172,9 +172,9 @@ const Home = () => {
             <h2 id='#about' className='fs-2'>
               Sobre nosotros
             </h2>
-            <p></p>
-            <p></p>
-            <p></p>
+            <p />
+            <p />
+            <p />
           </section>
           <article className='main__grid-fit h-75'>
             <section className='card__main-about my-4 my-lg-0'>
