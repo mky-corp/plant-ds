@@ -1,0 +1,12 @@
+{
+  "presets": [
+    "@babel/env",
+    "@babel/preset-typescript"
+  ],
+  "ignore": [
+    "node_modules"
+  ],
+  "plugins": [
+    "@babel/transform-runtime"
+  ]
+}

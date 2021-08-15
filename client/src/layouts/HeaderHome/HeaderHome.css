@@ -1,0 +1,27 @@
+.home__container {
+  min-height: 96px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.header__logo-home {
+  max-width: 60px;
+  max-height: 60px;
+}
+
+.header__separate {
+  max-height: 1.6rem;
+  max-width: 1.6rem;
+  border: 1px solid var(--dark-color);
+}
+
+@media screen and (min-width: 576px) {
+  .home__container {
+    min-height: 140px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .home__container {
+    min-height: 80px;
+  }
+}

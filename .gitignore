@@ -1,0 +1,17 @@
+# config files
+.idea
+.vscode
+*.xml
+*.iml
+
+# compile server
+dist
+build
+
+# modules
+node_modules
+
+# envs
+.env
+.env.local
+.env.production

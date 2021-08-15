@@ -1,0 +1,42 @@
+.card__main {
+  width: 300px;
+  height: 180px;
+  border: 1px solid var(--gray-light-color);
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  background-color: var(--white-bg-color);
+}
+
+.card__main img {
+  max-width: 80px;
+}
+
+.card__main section p {
+  width: 200px;
+  height: 64px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--gray-dark-color);
+  margin: 1rem 0 0;
+}
+
+.card__main section h3 {
+  color: var(--first-alpha-color);
+}
+
+@media screen and (min-width: 768px) {
+  .card__main {
+    width: 320px;
+    height: 160px;
+  }
+
+  .grid-lg-2 {
+    grid-column: span 2;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .grid-lg-2 {
+    grid-column: auto;
+  }
+}
