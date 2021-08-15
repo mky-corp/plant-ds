@@ -6,11 +6,6 @@ import cube from '../assets/cube.svg';
 import logo from '../assets/logo.svg';
 import tf from '../assets/tensorflow.svg';
 
-// credits
-import fis from '../assets/fis.png';
-import uncp from '../assets/uncp.png';
-import jochizan from '../assets/jochizan.png';
-
 // components
 import CardMain from '../components/CardMain/CardMain';
 import CardTech from '../components/CardTech/CardTech';
@@ -19,6 +14,7 @@ import ButtonHome from '../components/ButtonHome/ButtonHome';
 // layouts
 import HeaderHome from '../layouts/HeaderHome/HeaderHome';
 import FooterHome from '../layouts/FooterHome/FooterHome';
+import CardAbout from '../components/CardAbout/CardAbout';
 
 const Home = () => {
   return (
@@ -42,7 +38,7 @@ const Home = () => {
             >
               <section className='w-main d-flex flex-column justify-content-center mb-4 mb-sm-0'>
                 <h2 className='h2 letters-s-5 fw-bold text-center'>
-                  PHG Plants
+                  PlantDS
                 </h2>
                 <p className='text-dark text-justify fs-text w-100 m-0 mb-md-4'>
                   {data.home.descMain}
@@ -69,10 +65,11 @@ const Home = () => {
           <article className='main__grid mx-1 mx-md-5 mt-3 px-1 px-md-5 '>
             {data.home.cardsMain.map((item, idx) => (
               <CardMain
-                title={item.title}
-                img={item.img}
                 key={idx}
+                img={item.img}
                 grid={item.grid}
+                href={item.href}
+                title={item.title}
                 description={item.description}
               />
             ))}
@@ -89,10 +86,10 @@ const Home = () => {
             </section>
           </article>
         </section>
-        <section className='main__raison mb-5 pb-5'>
+        <section id='plants' className='main__raison mb-5 pb-5'>
           <section className='d-flex justify-content-around px-4 px-md-0 pt-5 ps-md-5'>
-            <h2 id='#plants' className='fs-2'>
-              Que plantas detecta?
+            <h2 className='fs-2'>
+              ¿Qué plantas detecta?
             </h2>
             <p />
             <p />
@@ -109,10 +106,10 @@ const Home = () => {
             ))}
           </article>
         </section>
-        <section className='main__raison mb-5 pb-5'>
+        <section id='diseases' className='main__raison mb-5 pb-5'>
           <section className='d-flex justify-content-around px-4 px-md-0 pt-5 ps-md-5'>
             <h2 id='#disease' className='fs-2'>
-              Que enfermedades detecta?
+              ¿Qué enfermedades detecta?
             </h2>
             <p />
             <p />
@@ -129,10 +126,10 @@ const Home = () => {
             ))}
           </article>
         </section>
-        <section className='main__raison mb-5 pb-5'>
+        <section id='detect' className='main__raison mb-5 pb-5'>
           <section className='d-flex justify-content-around px-4 px-md-0 pt-5 ps-md-5'>
-            <h2 id='#who' className='fs-2'>
-              Como los detecta?
+            <h2 className='fs-2'>
+              ¿Cómo los detecta?
             </h2>
             <p />
             <p />
@@ -149,7 +146,7 @@ const Home = () => {
                   src={tf}
                   alt='technologies'
                 />
-                <p className='text-justify fs-small px-4'>
+                <p className='text-justify fs-small-12 px-4'>
                   TensorFlow es una plataforma de código abierto de extremo a
                   extremo para el aprendizaje automático. Cuenta con un
                   ecosistema integral y flexible de herramientas, bibliotecas y
@@ -167,9 +164,9 @@ const Home = () => {
             />
           </article>
         </section>
-        <section className='main__raison mb-5 pb-5'>
+        <section id='about' className='main__raison mb-5 pb-5'>
           <section className='d-flex justify-content-around px-4 px-md-0 pt-5 ps-md-5'>
-            <h2 id='#about' className='fs-2'>
+            <h2 className='fs-2'>
               Sobre nosotros
             </h2>
             <p />
@@ -177,53 +174,8 @@ const Home = () => {
             <p />
           </section>
           <article className='main__grid-fit h-75'>
-            <section className='card__main-about my-4 my-lg-0'>
-              <img src={jochizan} alt='jochizan' />
-              <a
-                href='https://developers.google.com/profile/u/100596963017130784226?utm_source=developers.google.com'
-                target='_blank'
-                rel='noreferrer'
-                className='text-center py-2'
-              >
-                Jochizan
-              </a>
-            </section>
-
-            <section className='card__main-about my-3 my-lg-0'>
-              <img src={logo} alt='uncle liquor' />
-              <a
-                href='https://github.com/Uncle-Liquor'
-                target='_blank'
-                rel='noreferrer'
-                className='text-center py-2'
-              >
-                Org. UL
-              </a>
-            </section>
-
-            <section className='card__main-about my-3 my-lg-0'>
-              <img src={fis} alt='Ing. de sistemas UNCP' />
-              <a
-                href='https://www.sistemasuncp.edu.pe'
-                target='_blank'
-                rel='noreferrer'
-                className='text-center py-2'
-              >
-                FIS
-              </a>
-            </section>
-
-            <section className='card__main-about my-3 my-lg-0 grid-lg-3'>
-              <img src={uncp} alt='UNCP' />
-              <a
-                href='https://uncp.edu.pe'
-                target='_blank'
-                rel='noreferrer'
-                className='text-center py-2'
-              >
-                UNCP
-              </a>
-            </section>
+            {data.home.cardsAbout.map((item, idx) => (
+              <CardAbout key={idx} img={item.img} href={item.href} title={item.title} />))}
           </article>
         </section>
       </main>

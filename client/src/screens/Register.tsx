@@ -11,7 +11,7 @@ import MainButton from '../components/MainButton/MainButton';
 import Loader from '../components/Loader/Loader';
 
 // layouts
-import Footer from '../layouts/Footer/Footer';
+import Footer from '../layouts/FooterForm/FooterForm';
 import HeaderForm from '../layouts/HeaderForm/HeaderForm';
 
 // others
@@ -41,6 +41,12 @@ const Register = () => {
   const delay = (ms: number) =>
     new Promise((resolve) => setTimeout(resolve, ms));
 
+  const loadingDelay = async () => {
+    setLoading(true);
+    await delay(480);
+    setLoading(false);
+  };
+
   const handleSecond = async (e: SyntheticEvent) => {
     e.preventDefault();
 
@@ -52,18 +58,14 @@ const Register = () => {
     if (!form.surnames || !form.names || errors.names || errors.surnames)
       return;
 
-    setLoading(true);
-    await delay(500);
-    setLoading(false);
+    await loadingDelay();
 
     toast.success('Campos validados continue...');
     setFirst(!first);
   };
 
   const handleButton = async () => {
-    setLoading(true);
-    await delay(500);
-    setLoading(false);
+    await loadingDelay();
     setFirst(!first);
   };
 
@@ -147,8 +149,8 @@ const Register = () => {
                 onClick={handleSecond}
               />
             )}
-            <Link to='/login' className='text-center fs-small'>
-              {register.sign}{' '}
+            <Link to='/login' className='text-center fs-small-12'>
+              {register.sign}
               <b className='text-decoration-underline'>{register.signBold}</b>
             </Link>
           </section>

@@ -3,7 +3,7 @@ import { IUserForm } from '../interfaces/auth.interfaces';
 import { HelpHttp } from '../utils/HelpHttp';
 import { toast } from 'react-toastify';
 
-const API = 'https://api-phg-plants.herokuapp.com';
+const API = 'http://localhost:4000';
 
 const useForm = (
   initialForm: IUserForm,
@@ -71,7 +71,7 @@ const useForm = (
     setLoading,
     handleBlur,
     handleSubmit,
-    handleChange,
+    handleChange
   };
 };
 
