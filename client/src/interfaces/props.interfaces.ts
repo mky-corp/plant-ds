@@ -1,4 +1,4 @@
-import { ChangeEvent, CSSProperties, FocusEvent, ReactNode, SyntheticEvent } from 'react';
+import { ChangeEvent, FocusEvent, ReactNode, SyntheticEvent } from 'react';
 
 interface IPropsChildren {
   children?: ReactNode;
@@ -65,8 +65,15 @@ interface IPropsMainButton {
 interface IPropsCardMain {
   img?: string;
   grid?: string;
+  href?: string;
   title?: string;
   description?: string;
+}
+
+interface IPropsCardAbout {
+  img?: string;
+  href?: string;
+  title?: string;
 }
 
 export type {
@@ -74,6 +81,7 @@ export type {
   IPropsChildren,
   IPropsCardTech,
   IPropsCardMain,
+  IPropsCardAbout,
   IPropsFormGroup,
   IPropsHeaderForm,
   IPropsButtonHome,

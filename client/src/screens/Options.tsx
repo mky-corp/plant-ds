@@ -31,7 +31,7 @@ const Options = () => {
 
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
-    history.push('/detects');
+    history.push('/detect');
   };
 
   useEffect(() => {

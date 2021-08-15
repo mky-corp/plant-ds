@@ -29,14 +29,13 @@ export const AuthProvider = ({ children }: IPropsChildren) => {
       setAll('email', res._user.email + '');
       setAll('token', res.token + '');
       setAll('auth', true + '');
-      const _user = {
+      setUser({
         names: cookie.get('names'),
         surnames: cookie.get('surnames'),
         email: cookie.get('email'),
         token: cookie.get('token')
-      };
+      });
 
-      setUser(_user);
       history.push('/');
     } else {
       toast.error('Error el token de autenticación no existe');

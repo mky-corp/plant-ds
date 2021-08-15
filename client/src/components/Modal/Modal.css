@@ -9,6 +9,7 @@
   display: none;
   justify-content: center;
   align-items: center;
+  transition: all 1s;
 }
 
 .modal.is-open {

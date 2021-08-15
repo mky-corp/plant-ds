@@ -10,7 +10,7 @@ import MainButton from '../components/MainButton/MainButton';
 import Loader from '../components/Loader/Loader';
 
 // layouts
-import Footer from '../layouts/Footer/Footer';
+import FooterHome from '../layouts/FooterForm/FooterForm';
 import HeaderForm from '../layouts/HeaderForm/HeaderForm';
 
 // libs
@@ -31,7 +31,7 @@ const Login = () => {
   return (
     <section className='bg__start vh-100'>
       <div className='bg__container-form d-flex flex-column'>
-        <HeaderForm title='SIGN IN' />
+        <HeaderForm title={login.title} />
         <Form className='flex-grow-1 d-flex flex-column justify-content-evenly'>
           <FormGroup
             id='email'
@@ -57,15 +57,15 @@ const Login = () => {
             {loading ? (
               <Loader />
             ) : (
-              <MainButton title='SIGN IN' first={true} onClick={handleSubmit} />
+              <MainButton title={login.title} first={true} onClick={handleSubmit} />
             )}
-            <Link to='/register' className='text-center fs-small'>
-              you don't have an account{' '}
-              <b className='text-decoration-underline'>sign up</b>
+            <Link to='/register' className='text-center fs-small-12'>
+              {login.sign}
+              <b className='text-decoration-underline'>{login.signBold}</b>
             </Link>
           </section>
         </Form>
-        <Footer />
+        <FooterHome />
       </div>
     </section>
   );
