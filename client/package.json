@@ -2,7 +2,7 @@
   "name": "client",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://Uncle-Liquor.github.io/phg-plants",
+  "homepage": "https://Uncle-Liquor.github.io/plant-ds",
   "dependencies": {
     "@tensorflow/tfjs": "^3.8.0",
     "@testing-library/jest-dom": "^5.11.4",
