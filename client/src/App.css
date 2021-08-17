@@ -147,11 +147,11 @@
 
 .main__grid-detect {
   display: grid;
-  grid-template: auto / repeat(auto-fit, minmax(394px, 1fr));
+  grid-template: auto / repeat(auto-fit, minmax(300px, 1fr));
   justify-items: center;
   align-items: center;
   background-color: var(--gray-bg-color);
-  column-gap: .5rem;
+  column-gap: 1rem;
   row-gap: 3rem;
 }
 
@@ -280,6 +280,13 @@
   color: var(--text-color);
 }
 
+.fs-overflow {
+  text-align: center;
+  max-height: 48px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .fs-small-12 {
   font-size: 12px;
 }
@@ -330,7 +337,7 @@
 /* animations */
 
 .all-animations {
-  transition: all .5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 [id] {
@@ -458,6 +465,10 @@
     height: 280px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 16px;
+  }
+
+  .main__grid-detect {
+    grid-template: auto / repeat(auto-fit, minmax(394px, 1fr));
   }
 
   .main__grid {

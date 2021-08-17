@@ -1,13 +1,17 @@
 .card__detect {
   min-height: 240px;
-  min-width: 394px;
-  height: min-content;
-  display: flex;
+  max-width: 300px;
   border: 1px solid var(--gray-light-color);
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 4px;
   background-color: var(--white-bg-color);
 }
 
-.card__detect img {
+@media screen and (min-width: 768px) {
+  .card__detect {
+    min-width: 300px;
+    min-height: min-content;
+    min-width: min-content;
+    max-width: fit-content;
+  }
 }

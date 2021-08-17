@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import detect from '../assets/microscope-analysis.svg';
 
@@ -20,24 +20,32 @@ import Loader from '../components/Loader/Loader';
 
 const Detect = () => {
   const history = useHistory();
-  const { buffers, images } = useContext(FileContext);
+  const [state, setState] = useState(false);
+  const { buffers, names, images, handleDeleteAll } = useContext(FileContext);
   const { auth } = useContext(AuthContext);
-  const { predictions, loading, predictionsModel } = useTF();
+  const {
+    deletePrediction,
+    predictions,
+    predLoad,
+    loading,
+    predictionBuffers,
+    predictBuffer
+  } = useTF();
   const [isOpenLogin, openModalLogin] = useModal();
   const [isOpenLoad, openModalLoad, closeModalLoad] = useModal();
 
-  console.log(images);
-
   useEffect(() => {
-    if (!auth) openModalLogin();
-    if (loading) openModalLoad();
-    if (!loading) closeModalLoad();
+    if (!auth) return openModalLogin();
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [auth, loading]);
+  }, [auth]);
 
   useEffect(() => {
-    if (predictions.length !== 0) console.log(predictions);
-  }, [predictions]);
+    if (predLoad || loading) openModalLoad();
+    if (!predLoad && !loading) closeModalLoad();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loading, predLoad]);
 
   return (
     <section className='min-vh-100 d-flex flex-column'>
@@ -46,7 +54,11 @@ const Detect = () => {
         <ModalSession />
       </Modal>
       <Modal unClose={true} isOpen={isOpenLoad}>
-        <h3 className='text-center fs-4'>Cargando el modelo...</h3>
+        <h3 className='text-center fs-4'>
+          {predLoad
+            ? 'Se estan evaluando todas las imágenes'
+            : 'Cargando el modelo...'}
+        </h3>
         <Loader />
       </Modal>
 
@@ -65,22 +77,36 @@ const Detect = () => {
               <section className='py-3 mb-2 py-md-0'>
                 <p className='text-justify fs-small-14 px-4 pb-2 pb-md-0'>
                   Puede darle al botón para identificar en todas las imágenes
-                  subidas la posible enfermedad o evaluarlas una por una.
+                  subidas para su posible enfermedad o evaluarlas una por una.
                 </p>
                 <MainButton
-                  type='button'
                   first={true}
                   title='Detectar en todas'
-                  onClick={() => predictionsModel(buffers)}
+                  onClick={() => predictionBuffers(buffers)}
                 />
               </section>
             </section>
           </section>
         </article>
-        <article className='main__grid-detect py-5'>
-          {images?.map((item, idx) => (
-            <CardDetect img={item} key={idx} />
-          ))}
+        <article className='main__grid-detect px-0 px-md-3 py-5'>
+          {images?.length ? (
+            images?.map((item, idx) => (
+              <CardDetect
+                key={idx}
+                idx={idx}
+                img={item}
+                setState={setState}
+                onClick={!state ? predictBuffer : undefined}
+                onRemove={!state ? handleDeleteAll : undefined}
+                deletePred={!state ? deletePrediction : undefined}
+                name={names ? names[idx] : `Imágen ${idx}`}
+                buffer={buffers ? buffers[idx] : undefined}
+                predictions={predictions ? predictions[idx] : undefined}
+              />
+            ))
+          ) : (
+            <p>No hay imágenes cargadas</p>
+          )}
         </article>
       </main>
       <FooterHome />

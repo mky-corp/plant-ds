@@ -29,8 +29,6 @@ const Options = () => {
   const { capture, webCam, handleWebCam, webcamRef, width, height } =
     useWebcam();
 
-  console.log(buffers);
-
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
     history.push('/detect');
