@@ -1,10 +1,11 @@
 import Webcam from 'react-webcam';
-import { useCallback, useState, useRef, useContext } from 'react';
+import { useCallback, useContext, useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { ls, w } from '../utils/Globals';
 import FileContext from '../context/FileContext';
 import { webCam as stateWebCam } from '../services/auth.storage';
+import { toast } from 'react-toastify';
 
 const useWebcam = () => {
   const webcamRef = useRef<Webcam>(null);
@@ -16,17 +17,17 @@ const useWebcam = () => {
 
   const handleWebCam = () => {
     setWebCam(!webCam);
-    ls.setItem('webCam', true + '');
+    ls.setItem('webCam', !webCam + '');
   };
 
-  const handleImage = async (url: string) => {
-    const file = await fetch(url);
-    const image = await file.arrayBuffer();
-    const uint8Array = new Uint8Array(image);
+  const handleImage = (url: string) => {
+    if (handleUint8Array) {
+      handleUint8Array(url);
 
-    if (handleUint8Array) handleUint8Array(uint8Array);
-
-    history.push('/detects');
+      history.push('/detect');
+    } else {
+      toast.warn('Espere a la carga completa..');
+    }
   };
 
   const capture = useCallback(() => {
@@ -38,6 +39,7 @@ const useWebcam = () => {
     });
 
     if (imageSrc) handleImage(imageSrc);
+    else toast.error('Hubo un error con la captura de pantalla');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [webcamRef]);
 

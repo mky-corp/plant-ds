@@ -158,7 +158,7 @@ const Options = () => {
                     className='primary-bg primary-border w-100'
                     onClick={handleSubmit}
                   >
-                    Detects
+                    Detect
                   </Button>
                 </section>
               </Form.Group>

@@ -9,6 +9,17 @@ const email: string = cookies.get('email');
 const token: string = cookies.get('token');
 const auth: boolean = JSON.parse(cookies.get('auth') || false);
 const webCam: boolean = JSON.parse(ls.getItem('webCam') + '');
-const buffers: Uint8Array[] = JSON.parse(ls.getItem('imageBuffers') + '') || [];
 
-export { names, surnames, email, token, auth, webCam, buffers };
+const namesImages: string[] = JSON.parse(ls.getItem('names') + '') || [];
+const images: string[] = JSON.parse(ls.getItem('images') + '') || [];
+
+export {
+  names,
+  email,
+  token,
+  auth,
+  webCam,
+  images,
+  surnames,
+  namesImages
+};

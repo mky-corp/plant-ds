@@ -1,17 +1,34 @@
-import { ChangeEvent, createContext, useState } from 'react';
+import { ChangeEvent, createContext, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+
 import { IFileContext } from '../interfaces/file.interfaces';
 import { IPropsChildren } from '../interfaces/props.interfaces';
 import { defaultFileState } from '../services/default.state';
+import { ls } from '../utils/Globals';
 
 const FileContext = createContext<Partial<IFileContext>>(defaultFileState);
 
 export const FileProvider = ({ children }: IPropsChildren) => {
   const [progress, setProgress] = useState<number | string>('');
   const [progressInner, setProgressInner] = useState<string>('');
-  const [files, setFiles] = useState<File[]>(defaultFileState.files);
+  const [names, setNames] = useState<string[]>(defaultFileState.names);
+  const [images, setImages] = useState<string[]>(defaultFileState.images);
   const [buffers, setBuffers] = useState<Uint8Array[]>(
     defaultFileState.buffers
   );
+
+  const handleDeleteAll = (idx: number) => {
+    const newImages = images.filter((_, i) => idx !== i);
+    const newBuffers = buffers.filter((_, i) => idx !== i);
+    const newNames = names.filter((_, i) => idx !== i);
+
+    setImages(newImages);
+    setNames(newNames);
+    setDataInLs('names', newNames);
+    setDataInLs('images', newImages);
+
+    setBuffers(newBuffers);
+  };
 
   const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files) return;
@@ -25,18 +42,64 @@ export const FileProvider = ({ children }: IPropsChildren) => {
     processImage(files);
   };
 
-  const processImage = (newFiles: File[] | FileList) => {
-    const fileBuffers: Uint8Array[] = buffers;
-    const fileArray = Array.from(newFiles);
-
-    setFiles([...files, ...fileArray]);
-    fileArray.forEach((file) => uploadFile(file, fileBuffers));
+  const setDataInLs = (key = 'default', data: string[]) => {
+    try {
+      ls.setItem(key, JSON.stringify(data));
+    } catch (err: any) {
+      toast.error(
+        err.message || 'Se sobrepaso el limite de espacio en el local storage'
+      );
+    }
   };
 
-  const handleUint8Array = (imageRaw: Uint8Array) =>
-    setBuffers([...buffers, imageRaw]);
+  const processImage = (newFiles: File[] | FileList) => {
+    const fileBuffers: Uint8Array[] = buffers;
+    const fileImages: string[] = images;
+    const fileNames: string[] = names;
+    const fileArray = Array.from(newFiles);
 
-  const uploadFile = (file: File, fileBuffers: Uint8Array[]) => {
+    if (fileArray.length + images.length > 24) {
+      return toast.warn(
+        'Se esta sobrepasando el limite de imágenes que puede evaluar'
+      );
+    }
+
+    fileArray.forEach((file) => uploadImage(file, fileImages, fileNames));
+    fileArray.forEach((file) => uploadBuffer(file, fileBuffers));
+  };
+
+  const handleUint8Array = async (url: string, buffers: Uint8Array[] = []) => {
+    const file = await fetch(url);
+    const image = await file.arrayBuffer();
+    const uint8Array = new Uint8Array(image);
+
+    buffers.push(uint8Array);
+    setBuffers(buffers);
+  };
+
+  const uploadImage = (
+    file: File,
+    fileImages: string[],
+    fileNames: string[]
+  ) => {
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+
+    fileNames.push(file.name);
+    setNames(fileNames);
+    setDataInLs('names', fileNames);
+
+    fileReader.addEventListener('load', (e: ProgressEvent) => {
+      if (!fileReader.result || fileReader.result instanceof ArrayBuffer)
+        return;
+
+      fileImages.push(fileReader.result);
+      setImages(fileImages);
+      setDataInLs('images', fileImages);
+    });
+  };
+
+  const uploadBuffer = (file: File, fileBuffers: Uint8Array[]) => {
     const fileReader = new FileReader();
     fileReader.readAsArrayBuffer(file);
 
@@ -63,13 +126,23 @@ export const FileProvider = ({ children }: IPropsChildren) => {
     });
   };
 
+  useEffect(() => {
+    if (images && !buffers.length)
+      for (let i = 0; i < images.length; ++i)
+        handleUint8Array(images[i], buffers);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [images]);
+
   return (
     <FileContext.Provider
       value={{
-        files,
+        names,
+        images,
         buffers,
         progress,
         progressInner,
+        handleDeleteAll,
         handleUint8Array,
         handleImageChange,
         handleImageDropZone

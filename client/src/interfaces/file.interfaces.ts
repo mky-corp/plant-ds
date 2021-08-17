@@ -1,11 +1,13 @@
 import { ChangeEvent } from 'react';
 
 interface IFileContext {
-  files: File[];
+  names: string[];
+  images: string[];
   buffers: Uint8Array[];
   progress?: number | string;
   progressInner?: string;
-  handleUint8Array?: (e: Uint8Array) => void;
+  handleDeleteAll?: (idx: number) => void;
+  handleUint8Array?: (url: string) => void;
   handleImageChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   handleImageDropZone?: (e: File[]) => void;
 }
