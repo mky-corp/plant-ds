@@ -145,7 +145,6 @@ const Register = () => {
               <MainButton
                 title={register.continue}
                 first={true}
-                type='button'
                 onClick={handleSecond}
               />
             )}

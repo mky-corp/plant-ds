@@ -1,4 +1,4 @@
-# [Plant-DS](https://uncle-liquor.github.io/phg-plants) &middot; [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![npm version](https://img.shields.io/npm/v/react.svg?style=flat)](https://www.npmjs.com/package/react) 
+# [Plant-DS](https://uncle-liquor.github.io/plant-ds) &middot; [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![npm version](https://img.shields.io/npm/v/react.svg?style=flat)](https://www.npmjs.com/package/react) 
 
 ## Lenguajes de programación:
 
@@ -18,19 +18,19 @@
 | [![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)](https://reactrouter.com/) | Framework para el manejo de las rutas de vista de una aplicación web |
 | [![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white)](https://www.tensorflow.org/) | Framework para el desarrollo de redes neuronales artificiales en varios lenguajes |
 | [![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/) | Framework css para el maquetado fácil de páginas web de todo tipo |
-# Dependencias de lado del backend:
+## Dependencias de lado del backend:
 
 | Tecnología | Descripción |
 | ---------- | ----------- |
 | [![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)](https://expressjs.com/) | Framework para el desarrollo de aplicaciones completas enfocadas al servidor |
 | [![Babel](https://img.shields.io/badge/Babel-F9DC3e?style=for-the-badge&logo=babel&logoColor=black)](https://babeljs.io/) | Herramienta para el uso de las últimas versiones de ecmascript tanto en el navegador como en el servidor |
-# Base de datos
+## Base de datos
 
 | Base de datos | Descripción |
 | ------------- | ----------- |
 | [![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/) | Base de datos no relacional potente para la creación de aplicaciones web |
 
-# Otras herramientas
+## Otras herramientas
 
 | Herramienta | Descripción | 
 | ----------- | ----------- |
@@ -57,4 +57,4 @@ To help you get your feet wet and get you familiar with our contribution process
 
 ### License
 
-React is [MIT licensed](./LICENSE).
+Plant-DS is [APACHE licensed](./LICENSE).

@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import fs from 'fs';
 import Image from '../models/Image';
 import { info } from '../config/logging';
-import MoveFiles from '../utils/moveFiles';
+import MoveFiles from '../utils/MoveFiles';
 
 const NAMESPACE = 'Images';
 

@@ -55,7 +55,6 @@ interface IPropsFormGroup {
 
 interface IPropsMainButton {
   to?: string | object;
-  type?: string;
   first?: boolean;
   title?: string;
   clName?: string;

@@ -2,13 +2,12 @@ import { ChangeEvent, FocusEvent, useState, SyntheticEvent } from 'react';
 import { IUserForm } from '../interfaces/auth.interfaces';
 import { HelpHttp } from '../utils/HelpHttp';
 import { toast } from 'react-toastify';
-
-const API = 'https://api-phg-plants.herokuapp.com';
+import { API } from '../services/auth.storage';
 
 const useForm = (
   initialForm: IUserForm,
   validateForm: (form: IUserForm) => IUserForm,
-  process?: (res?: any) => void,
+  process?: (res?: any) => void | boolean,
   endpoint?: string
 ) => {
   const [form, setForm] = useState<IUserForm>(initialForm);
@@ -33,8 +32,9 @@ const useForm = (
     setErrors(validateForm(form));
 
     if (!Object.keys(errors).length) {
-      toast.info('Se esta enviando el formulario...');
+      toast.info('Se esta procesando el formulario...');
       setLoading(true);
+      let err;
 
       const res = await HelpHttp().post(`${API}/api/${endpoint}`, {
         body: JSON.stringify(form),
@@ -49,14 +49,13 @@ const useForm = (
 
       if (res.err || res.status > 400 || res instanceof DOMException) {
         toast.error(
-          `Error: ${res.err || 'Desconocido'} Status: ${res.status || 404}`
+          `Error: ${res.err || 'Failed Petition'} Estado: ${res.status || 404}`
         );
-        if (res.status === 404) {
-          toast.info('Hubo un problema vuelva a intentarlo más tarde...');
-        }
       } else {
-        toast.success('Operación exitosa');
-        if (process) process(res);
+        if (process) err = process(res) || false;
+
+        if (!err) toast.success('Operación exitosa');
+        else toast.error('Hubo un error inténtelo más tarde');
       }
     } else {
       if (errors.password) toast.error(errors.password);

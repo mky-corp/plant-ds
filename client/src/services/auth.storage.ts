@@ -3,6 +3,7 @@ import { ls } from '../utils/Globals';
 
 const cookies = new Cookies();
 
+const API = 'http://localhost:4000';
 const names: string = cookies.get('names');
 const surnames: string = cookies.get('surnames');
 const email: string = cookies.get('email');
@@ -14,6 +15,7 @@ const namesImages: string[] = JSON.parse(ls.getItem('names') + '') || [];
 const images: string[] = JSON.parse(ls.getItem('images') + '') || [];
 
 export {
+  API,
   names,
   email,
   token,
