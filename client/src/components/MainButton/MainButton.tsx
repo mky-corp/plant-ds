@@ -9,11 +9,13 @@ const MainButton = ({
   title,
   first,
   clName,
-  onClick,
+  onClick
 }: IPropsMainButton) => {
   const classes = `${
     first ? 'principal__btn' : 'secondary__btn'
   } d-flex mx-auto fw-bold justify-content-center align-content-center mb-3 mb-md-1 ${clName}`;
+
+  console.log(type);
 
   return to ? (
     <Link to={to} className={classes}>
@@ -22,7 +24,7 @@ const MainButton = ({
       </p>
     </Link>
   ) : (
-    <Button type={type} onClick={onClick} className={classes}>
+    <Button onClick={onClick} className={classes}>
       <p className='fw-bold m-0 mt-1 letters-s-1'>{title}</p>
     </Button>
   );
