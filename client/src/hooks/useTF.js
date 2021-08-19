@@ -2,8 +2,7 @@ import * as tf from '@tensorflow/tfjs';
 import * as jpeg from 'jpeg-js';
 import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
-
-const API = 'https://api-phg-plants.herokuapp.com';
+import { API } from '../services/auth.storage';
 
 const useTF = () => {
   const [loading, setLoading] = useState(true);

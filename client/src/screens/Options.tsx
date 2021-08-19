@@ -75,7 +75,6 @@ const Options = () => {
             )}
             <Container>
               <MainButton
-                type='button'
                 first={true}
                 onClick={!webCam ? handleWebCam : capture}
                 title={!webCam ? 'Active Camera' : 'Capture Image'}
