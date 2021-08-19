@@ -1,7 +1,6 @@
 import { createContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Cookies from 'universal-cookie';
-import { toast } from 'react-toastify';
 
 // locals
 import { defaultAuthState } from '../services/default.state';
@@ -23,10 +22,12 @@ export const AuthProvider = ({ children }: IPropsChildren) => {
 
   const signIn = (res?: any) => {
     if (res.token) {
+      const { names, surnames, email } = res._user;
+
       setAuth(true);
-      setAll('names', res._user.names + '');
-      setAll('surnames', res._user.surnames + '');
-      setAll('email', res._user.email + '');
+      setAll('names', names + '');
+      setAll('surnames', surnames + '');
+      setAll('email', email + '');
       setAll('token', res.token + '');
       setAll('auth', true + '');
       setUser({
@@ -38,7 +39,7 @@ export const AuthProvider = ({ children }: IPropsChildren) => {
 
       history.push('/');
     } else {
-      toast.error('Error el token de autenticación no existe');
+      return true;
     }
   };
 

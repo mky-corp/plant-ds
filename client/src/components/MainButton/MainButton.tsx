@@ -5,7 +5,6 @@ import './MainButton.css';
 
 const MainButton = ({
   to,
-  type,
   title,
   first,
   clName,
@@ -14,8 +13,6 @@ const MainButton = ({
   const classes = `${
     first ? 'principal__btn' : 'secondary__btn'
   } d-flex mx-auto fw-bold justify-content-center align-content-center mb-3 mb-md-1 ${clName}`;
-
-  console.log(type);
 
   return to ? (
     <Link to={to} className={classes}>
