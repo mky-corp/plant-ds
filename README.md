@@ -30,7 +30,7 @@
 | ------------- | ----------- |
 | [![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/) | Base de datos no relacional potente para la creación de aplicaciones web |
 
-# Otras herramientas
+## Otras herramientas
 
 | Herramienta | Descripción | 
 | ----------- | ----------- |

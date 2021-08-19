@@ -1,8 +1,8 @@
 import * as tf from '@tensorflow/tfjs';
 import * as jpeg from 'jpeg-js';
-import { useState, useEffect } from 'react';
+import { API } from '../utils/Globals';
 import { toast } from 'react-toastify';
-import { API } from '../services/auth.storage';
+import { useState, useEffect } from 'react';
 
 const useTF = () => {
   const [loading, setLoading] = useState(true);

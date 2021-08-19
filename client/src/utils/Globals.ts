@@ -4,4 +4,7 @@ const n = navigator;
 const ls = localStorage;
 const dt = new Date();
 
-export { w, d, n, ls, dt };
+const API = 'https://api-phg-plants.herokuapp.com';
+// const API = 'http://localhost:4000';
+
+export { w, d, n, ls, dt, API };
