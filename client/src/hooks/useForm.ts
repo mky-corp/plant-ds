@@ -1,8 +1,8 @@
 import { ChangeEvent, FocusEvent, useState, SyntheticEvent } from 'react';
+import { toast } from 'react-toastify';
 import { IUserForm } from '../interfaces/auth.interfaces';
 import { HelpHttp } from '../utils/HelpHttp';
-import { toast } from 'react-toastify';
-import { API } from '../services/auth.storage';
+import { API } from '../utils/Globals';
 
 const useForm = (
   initialForm: IUserForm,

@@ -6,7 +6,7 @@
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
 | [![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)](https://html5.org/)                                   | Lenguaje de marcados para dar la estructura básica a una página web por estandár                            |
 | [![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)](https://css-tricks.com/)                                 | Lenguaje en cascada para la estilización de sitios web por estandár                                         |
-| [![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)](https://developer.mozilla.org/es/) | Lenguage de programación que domina el mundo de la web                                                      |
+| [![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)](https://developer.mozilla.org/es/) | Lenguage de programación que domina el mundo de la web y el desarrollo de software en general               |
 | [![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/es/)                                 | Lenguaje que extiende las capacidades de javascript en el servidor                                          |
 | [![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)       | Lenguaje de programación que extiende la usabilidad de javascript tanto en el navegador como en el servidor |
 
@@ -17,16 +17,16 @@
 | [![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)](https://es.reactjs.org/)                | Framework frontend usado principalmente para la creación de interfaces de usuario |
 | [![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)](https://reactrouter.com/)     | Framework para el manejo de las rutas de vista de una aplicación web              |
 | [![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white)](https://www.tensorflow.org/) | Framework para el desarrollo de redes neuronales artificiales en varios lenguajes |
-| [![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)      | Framework css para el maquetado fácil de páginas web de todo tipo                 |
+| [![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/) | Framework css para el maquetado sencillo de páginas web |
 
 ## Dependencias de lado del backend:
 
-| Tecnología                                                                                                                                          | Descripción                                                                                              |
-| --------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| [![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)](https://expressjs.com/) | Framework para el desarrollo de aplicaciones completas enfocadas al servidor                             |
-| [![Babel](https://img.shields.io/badge/Babel-F9DC3e?style=for-the-badge&logo=babel&logoColor=black)](https://babeljs.io/)                           | Herramienta para el uso de las últimas versiones de ecmascript tanto en el navegador como en el servidor |
+| Tecnología | Descripción |
+| ---------- | ----------- |
+| [![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)](https://expressjs.com/) | Framework para el desarrollo de aplicaciones completas enfocadas al servidor |
+| [![Babel](https://img.shields.io/badge/Babel-F9DC3e?style=for-the-badge&logo=babel&logoColor=black)](https://babeljs.io/) | Herramienta para el uso de las últimas versiones de ecmascript tanto en el navegador como en el servidor |
 
-## Base de datos
+## Bases de datos
 
 | Base de datos                                                                                                                               | Descripción                                                              |
 | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |

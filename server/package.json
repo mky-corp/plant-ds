@@ -1,7 +1,8 @@
 {
   "name": "server",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "license": "apache",
   "scripts": {
     "start": "node dist/app.js",
     "dev": "tsc-watch --onSuccess \"node dist/app.js\"",
