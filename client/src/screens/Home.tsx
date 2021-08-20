@@ -1,15 +1,15 @@
 import { data } from '../services/data.storage';
 
 // images
+import tf from '../assets/tensorflow.svg';
 import model from '../assets/model.svg';
 import cube from '../assets/cube.svg';
-import logo from '../assets/logo.svg';
-import tf from '../assets/tensorflow.svg';
+import logo from '../assets/logo.jpg';
 
 // components
+import ButtonHome from '../components/ButtonHome/ButtonHome';
 import CardMain from '../components/CardMain/CardMain';
 import CardTech from '../components/CardTech/CardTech';
-import ButtonHome from '../components/ButtonHome/ButtonHome';
 
 // layouts
 import HeaderHome from '../layouts/HeaderHome/HeaderHome';

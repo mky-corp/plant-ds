@@ -7,9 +7,10 @@ import github from '../assets/github.svg';
 
 // about
 import fis from '../assets/fis.png';
+import logo from '../assets/logo.jpg';
 import uncp from '../assets/uncp.png';
 import jochizan from '../assets/jochizan.png';
-import logo from '../assets/logo.svg';
+import ulLogo from '../assets/ul-logo.svg';
 
 export const data = {
   login: {
@@ -156,7 +157,7 @@ export const data = {
       {
 
         title: 'Org. UL',
-        img: logo,
+        img: ulLogo,
         href: 'https://github.com/Uncle-Liquor'
       },
       {

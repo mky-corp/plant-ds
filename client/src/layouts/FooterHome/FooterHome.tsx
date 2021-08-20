@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import logo from '../../assets/logo.svg';
+import logo from '../../assets/logo.jpg';
 import './FooterHome.css';
 
 const FooterHome = () => {
