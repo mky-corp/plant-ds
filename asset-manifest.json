@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/plant-ds/static/css/main.4908f2b5.chunk.css",
-    "main.js": "/plant-ds/static/js/main.8f825722.chunk.js",
-    "main.js.map": "/plant-ds/static/js/main.8f825722.chunk.js.map",
+    "main.css": "/plant-ds/static/css/main.32830cab.chunk.css",
+    "main.js": "/plant-ds/static/js/main.338f00d3.chunk.js",
+    "main.js.map": "/plant-ds/static/js/main.338f00d3.chunk.js.map",
     "runtime-main.js": "/plant-ds/static/js/runtime-main.91e789b6.js",
     "runtime-main.js.map": "/plant-ds/static/js/runtime-main.91e789b6.js.map",
     "static/css/2.e779aa9d.chunk.css": "/plant-ds/static/css/2.e779aa9d.chunk.css",
@@ -12,31 +12,31 @@
     "static/js/3.dc40d33f.chunk.js.map": "/plant-ds/static/js/3.dc40d33f.chunk.js.map",
     "index.html": "/plant-ds/index.html",
     "static/css/2.e779aa9d.chunk.css.map": "/plant-ds/static/css/2.e779aa9d.chunk.css.map",
-    "static/css/main.4908f2b5.chunk.css.map": "/plant-ds/static/css/main.4908f2b5.chunk.css.map",
+    "static/css/main.32830cab.chunk.css.map": "/plant-ds/static/css/main.32830cab.chunk.css.map",
     "static/js/2.1ab9bce9.chunk.js.LICENSE.txt": "/plant-ds/static/js/2.1ab9bce9.chunk.js.LICENSE.txt",
     "static/media/arrow-left.6d95b1fe.svg": "/plant-ds/static/media/arrow-left.6d95b1fe.svg",
-    "static/media/App.css": "/plant-ds/static/media/background.a2e2f344.png",
+    "static/media/App.css": "/plant-ds/static/media/background.4f47e470.png",
     "static/media/camera.287dc93e.svg": "/plant-ds/static/media/camera.287dc93e.svg",
     "static/media/card-content-1.093a6036.svg": "/plant-ds/static/media/card-content-1.093a6036.svg",
     "static/media/card-content-2.f881f44f.svg": "/plant-ds/static/media/card-content-2.f881f44f.svg",
     "static/media/cube.a986d158.svg": "/plant-ds/static/media/cube.a986d158.svg",
-    "static/media/fis.1aed9129.png": "/plant-ds/static/media/fis.1aed9129.png",
+    "static/media/fis.c91dc18c.png": "/plant-ds/static/media/fis.c91dc18c.png",
     "static/media/github.95ad9234.svg": "/plant-ds/static/media/github.95ad9234.svg",
-    "static/media/jochizan.e5b2fe1e.png": "/plant-ds/static/media/jochizan.e5b2fe1e.png",
-    "static/media/logo.4cece56f.png": "/plant-ds/static/media/logo.4cece56f.png",
+    "static/media/jochizan.3d8cd9e2.png": "/plant-ds/static/media/jochizan.3d8cd9e2.png",
+    "static/media/logo.6d6e4cfc.png": "/plant-ds/static/media/logo.6d6e4cfc.png",
     "static/media/microscope-analysis.99b6a503.svg": "/plant-ds/static/media/microscope-analysis.99b6a503.svg",
     "static/media/model.c01f48e0.svg": "/plant-ds/static/media/model.c01f48e0.svg",
     "static/media/plant-disease.b1fd5d97.svg": "/plant-ds/static/media/plant-disease.b1fd5d97.svg",
     "static/media/plant-healthy.a7ea2517.svg": "/plant-ds/static/media/plant-healthy.a7ea2517.svg",
     "static/media/tensorflow.10a223f4.svg": "/plant-ds/static/media/tensorflow.10a223f4.svg",
     "static/media/ul-logo.9a6e9a78.svg": "/plant-ds/static/media/ul-logo.9a6e9a78.svg",
-    "static/media/uncp.9c3e70cf.png": "/plant-ds/static/media/uncp.9c3e70cf.png"
+    "static/media/uncp.e1f79251.png": "/plant-ds/static/media/uncp.e1f79251.png"
   },
   "entrypoints": [
     "static/js/runtime-main.91e789b6.js",
     "static/css/2.e779aa9d.chunk.css",
     "static/js/2.1ab9bce9.chunk.js",
-    "static/css/main.4908f2b5.chunk.css",
-    "static/js/main.8f825722.chunk.js"
+    "static/css/main.32830cab.chunk.css",
+    "static/js/main.338f00d3.chunk.js"
   ]
 }
