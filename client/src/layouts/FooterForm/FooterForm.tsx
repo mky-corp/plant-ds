@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import logo from '../../assets/logo.jpg';
+import logo from '../../assets/logo.png';
 import { data } from '../../services/data.storage';
 import './FooterForm.css';
 

@@ -1,7 +1,7 @@
 import './HeaderHome.css';
 import { memo } from 'react';
 import { NavLink } from 'react-router-dom';
-import logo from '../../assets/logo.jpg';
+import logo from '../../assets/logo.png';
 import { data } from '../../services/data.storage';
 
 const HeaderHome = () => {
