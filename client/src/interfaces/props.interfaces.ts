@@ -1,4 +1,4 @@
-import { ChangeEvent, Dispatch, FocusEvent, ReactNode, SyntheticEvent } from 'react';
+import React, { ChangeEvent, Dispatch, FocusEvent, ReactNode, SyntheticEvent } from 'react';
 
 interface IPropsChildren {
   children?: ReactNode;
@@ -81,7 +81,7 @@ interface IPropsCardDetect {
   name?: string;
   buffer?: Uint8Array;
   predictions?: number[];
-  setState?: Dispatch<React.SetStateAction<boolean>>;
+  setState: [Dispatch<React.SetStateAction<boolean>>, boolean];
   onClick?: (buffer?: Uint8Array, idx?: number) => Promise<void>;
   onRemove?: (idx: number) => void;
   deletePred?: (idx?: number) => void;
