@@ -49,7 +49,7 @@ const Options = () => {
             <ModalSession />
           </> : (
             <section className='d-flex justify-content-center flex-column'>
-              <p className='text-center fs-5 fw-bold'>Las imágenes se han cargado correctamente</p>
+              <p className='text-center fs-5 fw-bold'>Las imágenes están cargadas</p>
               <MainButton
                 first={true}
                 title='Detectar'
