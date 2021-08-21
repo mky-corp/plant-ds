@@ -20,12 +20,12 @@ import FormUp from '../components/FormUp/FormUp';
 import Modal from '../components/Modal/Modal';
 
 const Options = () => {
-  const { buffers, handleImageChange, progress, progressInner } =
+  const { names, handleImageChange, progress } =
     useContext(FileContext);
   const { auth } = useContext(AuthContext);
 
   const history = useHistory();
-  const [isOpenLogin, openModal] = useModal();
+  const [isOpenLogin, openModal, closeModal] = useModal();
   const { capture, webCam, handleWebCam, webcamRef, width, height } =
     useWebcam();
 
@@ -36,14 +36,27 @@ const Options = () => {
 
   useEffect(() => {
     if (!auth) openModal();
+    if (names?.length && !progress) openModal();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [auth]);
+  }, [auth, names?.length, progress]);
 
   return (
     <>
-      <Modal handleClose={() => history.push('/')} isOpen={isOpenLogin}>
-        <h3 className='text-center fs-5'>Necesitas Iniciar Sesión</h3>
-        <ModalSession />
+      <Modal handleClose={!names?.length ? () => history.push('/') : closeModal} isOpen={isOpenLogin}>
+        {!names?.length ?
+          <>
+            <h3 className='text-center fs-5'>Necesitas Iniciar Sesión</h3>
+            <ModalSession />
+          </> : (
+            <section className='d-flex justify-content-center flex-column'>
+              <p className='text-center fs-5 fw-bold'>Las imágenes se han cargado correctamente</p>
+              <MainButton
+                first={true}
+                title='Detectar'
+                onClick={handleSubmit}
+              />
+            </section>
+          )}
       </Modal>
       <section className='d-flex options__container'>
         <div className='secondary-bg options__hw'>
@@ -77,7 +90,7 @@ const Options = () => {
               <MainButton
                 first={true}
                 onClick={!webCam ? handleWebCam : capture}
-                title={!webCam ? 'Active Camera' : 'Capture Image'}
+                title={!webCam ? 'Activar Cámara' : 'Hacer Captura'}
               />
               {webCam && (
                 <section className='w-100 d-flex justify-content-center'>
@@ -86,7 +99,7 @@ const Options = () => {
                     type='button'
                     onClick={handleWebCam}
                   >
-                    Deactivate Camera
+                    Desactivar Cámara
                   </Button>
                 </section>
               )}
@@ -97,7 +110,7 @@ const Options = () => {
         <div className='third-bg p-4 options__hw'>
           <FormUp
             handleSubmit={handleSubmit}
-            title='Load Files'
+            title='Cargar Archivos'
             description='Slate helps you see how many more days you need to 
               work to reach your financial goal for the month and year.'
           >
@@ -113,7 +126,7 @@ const Options = () => {
                 d-flex flex-column align-items-center'
               >
                 <Form.Label className='white-color d-flex justify-content w-90'>
-                  Upload Multiple Files
+                  Cargar Multiples Archivos
                 </Form.Label>
                 <section className='w-options__btns'>
                   <Form.Label className='options__input'>
@@ -142,23 +155,11 @@ const Options = () => {
                   </Form.Label>
                   {progress && (
                     <ProgressBar
-                      className='all-animations'
+                      className='all-animations fixed-top'
                       now={typeof progress !== 'string' ? progress : 0}
                       max={100}
                     />
                   )}
-                  <span
-                    className='w-100 d-flex justify-content-center white-color'
-                    dangerouslySetInnerHTML={{ __html: progressInner + '' }}
-                  />
-                  <Button
-                    type='submit'
-                    disabled={buffers?.length === 0 || !(progressInner === '')}
-                    className='primary-bg primary-border w-100'
-                    onClick={handleSubmit}
-                  >
-                    Detect
-                  </Button>
                 </section>
               </Form.Group>
             </Container>
@@ -168,5 +169,6 @@ const Options = () => {
     </>
   );
 };
+;
 
 export default Options;

@@ -2,7 +2,7 @@ import * as tf from '@tensorflow/tfjs';
 import * as jpeg from 'jpeg-js';
 import { API } from '../utils/Globals';
 import { toast } from 'react-toastify';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const useTF = () => {
   const [loading, setLoading] = useState(true);
@@ -52,12 +52,20 @@ const useTF = () => {
   };
 
   const predictModel = async (uint8) => {
-    const rawImageData = uint8.buffer;
-    const imageTensor = imageToTensor(rawImageData).resizeBilinear([249, 249]);
-    const tensor = imageTensor.reshape([1, 249, 249, 3]);
-    const predict = await model.predict(tensor);
-    const array = await predict.array();
-    return array[0];
+    try {
+
+      const rawImageData = uint8.buffer;
+      const imageTensor = imageToTensor(rawImageData).resizeBilinear([249, 249]);
+      const tensor = imageTensor.reshape([1, 249, 249, 3]);
+      const predict = await model.predict(tensor);
+      const array = await predict.array();
+      return array[0];
+    } catch (err) {
+      setErrors({
+        ...errors,
+        message: 'Error al predecir la imagen'
+      });
+    }
   };
 
   const deletePrediction = (idx) => {
@@ -100,7 +108,7 @@ const useTF = () => {
       return setErrors({
         ...errors,
         buffer: false,
-        message: 'No hay imágen que procesar'
+        message: 'No hay imagen que procesar'
       });
     }
 

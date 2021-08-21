@@ -7,7 +7,6 @@ import github from '../assets/github.svg';
 
 // about
 import fis from '../assets/fis.png';
-import logo from '../assets/logo.jpg';
 import uncp from '../assets/uncp.png';
 import jochizan from '../assets/jochizan.png';
 import ulLogo from '../assets/ul-logo.svg';
@@ -45,7 +44,7 @@ export const data = {
       {
         title: `GitHub <img class='m-1 w-25' src='${github}' alt='Logo de Github' />`,
         css: 'three letters-s-5',
-        href: 'https://github.com/Uncle-Liquor/phg-plants'
+        href: 'https://github.com/Uncle-Liquor/plant-ds'
       }
     ],
     cardsMain: [

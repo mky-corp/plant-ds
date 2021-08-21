@@ -10,7 +10,6 @@ const FileContext = createContext<Partial<IFileContext>>(defaultFileState);
 
 export const FileProvider = ({ children }: IPropsChildren) => {
   const [progress, setProgress] = useState<number | string>('');
-  const [progressInner, setProgressInner] = useState<string>('');
   const [names, setNames] = useState<string[]>(defaultFileState.names);
   const [images, setImages] = useState<string[]>(defaultFileState.images);
   const [buffers, setBuffers] = useState<Uint8Array[]>(
@@ -60,12 +59,13 @@ export const FileProvider = ({ children }: IPropsChildren) => {
 
     if (fileArray.length + images.length > 24) {
       return toast.warn(
-        'Se esta sobrepasando el limite de imágenes que puede evaluar'
+        'Se está sobrepasando el límite de imágenes que puede evaluar'
       );
     }
 
     fileArray.forEach((file) => uploadImage(file, fileImages, fileNames));
     fileArray.forEach((file) => uploadBuffer(file, fileBuffers));
+    toast.info('Las imágenes han sido subidas exitosamente');
   };
 
   const handleUint8Array = async (url: string, buffers: Uint8Array[] = []) => {
@@ -83,6 +83,7 @@ export const FileProvider = ({ children }: IPropsChildren) => {
     fileNames: string[]
   ) => {
     const fileReader = new FileReader();
+    if (file.type === 'image/png') return toast.info('Los archivos con otros formatos se están filtrando');
     fileReader.readAsDataURL(file);
 
     fileNames.push(file.name);
@@ -101,6 +102,7 @@ export const FileProvider = ({ children }: IPropsChildren) => {
 
   const uploadBuffer = (file: File, fileBuffers: Uint8Array[]) => {
     const fileReader = new FileReader();
+    if (file.type === 'image/png') return;
     fileReader.readAsArrayBuffer(file);
 
     fileReader.addEventListener('load', (e: ProgressEvent) => {
@@ -115,13 +117,11 @@ export const FileProvider = ({ children }: IPropsChildren) => {
     fileReader.addEventListener('progress', (e: ProgressEvent) => {
       let progress = (e.loaded * 100) / e.total;
       setProgress(progress);
-      setProgressInner(`<i class='fs-7'>${file.name} - ${progress}%</i>`);
     });
 
     fileReader.addEventListener('loadend', (e: ProgressEvent) => {
       setTimeout(() => {
         setProgress('');
-        setProgressInner('');
       }, 1200);
     });
   };
@@ -141,7 +141,6 @@ export const FileProvider = ({ children }: IPropsChildren) => {
         images,
         buffers,
         progress,
-        progressInner,
         handleDeleteAll,
         handleUint8Array,
         handleImageChange,

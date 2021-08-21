@@ -4,15 +4,10 @@ import Loader from '../Loader/Loader';
 import MainButton from '../MainButton/MainButton';
 import './CardDetect.css';
 
-interface Prediction {
-  class: number;
-  value: number;
-}
-
 const transformArray = (predict: number[]) => {
   const answer = [];
   for (let idx = 0; idx < predict.length; ++idx)
-    if (predict[idx] > 0.1) answer.push({ class: idx, value: predict[idx] });
+    if (predict[idx] > 0.1) answer.push({ res: idx, value: predict[idx] });
   return answer;
 };
 
@@ -21,32 +16,28 @@ const CardDetect = ({
   img,
   name,
   buffer,
-  predictions,
   onClick,
   setState,
   onRemove,
-  deletePred
+  deletePred,
+  predictions
 }: IPropsCardDetect) => {
   const [loading, setLoading] = useState<boolean>(false);
-  const preds = transformArray(predictions || []);
+  const prediction = transformArray(predictions || []);
 
   const handlePredict = async () => {
-    setLoading(true);
-    if (setState) setState(true);
-
-    if (setState && onClick && buffer !== undefined) {
+    if (onClick) {
+      setLoading(true);
       await onClick(buffer, idx);
+      setState[0](!setState[1]);
       setLoading(false);
-      setState(false);
     }
   };
 
   const handleDelete = () => {
-    setLoading(true);
     if (deletePred && onRemove) {
       onRemove(idx);
       deletePred(idx);
-      setLoading(false);
     }
   };
 
@@ -63,27 +54,23 @@ const CardDetect = ({
           <Loader />
         ) : (
           <>
-            {!preds.length ? (
+            {(prediction.length === 0) && (
               <MainButton
                 title='Detectar'
                 first={true}
                 onClick={handlePredict}
               />
-            ) : (
-              ''
             )}
 
-            {preds?.length ? (
+            {(prediction?.length !== 0) && (
               <ul>
-                {preds?.length &&
-                  preds.map(({ class: num, value }: Prediction, idx) => (
-                    <li key={idx}>
-                      La clase {num} tiene {value}
-                    </li>
-                  ))}
+                {prediction?.length &&
+                prediction.map(({ res, value }, idx) => (
+                  <li key={idx}>
+                    La clase {res} tiene {value}
+                  </li>
+                ))}
               </ul>
-            ) : (
-              ''
             )}
             <MainButton title='Eliminar' onClick={handleDelete} />
           </>
