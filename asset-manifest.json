@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/plant-ds/static/css/main.4908f2b5.chunk.css",
-    "main.js": "/plant-ds/static/js/main.dd289aeb.chunk.js",
-    "main.js.map": "/plant-ds/static/js/main.dd289aeb.chunk.js.map",
+    "main.js": "/plant-ds/static/js/main.8f825722.chunk.js",
+    "main.js.map": "/plant-ds/static/js/main.8f825722.chunk.js.map",
     "runtime-main.js": "/plant-ds/static/js/runtime-main.91e789b6.js",
     "runtime-main.js.map": "/plant-ds/static/js/runtime-main.91e789b6.js.map",
     "static/css/2.e779aa9d.chunk.css": "/plant-ds/static/css/2.e779aa9d.chunk.css",
@@ -23,7 +23,7 @@
     "static/media/fis.1aed9129.png": "/plant-ds/static/media/fis.1aed9129.png",
     "static/media/github.95ad9234.svg": "/plant-ds/static/media/github.95ad9234.svg",
     "static/media/jochizan.e5b2fe1e.png": "/plant-ds/static/media/jochizan.e5b2fe1e.png",
-    "static/media/logo.023e323d.jpg": "/plant-ds/static/media/logo.023e323d.jpg",
+    "static/media/logo.4cece56f.png": "/plant-ds/static/media/logo.4cece56f.png",
     "static/media/microscope-analysis.99b6a503.svg": "/plant-ds/static/media/microscope-analysis.99b6a503.svg",
     "static/media/model.c01f48e0.svg": "/plant-ds/static/media/model.c01f48e0.svg",
     "static/media/plant-disease.b1fd5d97.svg": "/plant-ds/static/media/plant-disease.b1fd5d97.svg",
@@ -37,6 +37,6 @@
     "static/css/2.e779aa9d.chunk.css",
     "static/js/2.1ab9bce9.chunk.js",
     "static/css/main.4908f2b5.chunk.css",
-    "static/js/main.dd289aeb.chunk.js"
+    "static/js/main.8f825722.chunk.js"
   ]
 }
