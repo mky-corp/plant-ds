@@ -4,9 +4,9 @@
 
 | Lenguaje                                                                                                                                                          | Descripción                                                                                                 |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| [![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)](https://html5.org/)                                   | Lenguaje de marcados para dar la estructura básica a una página web por estandár                            |
-| [![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)](https://css-tricks.com/)                                 | Lenguaje en cascada para la estilización de sitios web por estandár                                         |
-| [![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)](https://developer.mozilla.org/es/) | Lenguage de programación que domina el mundo de la web y el desarrollo de software en general               |
+| [![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)](https://html5.org/)                                   | Lenguaje de marcados para dar la estructura básica a una página web por estándar                            |
+| [![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)](https://css-tricks.com/)                                 | Lenguaje en cascada para la estilización de sitios web por estándar                                         |
+| [![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)](https://developer.mozilla.org/es/) | Lenguaje de programación que domina el mundo de la web y el desarrollo de software en general               |
 | [![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/es/)                                 | Lenguaje que extiende las capacidades de javascript en el servidor                                          |
 | [![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)       | Lenguaje de programación que extiende la usabilidad de javascript tanto en el navegador como en el servidor |
 
@@ -40,21 +40,26 @@
 | [![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)](https://www.figma.com/)                             | Herramienta para el prototipado de interfaces de todo tipo de forma dinámica                                                      |
 | [![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)](https://git-scm.com/)                                     | Control de versiones más usado en todo el mundo del desarrollo de software                                                        |
 | [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/)                             | Plataforma para alojar repositorios locales en la web más extendido y usado en el mundo                                           |
-| [![Jupyter](https://img.shields.io/badge/Jupyter-F37626.svg?&style=for-the-badge&logo=Jupyter&logoColor=white)](https://jupyter.org)                            | Interfaz dinámica para el desarrollo principalmente en Python                                                                     |
+| [![Jupyter](https://img.shields.io/badge/Jupyter-F37626.svg?&style=for-the-badge&logo=Jupyter&logoColor=white)](https://jupyter.org)                            | Interfaz para desarrollar software de código abierto, estándares abiertos y servicios para computación interactiva en varios lenguajes de programación |
 | [![Heroku](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)](https://dashboard.heroku.com/)                          | Heroku es una plataforma como servicio de computación en la Nube que soporta distintos lenguajes de programación                  |
 | [![Conda](https://img.shields.io/badge/conda-342B029.svg?&style=for-the-badge&logo=anaconda&logoColor=white)](https://www.anaconda.com/)                        | Anaconda es una distribución libre y abierta de los lenguajes Python y R, utilizada en ciencia de datos, y aprendizaje automático |
 
 ## Contribuir
 
-El propósito principal de este repositorio es continuar evolucionando obteniendo algoritmos core para encontrar la ruta más corta, haciéndolo más rápido y fácil de usar. El desarrollo de este repositorio debe ocurrir a la intemperie en GitHub, y estamos agradecidos con todo aquel que quiera contribuir con correcciones de errores y mejoras Lee a continuación para saber cómo puedes participar en la mejora de este repositorio.
+El propósito principal de este repositorio es continuar evolucionando obteniendo algoritmos core para encontrar la ruta
+más corta, haciéndolo más rápido y fácil de usar. El desarrollo de este repositorio debe ocurrir a la intemperie en
+GitHub, y estamos agradecidos con todo aquel que quiera contribuir con correcciones de errores y mejoras Lee a
+continuación para saber cómo puedes participar en la mejora de este repositorio.
 
 ### [Código de conducta](./CODE_OF_CONDUCT.md)
 
-Uncle-Liquor ha adoptado un Código de Conducta al que esperamos que los participantes del proyecto se adhieran. Por favor lea [Código de conducta](./CODE_OF_CONDUCT.md) para que pueda entender qué acciones serán y no serán tolerados
+Uncle-Liquor ha adoptado un Código de Conducta al que esperamos que los participantes del proyecto se adhieran. Por
+favor lea [Código de conducta](./CODE_OF_CONDUCT.md) para que pueda entender qué acciones serán y no serán tolerados
 
 ### Guia de contribución
 
-Actualmente no hay una guía de contribución, pero puedes proponer correcciones de errores y mejoras, y construir y probar sus cambios en este repositorio.
+Actualmente no hay una guía de contribución, pero puedes proponer correcciones de errores y mejoras, y construir y
+probar sus cambios en este repositorio.
 
 ### License
 

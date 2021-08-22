@@ -16,7 +16,7 @@ export const validateLogin = (form: IUserForm) => {
 
   if (form.password && form.password.length < 6)
     errors.password =
-      'El campo "contraseña" debería tener 6 caracteres como minimo';
+      'El campo "contraseña" debería tener 6 caracteres como mínimo';
 
   return errors;
 };

@@ -69,6 +69,11 @@ export const FileProvider = ({ children }: IPropsChildren) => {
   };
 
   const handleUint8Array = async (url: string, buffers: Uint8Array[] = []) => {
+    if (!buffers.length) {
+      setImages([url]);
+      setNames(['Capture Camera']);
+    }
+
     const file = await fetch(url);
     const image = await file.arrayBuffer();
     const uint8Array = new Uint8Array(image);

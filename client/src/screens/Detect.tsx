@@ -110,7 +110,7 @@ const Detect = () => {
                 idx={idx}
                 img={item}
                 setState={[setOk, ok]}
-                name={names && names[idx]}
+                name={names ? names[idx] : `Image ${idx}`}
                 buffer={buffers && buffers[idx]}
                 onClick={predictBuffer}
                 onRemove={handleDeleteAll}

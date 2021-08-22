@@ -59,7 +59,7 @@ const Options = () => {
           )}
       </Modal>
       <section className='d-flex options__container'>
-        <div className='secondary-bg options__hw'>
+        <div className='d-none d-md-flex secondary-bg options__hw'>
           <FormUp
             handleSubmit={handleSubmit}
             title='Use camera'
