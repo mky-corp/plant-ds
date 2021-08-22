@@ -4,7 +4,7 @@ import { data } from '../services/data.storage';
 import tf from '../assets/tensorflow.svg';
 import model from '../assets/model.svg';
 import cube from '../assets/cube.svg';
-import logo from '../assets/logo.jpg';
+import logo from '../assets/logo.png';
 
 // components
 import ButtonHome from '../components/ButtonHome/ButtonHome';

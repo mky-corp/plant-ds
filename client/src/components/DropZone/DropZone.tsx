@@ -21,15 +21,15 @@ const baseStyle: CSSProperties = {
 };
 
 const activeStyle: CSSProperties = {
-  borderColor: 'var(--second-color)'
+  border: 'dashed 4px var(--first-color)'
 };
 
 const acceptStyle: CSSProperties = {
-  borderColor: 'var(--first-color)'
+  border: 'dashed 4px var(--link-color)'
 };
 
 const rejectStyle: CSSProperties = {
-  borderColor: 'var(--bs-warning)'
+  border: 'dashed 4px var(--bs-warning)'
 };
 
 const DropZone = () => {
@@ -55,7 +55,9 @@ const DropZone = () => {
   const { handleImageDropZone } = useContext(FileContext);
 
   useEffect(() => {
-    if (handleImageDropZone) handleImageDropZone(acceptedFiles);
+    if (handleImageDropZone)
+      handleImageDropZone(acceptedFiles);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [acceptedFiles]);
 
@@ -64,10 +66,10 @@ const DropZone = () => {
       <article className='drop__zone' {...getRootProps({ style })}>
         <input {...getInputProps()} />
         <p className='d-flex justify-content-center align-items-center m-0'>
-          Drag 'n' drop some files here, or click to select files
+          Agarre y suelte sus imágenes aquí
         </p>
         <p className='mt-2 text-base fs-6'>
-          Only jpg, jpeg and png files supported
+          Solo damos soporte a archivos jpg y jpeg
         </p>
       </article>
     </div>
