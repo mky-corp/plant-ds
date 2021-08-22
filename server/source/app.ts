@@ -35,15 +35,21 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(fileUpload({limits: { fileSize: 50 * 1024 * 1024 }}));
+app.use(fileUpload({ limits: { fileSize: 50 * 1024 * 1024 } }));
 
-// cnn models
+/**
+ * Para poder obtener la red neuronal con todos sus archivos necesitamos tenerlo
+ * disponible desde nuestro servidor para cargar todos los 28 archivos que nos
+ * genero la transformación del "modelo.h5".
+ *
+ * Todo se subirá en la ruta URL/cnn para poder realizar nuestra petición con tfjs
+ */
 app.use('/cnn', express.static(path.join(__dirname, 'cnn_plants')));
 
 // routes
 app.use('/', indexRouter);
 app.use('/api/users', usersRouter);
-app.use('/api/images',  imagesRouter);
+app.use('/api/images', imagesRouter);
 app.use('/api/auth', authRouter);
 
 // catch 404 and forward to error handler
@@ -52,7 +58,7 @@ app.use(handleNotFound);
 // error handler
 app.use(handleError);
 
-// listenner server
+// listener server
 app.listen(app.get('PORT'), () => {
   console.log(`Listen on http://localhost:${app.get('PORT')}`);
 });

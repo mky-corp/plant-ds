@@ -11,6 +11,12 @@ const useTF = () => {
   const [predictions, setPredictions] = useState([]);
   const [model, setModel] = useState({});
 
+  /**
+   * Función asíncrona para la carga del modelo ubicada en el servidor en la
+   * ruta /cnn/model.json para poder hacer las predicciones con la red neuronal
+   * convolucional de las imágenes que se suban.
+   * @returns {Promise<void>}
+   */
   const loadModel = async () => {
     try {
       const modelPlants = await tf.loadLayersModel(`${API}/cnn/model.json`);
@@ -26,6 +32,14 @@ const useTF = () => {
     }
   };
 
+  /**
+   * Función que recibe un buffer de la imagen que se subirán al contexto global
+   * y nos retornara un tensor de 3d para poder realizar cualquier predicción con
+   * nuestra red neuronal.
+   *
+   * @param rawImageData{ArrayBuffer}
+   * @returns {Tensor3D}
+   */
   const imageToTensor = (rawImageData) => {
     try {
       const { width, height, data } = jpeg.decode(rawImageData, {
@@ -51,6 +65,12 @@ const useTF = () => {
     }
   };
 
+  /**
+   * Función que realiza la predicción a partir de un Arreglo de Uint8Array que
+   * tiene su respectivo buffer para hacer el preprocesamiento de la imagen.
+   * @param uint8{Uint8Array}
+   * @returns {Promise<*>}
+   */
   const predictModel = async (uint8) => {
     try {
       const rawImageData = uint8.buffer;
@@ -71,6 +91,13 @@ const useTF = () => {
     setPredictions(predictions.filter((_, i) => i !== idx));
 
 
+  /**
+   * Función que recibe un arreglo de buffers para poder hacer la predicción de
+   * todas las imágenes que pudieron subir a la aplicación web
+   *
+   * @param buffers{Uint8Array[] | undefined}
+   * @returns {Promise<void>}
+   */
   const predictionBuffers = async (buffers) => {
     setPredLoad(true);
 
@@ -101,6 +128,14 @@ const useTF = () => {
     }
   };
 
+  /**
+   * Función que recibe un buffer y un indice para hacer la predicción de una sola
+   * imagen y luego actualizar la lista de todas las predicciones hechas hasta el
+   * momento
+   * @param buffer
+   * @param idx
+   * @returns {Promise<void>}
+   */
   const predictBuffer = async (buffer, idx) => {
     if (!buffer) {
       return setErrors({
@@ -117,11 +152,20 @@ const useTF = () => {
     setPredictions(answers);
   };
 
+  /**
+   * Cargar el modelo de tensorflow para poder realizar las predicciones
+   * posteriormente teniendo las imágenes
+   */
   useEffect(() => {
     loadModel();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  /**
+   * Todas las variables que utilizaremos dentro de la interfaz para poder
+   * usar de forma correcta este hook personalizado que creamos a partir de la
+   * versión de tensorflow para el desarrollo web con javascript
+   */
   return {
     predictions,
     predLoad,
