@@ -1,4 +1,7 @@
+import { useState } from 'react';
+import useModal from '../hooks/useModal';
 import { data } from '../services/data.storage';
+import { IPropsCardMain } from '../interfaces/props.interfaces';
 
 // images
 import tf from '../assets/tensorflow.svg';
@@ -8,17 +11,35 @@ import logo from '../assets/logo.png';
 
 // components
 import ButtonHome from '../components/ButtonHome/ButtonHome';
+import CardAbout from '../components/CardAbout/CardAbout';
 import CardMain from '../components/CardMain/CardMain';
 import CardTech from '../components/CardTech/CardTech';
+import Modal from '../components/Modal/Modal';
 
 // layouts
 import HeaderHome from '../layouts/HeaderHome/HeaderHome';
 import FooterHome from '../layouts/FooterHome/FooterHome';
-import CardAbout from '../components/CardAbout/CardAbout';
 
 const Home = () => {
+  const [isOpen, openModal, closeModal] = useModal();
+  const [item, setItem] = useState<IPropsCardMain>({});
+
+  const onClick = (item: IPropsCardMain) => {
+    setItem(item);
+    openModal();
+  };
+
   return (
     <section className='vh-100 d-flex flex-column'>
+      <Modal isOpen={isOpen} handleClose={closeModal}>
+        <section className='main__modal d-flex flex-column flex-md-row justify-content-around align-items-center'>
+          <img className='ps-md-3' src={item.img} alt={item.title} />
+          <section className='d-flex flex-column justify-content-center'>
+            <h3 className='letters-s-5 ps-md-3 pt-3 text-center first-color'>{item.title}</h3>
+            <p className='fs-small-12 ps-md-5 pt-3 text-justify'>{item.description}</p>
+          </section>
+        </section>
+      </Modal>
       <HeaderHome />
       <main className='flex-grow-1'>
         <div className='d-flex justify-content-center align-items-center'>
@@ -49,13 +70,7 @@ const Home = () => {
                 justify-content-between justify-content-md-between align-items-center'
               >
                 {data.home.buttonsHome.map((item, idx) => (
-                  <ButtonHome
-                    key={idx}
-                    to={item?.to}
-                    href={item?.href}
-                    title={item.title}
-                    css={item.css}
-                  />
+                  <ButtonHome key={idx} {...item} />
                 ))}
               </section>
             </section>
@@ -64,14 +79,7 @@ const Home = () => {
         <section className='main__raison mb-5 pb-5'>
           <article className='main__grid mx-1 mx-md-5 mt-3 px-1 px-md-5 '>
             {data.home.cardsMain.map((item, idx) => (
-              <CardMain
-                key={idx}
-                img={item.img}
-                grid={item.grid}
-                href={item.href}
-                title={item.title}
-                description={item.description}
-              />
+              <CardMain key={idx} {...item} />
             ))}
             <section
               className='card__main-principal d-flex flex-column flex-md-row
@@ -80,7 +88,7 @@ const Home = () => {
               <img className='img__card' src={cube} alt='technologies' />
               <div className='d-flex h-dm-100 flex-column align-items-center justify-content-evenly'>
                 {data.home.tfs.cards.map((item, idx) => (
-                  <CardTech title={item.title} img={item.img} key={idx} />
+                  <CardTech key={idx} {...item} />
                 ))}
               </div>
             </section>
@@ -97,12 +105,7 @@ const Home = () => {
           </section>
           <article className='main__grid mx-1 mx-md-5 mt-3 px-1 px-md-5 '>
             {data.home.cardsPlants.map((item, idx) => (
-              <CardMain
-                title={item.title}
-                img={item.img}
-                key={idx}
-                description={item.description}
-              />
+              <CardMain key={idx} {...item} onClick={() => onClick(item)} />
             ))}
           </article>
         </section>
@@ -117,12 +120,7 @@ const Home = () => {
           </section>
           <article className='main__grid mx-1 mx-md-5 mt-3 px-1 px-md-5 '>
             {data.home.cardsDisease.map((item, idx) => (
-              <CardMain
-                title={item.title}
-                img={item.img}
-                key={idx}
-                description={item.description}
-              />
+              <CardMain key={idx} {...item} onClick={() => onClick(item)} />
             ))}
           </article>
         </section>
@@ -175,7 +173,7 @@ const Home = () => {
           </section>
           <article className='main__grid-fit h-75'>
             {data.home.cardsAbout.map((item, idx) => (
-              <CardAbout key={idx} img={item.img} href={item.href} title={item.title} />))}
+              <CardAbout key={idx} {...item} />))}
           </article>
         </section>
       </main>

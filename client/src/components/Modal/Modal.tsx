@@ -13,7 +13,7 @@ const Modal = ({
   const handleModalContainerClick = (e: SyntheticEvent) => e.stopPropagation();
 
   return (
-    <article className={`modal ${isOpen && 'is-open'}`} onClick={handleClose}>
+    <article className={`modal px-5 ${isOpen && 'is-open'}`} onClick={handleClose}>
       <div
         className='modal__container'
         style={{ width, height }}

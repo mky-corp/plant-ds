@@ -69,7 +69,10 @@ export const FileProvider = ({ children }: IPropsChildren) => {
   };
 
   const handleUint8Array = async (url: string, buffers: Uint8Array[] = []) => {
-    if (!buffers.length) {
+    if (images.length && names.length) {
+      setImages([...images, url]);
+      setNames([...names, 'Capture Camera']);
+    } else {
       setImages([url]);
       setNames(['Capture Camera']);
     }
@@ -137,7 +140,7 @@ export const FileProvider = ({ children }: IPropsChildren) => {
         handleUint8Array(images[i], buffers);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [images]);
+  }, []);
 
   return (
     <FileContext.Provider

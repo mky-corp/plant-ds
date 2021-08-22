@@ -9,7 +9,7 @@
   display: none;
   justify-content: center;
   align-items: center;
-  transition: all 1s;
+  transition: all .8s;
 }
 
 .modal.is-open {
@@ -29,11 +29,14 @@
   border: 2px solid var(--gray-light-color);
   border-radius: 4px;
   background-color: var(--white-bg-color);
+  animation: popup ease-out 0.4s;
 }
 
 .modal__close {
   position: absolute;
-  border-radius: 4px;
+  width: 30px;
+  height: 30px;
+  border-radius: 18px;
   border: 2px solid var(--dark-color);
   background-color: var(--bs-danger);
   color: var(--white-color);
@@ -43,4 +46,25 @@
 
 .modal__close:hover {
   opacity: 0.8;
+}
+
+@keyframes popup {
+  0% {
+    transform: scale(0);
+  }
+  20% {
+    transform: scale(0.2);
+  }
+  40% {
+    transform: scale(0.4);
+  }
+  60% {
+    transform: scale(0.6);
+  }
+  80% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
 }

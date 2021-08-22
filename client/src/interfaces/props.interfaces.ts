@@ -63,9 +63,9 @@ interface IPropsMainButton {
 
 interface IPropsCardMain {
   img?: string;
-  grid?: string;
   href?: string;
   title?: string;
+  onClick?: () => void;
   description?: string;
 }
 

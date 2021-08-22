@@ -53,7 +53,6 @@ const useTF = () => {
 
   const predictModel = async (uint8) => {
     try {
-
       const rawImageData = uint8.buffer;
       const imageTensor = imageToTensor(rawImageData).resizeBilinear([249, 249]);
       const tensor = imageTensor.reshape([1, 249, 249, 3]);
@@ -68,10 +67,9 @@ const useTF = () => {
     }
   };
 
-  const deletePrediction = (idx) => {
-    const newPredictions = predictions.filter((_, i) => i !== idx);
-    setPredictions(newPredictions);
-  };
+  const deletePrediction = (idx) =>
+    setPredictions(predictions.filter((_, i) => i !== idx));
+
 
   const predictionBuffers = async (buffers) => {
     setPredLoad(true);
@@ -92,7 +90,7 @@ const useTF = () => {
         });
       }
 
-      const answers = predictions;
+      const answers = [];
       for (let i = 0; i < buffers.length; ++i)
         answers.push(await predictModel(buffers[i]));
       setPredictions(answers);
