@@ -5,9 +5,9 @@ import './MainButton.css';
 
 const bg = ['', 'principal__btn', 'secondary__btn', 'tertiary__btn'];
 
-const MainButton = ({ to, idx, title, clName, onClick }: IPropsMainButton) => {
+const MainButton = ({ to, idx, hash, title, clName, onClick }: IPropsMainButton) => {
   const classes = {
-    className: `${bg[idx]} d-flex mx-auto fw-bold justify-content-center align-content-center mb-3 mb-md-1 ${clName}`
+    className: `${bg[idx]} d-flex justify-content-center align-content-center mb-3 mb-md-1 ${clName}`
   };
 
   return to ? (

@@ -146,6 +146,7 @@ const Register = () => {
                 idx={1}
                 onClick={handleSecond}
                 title={register.continue}
+                clName='mx-auto'
               />
             )}
             <Link to='/login' className='text-center fs-small-12'>

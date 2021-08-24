@@ -34,14 +34,20 @@ const Home = () => {
       <Modal isOpen={isOpen} handleClose={closeModal}>
         <section
           className='main__modal d-flex flex-column flex-md-row 
-        justify-content-around align-items-center'
+        align-items-center over-y'
         >
-          <img className='ps-md-3' src={item.img} alt={item.title} />
+          <div className='w-card-detect m-md-3 d-flex flex-column align-items-center justify-content-center'>
+            <img
+              className='img-thumbnail p-1 ps-md-3'
+              src={item.img}
+              alt={item.title}
+            />
+          </div>
           <section className='d-flex flex-column justify-content-center'>
-            <h3 className='letters-s-5 ps-md-3 pt-3 text-center first-color'>
+            <h3 className='letters-s-5 fw-bold ps-md-3 pt-2 text-center first-color'>
               {item.title}
             </h3>
-            <p className='fs-small-12 ps-md-5 pt-3 text-justify'>
+            <p className='fs-small-12 px-3 px-md-0 ps-md-5 pe-md-3 pt-3 text-justify'>
               {item.description}
             </p>
           </section>

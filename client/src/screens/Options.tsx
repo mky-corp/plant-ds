@@ -20,8 +20,7 @@ import FormUp from '../components/FormUp/FormUp';
 import Modal from '../components/Modal/Modal';
 
 const Options = () => {
-  const { names, handleImageChange, progress } =
-    useContext(FileContext);
+  const { names, handleImageChange, progress } = useContext(FileContext);
   const { auth } = useContext(AuthContext);
 
   const history = useHistory();
@@ -42,31 +41,36 @@ const Options = () => {
 
   return (
     <>
-      <Modal handleClose={!names?.length ? () => history.push('/') : closeModal} isOpen={isOpenLogin}>
-        {!names?.length ?
+      <Modal
+        handleClose={!names?.length ? () => history.push('/') : closeModal}
+        isOpen={isOpenLogin}
+      >
+        {!names?.length ? (
           <>
             <h3 className='text-center fs-5'>Necesitas Iniciar Sesión</h3>
             <ModalSession />
-          </> : (
-            <section className='d-flex justify-content-center flex-column'>
-              <p className='text-center fs-5 fw-bold'>Las imágenes están cargadas</p>
-              <MainButton
-                idx={1}
-                title='Detectar'
-                onClick={handleSubmit}
-              />
-            </section>
-          )}
+          </>
+        ) : (
+          <section className='d-flex justify-content-center flex-column'>
+            <p className='text-center fs-5 fw-bold'>
+              Hay imágenes para detectar
+            </p>
+            <MainButton
+              idx={1}
+              title='Detectar'
+              clName='mx-auto mt-4'
+              onClick={handleSubmit}
+            />
+          </section>
+        )}
       </Modal>
       <section className='d-flex options__container'>
         <div className='d-none d-md-flex secondary-bg options__hw'>
           <FormUp
             handleSubmit={handleSubmit}
             title='Use camera'
-            description='Slate helps you see how many 
-            more days you need to work to 
-            reach your financial goal for the 
-            month and year.'
+            description='En esta sección podrá realizar una fotografia con 
+            la cámara web que tengas conectada a su PC actualmente'
           >
             {webCam && (
               <Webcam
@@ -91,6 +95,7 @@ const Options = () => {
                 idx={1}
                 onClick={!webCam ? handleWebCam : capture}
                 title={!webCam ? 'Activar Cámara' : 'Hacer Captura'}
+                clName='mx-auto'
               />
               {webCam && (
                 <section className='w-100 d-flex justify-content-center'>
@@ -111,8 +116,9 @@ const Options = () => {
           <FormUp
             handleSubmit={handleSubmit}
             title='Cargar Archivos'
-            description='Slate helps you see how many more days you need to 
-              work to reach your financial goal for the month and year.'
+            description='En esta sección puede subir todos sus archivos a través del 
+            explorador de archivos de su sistema operativo actual, y si esta en celular
+            le ayudará a tomar una captura de imagen con su cámara'
           >
             <Container>
               <DropZone />
@@ -169,6 +175,4 @@ const Options = () => {
     </>
   );
 };
-;
-
 export default Options;

@@ -1,11 +1,10 @@
 import Webcam from 'react-webcam';
-import { useCallback, useContext, useRef, useState } from 'react';
+import { toast } from 'react-toastify';
 import { useHistory } from 'react-router-dom';
-
 import { ls, w } from '../utils/Globals';
 import FileContext from '../context/FileContext';
+import { useCallback, useContext, useRef, useState } from 'react';
 import { webCam as stateWebCam } from '../services/auth.storage';
-import { toast } from 'react-toastify';
 
 const useWebcam = () => {
   const webcamRef = useRef<Webcam>(null);

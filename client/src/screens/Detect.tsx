@@ -1,7 +1,9 @@
 import { useHistory } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
+import left from '../assets/arrow-left.svg';
 import detect from '../assets/microscope-analysis.svg';
 import FooterHome from '../layouts/FooterHome/FooterHome';
+import { transformArray } from '../services/validate.predict';
 import { IPropsCardDetect } from '../interfaces/props.interfaces';
 
 // components
@@ -18,7 +20,7 @@ import FileContext from '../context/FileContext';
 // hooks
 import useModal from '../hooks/useModal';
 import useTF from '../hooks/useTF';
-import { transformArray } from '../services/validate.predict';
+import Button from '@restart/ui/esm/Button';
 
 const Detect = () => {
   const history = useHistory();
@@ -62,6 +64,10 @@ const Detect = () => {
     deleteAllPredictions();
   };
 
+  const backOptions = () => {
+    history.push('/options');
+  };
+
   useEffect(() => {
     if (!auth) return openModalLogin();
 
@@ -85,6 +91,8 @@ const Detect = () => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading]);
+
+  console.log(predictions);
 
   return (
     <section className='min-vh-100 d-flex flex-column'>
@@ -120,13 +128,16 @@ const Detect = () => {
         )}
         {isOpen && item.answer && (
           <section className='card__detect-modal d-flex flex-column flex-md-row align-items-center over-y'>
-            <div className='w-card-detect m-1 m-md-3 d-flex flex-column align-content-center justify-content-center'>
+            <div
+              className='w-card-detect p-1 m-md-3 d-flex flex-column 
+              align-items-center justify-content-center'
+            >
               <img
                 className='img-thumbnail p-1 p-md-3'
                 src={item.img}
                 alt={`Plants detect ${item.name}`}
               />
-              <h4 className='fs-5 first-color w-100 text-center pt-3 fw-bold'>
+              <h4 className='fs-5 first-color letters-s-5 w-100 text-center pt-3 fw-bold'>
                 {item.name}
               </h4>
             </div>
@@ -160,10 +171,11 @@ const Detect = () => {
               <h1 className='letters-s-5 fs-4 my-3 my-md-4 text-center dark-color'>
                 Detección de las patologías
               </h1>
-              <section className='py-3 mb-2 py-md-0'>
+              <section className='py-2 mb-2 py-md-0 d-flex flex-column justify-content-center align-items-center'>
                 <p className='text-justify fs-small-14 px-3 px-md-4 pb-2 pb-md-0'>
                   Puede darle al botón para identificar en todas las imágenes
-                  subidas para su posible enfermedad o evaluarlas una por una.
+                  subidas para su evaluar su posible estado se recomienda solo
+                  tomar una imagen enfocando de la hoja de la planta.
                 </p>
                 {((load && !predLoad) ||
                   predictions?.length === names?.length) && (
@@ -175,22 +187,42 @@ const Detect = () => {
                     </b>
                   </p>
                 )}
-                {(!load || predLoad) &&
-                  predictions?.length !== names?.length && (
+                <div className='d-flex pb-md-3'>
+                  {predictions.length === 0 && names?.length === 0 ? (
                     <MainButton
                       idx={1}
-                      title='Detectar en todas'
-                      onClick={() => predictionBuffers(buffers)}
+                      to='/options'
+                      clName='w-50 pb-1'
+                      title='Regresar'
                     />
+                  ) : (
+                    <Button
+                      className='btn btn-transparent'
+                      type='button'
+                      onClick={backOptions}
+                    >
+                      <img src={left} alt='Atrás' />
+                    </Button>
                   )}
-                {predictions?.length === names?.length &&
-                  names.length !== 0 && (
-                    <MainButton
-                      idx={3}
-                      title='Limpiar'
-                      onClick={handleRemoveAll}
-                    />
-                  )}
+
+                  {(!load || predLoad) &&
+                    predictions?.length !== names?.length && (
+                      <MainButton
+                        idx={1}
+                        title='Detectar en todas'
+                        onClick={() => predictionBuffers(buffers)}
+                      />
+                    )}
+
+                  {predictions?.length === names?.length &&
+                    names.length !== 0 && (
+                      <MainButton
+                        idx={3}
+                        title='Limpiar'
+                        onClick={handleRemoveAll}
+                      />
+                    )}
+                </div>
               </section>
             </section>
           </section>

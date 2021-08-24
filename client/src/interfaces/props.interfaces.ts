@@ -62,6 +62,7 @@ interface IPropsFormGroup {
 interface IPropsMainButton {
   to?: string | object;
   idx: number;
+  hash?: string;
   title?: string;
   clName?: string;
   onClick?: (e: SyntheticEvent) => void;

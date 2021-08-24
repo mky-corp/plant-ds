@@ -57,7 +57,12 @@ const Login = () => {
             {loading ? (
               <Loader />
             ) : (
-              <MainButton title={login.title} idx={1} onClick={handleSubmit} />
+              <MainButton
+                title={login.title}
+                idx={1}
+                onClick={handleSubmit}
+                clName='mx-auto'
+              />
             )}
             <Link to='/register' className='text-center fs-small-12'>
               {login.sign}

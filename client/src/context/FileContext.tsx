@@ -72,7 +72,7 @@ export const FileProvider = ({ children }: IPropsChildren) => {
 
     fileArray.forEach((file) => uploadImage(file, fileImages, fileNames));
     fileArray.forEach((file) => uploadBuffer(file, fileBuffers));
-    toast.info('Las imágenes han sido subidas exitosamente');
+    toast.info('Las archivos han sido procesados');
   };
 
   const handleUint8Array = async (url: string, buffers: Uint8Array[] = []) => {
@@ -101,9 +101,12 @@ export const FileProvider = ({ children }: IPropsChildren) => {
     fileImages: string[],
     fileNames: string[]
   ) => {
+    if (file.type !== 'image/jpeg')
+      return toast.info(
+        'Los archivos con extensión *.png, *.mp4, *.mp3, u otros no son válidos'
+      );
+
     const fileReader = new FileReader();
-    if (file.type === 'image/png')
-      return toast.info('Los archivos con otros formatos se están filtrando');
     fileReader.readAsDataURL(file);
 
     fileNames.push(file.name);
@@ -121,8 +124,9 @@ export const FileProvider = ({ children }: IPropsChildren) => {
   };
 
   const uploadBuffer = (file: File, fileBuffers: Uint8Array[]) => {
+    if (file.type !== 'image/jpeg') return;
     const fileReader = new FileReader();
-    if (file.type === 'image/png') return;
+
     fileReader.readAsArrayBuffer(file);
 
     fileReader.addEventListener('load', (e: ProgressEvent) => {
