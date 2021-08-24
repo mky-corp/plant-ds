@@ -34,22 +34,19 @@
 
 ## Otras herramientas
 
-| Herramienta                                                                                                                                                     | Descripción                                                                                                                       |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| [![Visual Studio](https://img.shields.io/badge/VisualStudio-5C2D91.svg?style=for-the-badge&logo=visual-studio&logoColor=white)](https://code.visualstudio.com/) | Editor de código para el desarrollo de software a nivel general                                                                   |
-| [![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)](https://www.figma.com/)                             | Herramienta para el prototipado de interfaces de todo tipo de forma dinámica                                                      |
-| [![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)](https://git-scm.com/)                                     | Control de versiones más usado en todo el mundo del desarrollo de software                                                        |
-| [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/)                             | Plataforma para alojar repositorios locales en la web más extendido y usado en el mundo                                           |
+| Herramienta                                                                                                                                                     | Descripción                                                                                                                                            |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [![Visual Studio](https://img.shields.io/badge/VisualStudio-5C2D91.svg?style=for-the-badge&logo=visual-studio&logoColor=white)](https://code.visualstudio.com/) | Editor de código para el desarrollo de software a nivel general                                                                                        |
+| [![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)](https://www.figma.com/)                             | Herramienta para el prototipado de interfaces de todo tipo de forma dinámica                                                                           |
+| [![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)](https://git-scm.com/)                                     | Control de versiones más usado en todo el mundo del desarrollo de software                                                                             |
+| [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/)                             | Plataforma para alojar repositorios locales en la web más extendido y usado en el mundo                                                                |
 | [![Jupyter](https://img.shields.io/badge/Jupyter-F37626.svg?&style=for-the-badge&logo=Jupyter&logoColor=white)](https://jupyter.org)                            | Interfaz para desarrollar software de código abierto, estándares abiertos y servicios para computación interactiva en varios lenguajes de programación |
-| [![Heroku](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)](https://dashboard.heroku.com/)                          | Heroku es una plataforma como servicio de computación en la Nube que soporta distintos lenguajes de programación                  |
-| [![Conda](https://img.shields.io/badge/conda-342B029.svg?&style=for-the-badge&logo=anaconda&logoColor=white)](https://www.anaconda.com/)                        | Anaconda es una distribución libre y abierta de los lenguajes Python y R, utilizada en ciencia de datos, y aprendizaje automático |
+| [![Heroku](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)](https://dashboard.heroku.com/)                          | Heroku es una plataforma como servicio de computación en la Nube que soporta distintos lenguajes de programación                                       |
+| [![Conda](https://img.shields.io/badge/conda-342B029.svg?&style=for-the-badge&logo=anaconda&logoColor=white)](https://www.anaconda.com/)                        | Anaconda es una distribución libre y abierta de los lenguajes Python y R, utilizada en ciencia de datos, y aprendizaje automático                      |
 
 ## Contribuir
 
-El propósito principal de este repositorio es continuar evolucionando obteniendo algoritmos core para encontrar la ruta
-más corta, haciéndolo más rápido y fácil de usar. El desarrollo de este repositorio debe ocurrir a la intemperie en
-GitHub, y estamos agradecidos con todo aquel que quiera contribuir con correcciones de errores y mejoras Lee a
-continuación para saber cómo puedes participar en la mejora de este repositorio.
+El propósito principal de este repositorio es continuar evolucionando obteniendo mejoras par la detección de enfermedades en plantas de mejor manera haciéndolo más rápido y sencillo de implementar en aplicaciones web modernas. El desarrollo de este repositorio debe ocurrir a la intemperie de GitHub, y estamos agradecidos con todo aquel que quiera contribuir con correcciones de errores y mejoras. Lee a continuación para saber cómo puedes participar en la mejora de este repositorio.
 
 ### [Código de conducta](./CODE_OF_CONDUCT.md)
 
@@ -59,8 +56,8 @@ favor lea [Código de conducta](./CODE_OF_CONDUCT.md) para que pueda entender qu
 ### Guia de contribución
 
 Actualmente no hay una guía de contribución, pero puedes proponer correcciones de errores y mejoras, y construir y
-probar sus cambios en este repositorio.
+probar sus cambios en este repositorio con un fork de GitHub.
 
 ### License
 
-Plant-DS is [APACHE licensed](./LICENSE).
+Plant-DS is [APACHE-2.0 licensed](./LICENSE).

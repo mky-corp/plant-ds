@@ -1,6 +1,7 @@
 import './HeaderHome.css';
 import { memo } from 'react';
 import { NavLink } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import logo from '../../assets/logo.png';
 import { data } from '../../services/data.storage';
 
@@ -28,17 +29,17 @@ const HeaderHome = () => {
             {headerHome.start}
           </NavLink>
           <div className='header__separate' />
-          <NavLink to='/' className='p-1 h-first fs-text'>
+          <HashLink to='#plants' className='p-1 h-first fs-text' replace>
             {headerHome.learn}
-          </NavLink>
+          </HashLink>
           <div className='header__separate' />
-          <NavLink to='/' className='p-1 h-first fs-text'>
+          <HashLink to='#what' className='p-1 h-first fs-text' replace>
             {headerHome.contact}
-          </NavLink>
+          </HashLink>
           <div className='header__separate' />
-          <NavLink to='/' className='p-1 h-first fs-text'>
+          <HashLink to='#about' className='p-1 h-first fs-text' replace>
             {headerHome.aboutUs}
-          </NavLink>
+          </HashLink>
         </section>
       </div>
     </header>

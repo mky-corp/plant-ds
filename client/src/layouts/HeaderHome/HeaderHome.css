@@ -10,8 +10,7 @@
 
 .header__separate {
   max-height: 1.6rem;
-  max-width: 1.6rem;
-  border: 1px solid var(--dark-color);
+  border: .5px solid var(--dark-color);
 }
 
 @media screen and (min-width: 576px) {

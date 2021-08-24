@@ -6,6 +6,7 @@ import { IPropsCardMain } from '../interfaces/props.interfaces';
 // images
 import tf from '../assets/tensorflow.svg';
 import model from '../assets/model.svg';
+import leaf from '../assets/leaf.svg';
 import cube from '../assets/cube.svg';
 import logo from '../assets/logo.png';
 
@@ -96,8 +97,12 @@ const Home = () => {
               className='card__main-principal d-flex flex-column flex-md-row
               justify-content-evenly align-items-center'
             >
-              <img className='img__card' src={cube} alt='technologies' />
-              <div className='d-flex h-dm-100 flex-column align-items-center justify-content-evenly'>
+              <img
+                className='img__card pt-2 pt-dm-0'
+                src={cube}
+                alt='technologies'
+              />
+              <div className='d-flex h-dm-100 flex-column align-items-center justify-content-center'>
                 {data.home.tfs.cards.map((item, idx) => (
                   <CardTech key={idx} {...item} />
                 ))}
@@ -112,7 +117,7 @@ const Home = () => {
             <p />
             <p />
           </section>
-          <article className='main__grid mx-1 mx-md-5 mt-3 px-1 px-md-5 '>
+          <article className='main__grid mx-1 mx-md-3 mx-lg-5 mt-3 px-1 px-md-3 px-lg-5'>
             {data.home.cardsPlants.map((item, idx) => (
               <CardMain key={idx} {...item} onClick={() => onClick(item)} />
             ))}
@@ -127,7 +132,7 @@ const Home = () => {
             <p />
             <p />
           </section>
-          <article className='main__grid mx-1 mx-md-5 mt-3 px-1 px-md-5 '>
+          <article className='main__grid mx-1 mx-md-3 mx-lg-5 mt-3 px-1 px-md-3 px-lg-5'>
             {data.home.cardsDisease.map((item, idx) => (
               <CardMain key={idx} {...item} onClick={() => onClick(item)} />
             ))}
@@ -147,7 +152,7 @@ const Home = () => {
               </h1>
               <section className='d-flex flex-column flex-md-row justify-content-around align-items-center'>
                 <img
-                  className='w-25 h-25 pb-3 pb-md-0 px-md-3'
+                  className='w-25 h-25 pb-3 pb-md-0 px-md-4'
                   src={tf}
                   alt='technologies'
                 />
@@ -169,14 +174,69 @@ const Home = () => {
             />
           </article>
         </section>
-        <section id='about' className='main__raison mb-5 pb-5'>
+        <section id='what' className='main__raison mb-5 pb-5'>
           <section className='d-flex justify-content-around px-4 px-md-0 pt-5 ps-md-5'>
+            <h2 className='fs-2'>¿Que es PlantDS?</h2>
+            <p />
+            <p />
+            <p />
+          </section>
+          <article className='d-flex mt-4 h-75 flex-column flex-lg-row align-items-center justify-content-around'>
+            <section className='card__main-principal'>
+              <h1 className='letters-s-5 fs-4 my-2 mx-2 mx-md-1 my-md-3 text-center first-color'>
+                Historia pequeña de este proyecto
+              </h1>
+              <section className='d-flex flex-column flex-md-row justify-content-around align-items-center'>
+                <img
+                  className='w-25 h-25 pb-3 pb-md-0 px-md-2'
+                  src={logo}
+                  alt='technologies'
+                />
+                <p className='text-justify fs-small-12 px-4'>
+                  PlantDS es un proyecto colaborativo de código abierto bajo
+                  licencia Apache 2.0 que tiene como objetivo la implementación
+                  de redes neuronales convolucionales en una aplicación web
+                  moderna con{' '}
+                  <a
+                    href='https://es.reactjs.org'
+                    target='_blank'
+                    rel='noreferrer'
+                    className='fw-bold'
+                  >
+                    React{' '}
+                  </a>
+                  y su utilización en nuestro país en donde se sufre una gran
+                  cantidad de perdidas en cultivos debido a enfermedades que
+                  afectan a este. Para poder aportar puede ir a nuestro{' '}
+                  <a
+                    href='https://github.com/Uncle-Liquor/plant-ds'
+                    target='_blank'
+                    rel='noreferrer'
+                    className='fw-bold'
+                  >
+                    gitHub
+                  </a>
+                  , y poder sugerir y aportar cambios que guste a este proyecto
+                  y otros similares.
+                </p>
+              </section>
+            </section>
+            <img
+              className='w-image h-50 pt-5 pt-lg-0'
+              src={leaf}
+              alt='CNN tensorflow API'
+            />
+          </article>
+        </section>
+
+        <section id='about' className='main__raison mb-5 pb-5'>
+          <section className='d-flex justify-content-around px-3 px-md-1 pt-5 pb-3 pb-lg-5 pb-xl-3 ps-md-5'>
             <h2 className='fs-2'>Sobre nosotros</h2>
             <p />
             <p />
             <p />
           </section>
-          <article className='main__grid-fit h-75'>
+          <article className='main__grid-fit h-fit'>
             {data.home.cardsAbout.map((item, idx) => (
               <CardAbout key={idx} {...item} />
             ))}

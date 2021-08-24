@@ -70,7 +70,7 @@ const Options = () => {
             handleSubmit={handleSubmit}
             title='Use camera'
             description='En esta sección podrá realizar una fotografia con 
-            la cámara web que tengas conectada a su PC actualmente'
+            la cámara web que tenga conectada a su PC en este momento'
           >
             {webCam && (
               <Webcam

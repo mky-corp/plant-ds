@@ -29,7 +29,7 @@ interface IPropsHeaderForm {
 }
 
 interface IPropsCardTech {
-  img: string;
+  tech: Array<{ title: string; img: string; href: string }>;
   title: string;
 }
 

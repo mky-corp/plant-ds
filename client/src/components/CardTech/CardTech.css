@@ -1,0 +1,9 @@
+.max-tech-card {
+  min-width: 60px;
+  max-width: 60px;
+}
+
+.min-height-card {
+  min-height: 108px;
+  max-height: 100px;
+}

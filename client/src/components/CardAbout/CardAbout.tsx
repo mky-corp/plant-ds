@@ -8,9 +8,9 @@ const CardAbout = ({ img, href, title }: IPropsCardAbout) => {
       href={href}
       target='_blank'
       rel='noreferrer'
-      className='text-center py-2'
+      className='text-center card-item-fit py-2'
     >
-      <section className='card__main-about my-3 mt-5 my-lg-0'>
+      <section className='card__main-about my-3 mt-3 my-lg-0'>
         <img src={img} alt={title} />
         <p className='link-color'>{title}</p>
       </section>

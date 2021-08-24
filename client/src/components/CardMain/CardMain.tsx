@@ -6,9 +6,9 @@ const Card = ({ img, title, description }: IPropsCardMain) => {
   return (
     <section className='card__main d-flex justify-content-around align-items-center'>
       <img src={img} alt={title} />
-      <section className='d-flex flex-column justify-content-center'>
-        <h3 className='letters-s-5'>{title}</h3>
-        <p className='fs-small-12 text-justify'>{description}</p>
+      <section className='d-flex flex-column justify-content-center pt-3'>
+        <h3 className='letters-s-5 first-color pb-2'>{title}</h3>
+        <p className='fs-small-12 h-card text-justify px-2'>{description}</p>
       </section>
     </section>
   );

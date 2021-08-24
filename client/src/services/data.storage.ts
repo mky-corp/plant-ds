@@ -1,8 +1,14 @@
+import js from '../assets/tech/javascript.svg';
+import ts from '../assets/tech/typescript.svg';
+import py from '../assets/tech/python.svg';
+import node from '../assets/tech/nodejs.svg';
+
+import tf from '../assets/tech/tensorflow.svg';
+import react from '../assets/tech/react.svg';
+import express from '../assets/tech/express.svg';
 import plant from '../assets/MainHome/plant-healthy.svg';
 import disease from '../assets/MainHome/plant-disease.svg';
 import detects from '../assets/microscope-analysis.svg';
-import tfsOne from '../assets/MainHome/card-content-1.svg';
-import tfsTwo from '../assets/MainHome/card-content-2.svg';
 import github from '../assets/github.svg';
 
 // plants
@@ -25,7 +31,7 @@ import powderyMildew from '../assets/diseases/powdery-mildew.jpg';
 import fis from '../assets/fis.png';
 import uncp from '../assets/uncp.png';
 import jochizan from '../assets/jochizan.png';
-import ulLogo from '../assets/ul-logo.svg';
+import ulLogo from '../assets/ul-logo.png';
 
 export const data = {
   login: {
@@ -45,7 +51,7 @@ export const data = {
     title: 'PHG Plants',
     start: 'Comenzar',
     learn: 'Leer',
-    contact: 'Contactos',
+    contact: '¿Por qué?',
     aboutUs: 'Nosotros'
   },
   footer: {
@@ -53,14 +59,14 @@ export const data = {
   },
   home: {
     descMain:
-      'Aplicación web para la detección de enfermedades en plantas comunes en Perú y sus posibles tratamientos',
+      'Aplicación web para la detección de enfermedades en plantas más comunes de paises agrícolas de América.',
     buttonsHome: [
       { title: 'COMENZAR', css: 'one fs-5 letters-s-1', to: '/options' },
-      { title: 'Qué es PlantDS?', css: 'two', to: '/why' },
+      { title: 'Qué es PlantDS?', css: 'two', href: '#what' },
       {
-        title: `GitHub <img class='m-1 w-25' src='${github}' alt='Logo de Github' />`,
         css: 'three letters-s-5',
-        href: 'https://github.com/Uncle-Liquor/plant-ds'
+        href: 'https://github.com/Uncle-Liquor/plant-ds',
+        title: `GitHub <img class='m-1 w-25' src='${github}' alt='Logo de Github' />`
       }
     ],
     cardsMain: [
@@ -69,21 +75,21 @@ export const data = {
         img: plant,
         href: '#plants',
         description:
-          'Podemos observar las más importantes como papa, maíz, tomate, entre otros ...'
+          'Detecta mejor en hojas de las plantas papa, tomate, uva, maíz, entre otros más.'
       },
       {
         title: '¿Que patologías?',
         img: disease,
         href: '#diseases',
         description:
-          'La mayoría son afecciones comunes de nuestra país Perú entre otros ....'
+          'Son afecciones comunes que sufren estas plantas en paises de agricultura.'
       },
       {
         title: '¿Cómo detecta?',
         img: detects,
         href: '#detect',
         description:
-          'Los detecta a través de redes neuronales principalmente de tfjs'
+          'Los detecta a través de redes neuronales hechas con la API de tensorflow.'
       }
     ],
     cardsPlants: [
@@ -127,7 +133,7 @@ export const data = {
     ],
     cardsDisease: [
       {
-        title: 'La costra de plantas',
+        title: 'Costra por hongo',
         img: scab,
         description:
           'La costra de plantas es una enfermedad producida por el hongo Venturia inaequalis. El hongo se propaga con esporas en el aire y puede sobrevivir al invierno con hojas caídas. En esta enfermedad, se pueden ver marcas prominentes de costra en las hojas de las plantas. '
@@ -151,7 +157,7 @@ export const data = {
           'Una enfermedad fúngica generalizada no perdona la cereza de laurel. Después de que las esporas hibernan en la planta o se esconden entre las malas hierbas, acechan desde el comienzo del verano en un clima cálido y seco. Por lo tanto, el oidio también se conoce como "hongo del clima regular". Si las temperaturas superan los 20 grados, el viento y los insectos propagan el patógeno por toda el área. Una infestación se manifiesta en la primera etapa en forma de una pátina gris-blanca en la parte superior de las hojas para trabajar en la parte inferior.'
       },
       {
-        title: 'Mancha Cercospora',
+        title: 'Cercospora',
         img: cercospora,
         description:
           'La enfermedad de la mancha gris es causada por el hongo Cercospora zeae-maydis. Sobrevive en los residuos vegetales del suelo durante largos períodos de tiempo. Durante la primavera, las esporas llegan a las hojas inferiores a través de las salpicaduras de lluvia y el viento.'
@@ -175,20 +181,63 @@ export const data = {
         href: 'https://github.com/Uncle-Liquor'
       },
       {
-        title: 'FIS',
-        img: fis,
-        href: 'https://www.sistemasuncp.edu.pe'
-      },
-      {
         title: 'UNCP',
         img: uncp,
         href: 'https://uncp.edu.pe'
+      },
+      {
+        title: 'FIS',
+        img: fis,
+        href: 'https://www.sistemasuncp.edu.pe'
       }
     ],
     tfs: {
       cards: [
-        { title: 'Tecnologías & frameworks', img: tfsOne },
-        { title: 'Lenguajes de Programación', img: tfsTwo }
+        {
+          title: 'Tecnologías & frameworks',
+          tech: [
+            {
+              href: 'https://www.tensorflow.org',
+              img: tf,
+              title: 'Tensorflow'
+            },
+            {
+              href: 'https://es.reactjs.org',
+              img: react,
+              title: 'React.js'
+            },
+            {
+              href: 'https://expressjs.com',
+              img: express,
+              title: 'Express.js'
+            }
+          ]
+        },
+        {
+          title: 'Lenguajes de Programación',
+          tech: [
+            {
+              href: 'https://developer.mozilla.org/es/docs/Learn/JavaScript/First_steps/What_is_JavaScript',
+              img: js,
+              title: 'JavaScript'
+            },
+            {
+              href: 'https://www.typescriptlang.org',
+              title: 'TypeScript',
+              img: ts
+            },
+            {
+              href: 'https://www.python.org',
+              title: 'Python',
+              img: py
+            },
+            {
+              href: 'https://nodejs.org',
+              title: 'Node.js',
+              img: node
+            }
+          ]
+        }
       ]
     }
   }
@@ -222,7 +271,7 @@ export const maped = [
   'Posible imagen de soja saludable',
   'Calabaza con Moho polvoriento: La razón por la que tenemos un moho polvoriento en nuestras hojas de calabaza es porque es causada por una enfermedad infecciosa de la hoja que es muy común. El nombre es, de hecho, "oídio" y se le da a un grupo de enfermedades causadas por hongos relacionados',
   'Quemadura de hoja: Uno de las manifestaciones más obvias de deficiencia de calcio en la fresa es la quemadura de la punta, especialmente de las hojas nuevas y jóvenes.  Unas variedades de fresa manifiestan este síntoma más que otras.',
-  "Posible imagen de una fresa saludable",
+  'Posible imagen de una fresa saludable',
   'Mancha bacteriana de tomate: La mancha bacteriana es causada por las bacterias Pseudomonas syringae pv. tomato y afecta solamente a los tomates. En las hojas, tallos y frutos aparecen pequeñas manchas negras. El clima relativamente húmedo favorece el desarrollo.',
   'Tomate con tizón temprano: Los hongos del tizón temprano viven en el suelo y persisten entre los escombros de plantas infectadas en descomposición. Las esporas se esparcen principalmente a través del viento y las salpicaduras de agua provocadas por la lluvia o el riego.',
   'Tomate con tizón tardío: El tizón tardío es causado por el oomiceto (organismos similares a los hongos) llamado Phytophthora infestans. El daño en los frutos es característico por tornarse color marrón, pero permanece firme a menos que organismos secundarios lo ataquen y este termine pudriéndose.',

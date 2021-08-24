@@ -172,10 +172,10 @@ const Detect = () => {
                 Detección de las patologías
               </h1>
               <section className='py-2 mb-2 py-md-0 d-flex flex-column justify-content-center align-items-center'>
-                <p className='text-justify fs-small-14 px-3 px-md-4 pb-2 pb-md-0'>
-                  Puede darle al botón para identificar en todas las imágenes
-                  subidas para su evaluar su posible estado se recomienda solo
-                  tomar una imagen enfocando de la hoja de la planta.
+                <p className='text-justify fs-small-14 px-2 px-md-4 pb-2 pb-md-0'>
+                  Puede identificar en todas las imágenes o evaluarlas una por
+                  una. Se recomienda solo hojas de plantas para mejorar la
+                  precisión.
                 </p>
                 {((load && !predLoad) ||
                   predictions?.length === names?.length) && (

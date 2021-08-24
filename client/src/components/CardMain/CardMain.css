@@ -1,6 +1,6 @@
 .card__main {
   width: 300px;
-  height: 180px;
+  height: 160px;
   border: 1px solid var(--gray-light-color);
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 4px;
@@ -18,11 +18,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   color: var(--gray-dark-color);
-  margin: 1rem 0 0;
-}
-
-.card__main section h3 {
-  color: var(--first-alpha-color);
 }
 
 @media screen and (min-width: 768px) {

@@ -1,9 +1,9 @@
 {
   "name": "plant-ds",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "private": true,
   "homepage": "https://Uncle-Liquor.github.io/plant-ds",
-  "license": "Apache",
+  "license": "Apache-2.0",
   "dependencies": {
     "@tensorflow/tfjs": "^3.8.0",
     "@testing-library/jest-dom": "^5.11.4",

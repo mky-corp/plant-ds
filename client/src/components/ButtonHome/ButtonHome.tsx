@@ -1,11 +1,16 @@
 import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import { IPropsButtonHome } from '../../interfaces/props.interfaces';
 
 const ButtonHome = ({ title, css, to, href }: IPropsButtonHome) => {
-  const className = `button__link-main ${css}`;
+  const className = { className: `button__link-main ${css}` };
 
-  return to ? (
-    <Link to={to} className={className}>
+  return href?.slice(0, 1) === '#' ? (
+    <HashLink to={href} {...className} replace>
+      {title}
+    </HashLink>
+  ) : to ? (
+    <Link to={to} {...className}>
       {title}
     </Link>
   ) : (
@@ -13,7 +18,7 @@ const ButtonHome = ({ title, css, to, href }: IPropsButtonHome) => {
       href={href}
       target='_blank'
       rel='noreferrer'
-      className={className}
+      {...className}
       dangerouslySetInnerHTML={{ __html: title }}
     />
   );
