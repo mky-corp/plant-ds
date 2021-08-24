@@ -35,7 +35,7 @@ const Options = () => {
   };
 
   useEffect(() => {
-    if (!auth) openModal();
+    if (!auth) return openModal();
     if (names?.length && !progress) openModal();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [auth, names?.length, progress]);
@@ -51,7 +51,7 @@ const Options = () => {
             <section className='d-flex justify-content-center flex-column'>
               <p className='text-center fs-5 fw-bold'>Las imágenes están cargadas</p>
               <MainButton
-                first={true}
+                idx={1}
                 title='Detectar'
                 onClick={handleSubmit}
               />
@@ -88,7 +88,7 @@ const Options = () => {
             )}
             <Container>
               <MainButton
-                first={true}
+                idx={1}
                 onClick={!webCam ? handleWebCam : capture}
                 title={!webCam ? 'Activar Cámara' : 'Hacer Captura'}
               />

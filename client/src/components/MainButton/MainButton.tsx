@@ -3,16 +3,12 @@ import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './MainButton.css';
 
-const MainButton = ({
-  to,
-  title,
-  first,
-  clName,
-  onClick
-}: IPropsMainButton) => {
-  const classes = { className: `${
-    first ? 'principal__btn' : 'secondary__btn'
-  } d-flex mx-auto fw-bold justify-content-center align-content-center mb-3 mb-md-1 ${clName}`};
+const bg = ['', 'principal__btn', 'secondary__btn', 'tertiary__btn'];
+
+const MainButton = ({ to, idx, title, clName, onClick }: IPropsMainButton) => {
+  const classes = {
+    className: `${bg[idx]} d-flex mx-auto fw-bold justify-content-center align-content-center mb-3 mb-md-1 ${clName}`
+  };
 
   return to ? (
     <Link to={to} {...classes}>

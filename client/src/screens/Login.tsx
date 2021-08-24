@@ -57,7 +57,7 @@ const Login = () => {
             {loading ? (
               <Loader />
             ) : (
-              <MainButton title={login.title} first={true} onClick={handleSubmit} />
+              <MainButton title={login.title} idx={1} onClick={handleSubmit} />
             )}
             <Link to='/register' className='text-center fs-small-12'>
               {login.sign}

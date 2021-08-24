@@ -1,4 +1,10 @@
-import React, { ChangeEvent, Dispatch, FocusEvent, ReactNode, SyntheticEvent } from 'react';
+import React, {
+  ChangeEvent,
+  Dispatch,
+  FocusEvent,
+  ReactNode,
+  SyntheticEvent
+} from 'react';
 
 interface IPropsChildren {
   children?: ReactNode;
@@ -55,7 +61,7 @@ interface IPropsFormGroup {
 
 interface IPropsMainButton {
   to?: string | object;
-  first?: boolean;
+  idx: number;
   title?: string;
   clName?: string;
   onClick?: (e: SyntheticEvent) => void;
@@ -75,16 +81,20 @@ interface IPropsCardAbout {
   title?: string;
 }
 
+interface predict {
+  res: string;
+  value: string;
+}
+
 interface IPropsCardDetect {
-  idx: number;
+  ok?: number;
+  idx?: number;
   img?: string;
   name?: string;
-  buffer?: Uint8Array;
-  predictions?: number[];
-  setState: [Dispatch<React.SetStateAction<boolean>>, boolean];
-  onClick?: (buffer?: Uint8Array, idx?: number) => Promise<void>;
-  onRemove?: (idx: number) => void;
-  deletePred?: (idx?: number) => void;
+  answer?: predict[];
+  openAll?: () => void;
+  deleteAll?: () => void;
+  predictAll?: () => Promise<void>;
 }
 
 export type {

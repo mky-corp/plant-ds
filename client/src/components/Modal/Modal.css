@@ -9,7 +9,7 @@
   display: none;
   justify-content: center;
   align-items: center;
-  transition: all .8s;
+  transition: all 0.8s;
 }
 
 .modal.is-open {
@@ -18,11 +18,11 @@
 
 .modal__container {
   position: relative;
-  padding: 1rem;
+  padding: 0.5rem;
   min-width: 300px;
   min-height: 224px;
-  max-width: 600px;
-  max-height: 720px;
+  max-width: 1000px;
+  max-height: 500px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -40,12 +40,18 @@
   border: 2px solid var(--dark-color);
   background-color: var(--bs-danger);
   color: var(--white-color);
-  top: .5rem;
-  right: .5rem;
+  top: 0.5rem;
+  right: 0.5rem;
 }
 
 .modal__close:hover {
   opacity: 0.8;
+}
+
+@media screen and (min-width: 768px) {
+  .modal__container {
+    padding: 1rem;
+  }
 }
 
 @keyframes popup {
