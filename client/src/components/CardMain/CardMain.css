@@ -14,7 +14,7 @@
 .card__main section p {
   white-space: pre-wrap;
   width: 200px;
-  height: 64px;
+  height: 80px;
   overflow: hidden;
   text-overflow: ellipsis;
   color: var(--gray-dark-color);

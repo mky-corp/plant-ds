@@ -53,7 +53,7 @@ const Options = () => {
         ) : (
           <section className='d-flex justify-content-center flex-column'>
             <p className='text-center fs-5 fw-bold'>
-              Hay imágenes para detectar
+              Hay imágenes para evaluar
             </p>
             <MainButton
               idx={1}

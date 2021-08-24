@@ -29,7 +29,9 @@ const useForm = (
 
   const handleSubmit = async (e: SyntheticEvent) => {
     e.preventDefault();
+    console.log(errors);
     setErrors(validateForm(form));
+    console.log(errors);
 
     if (!Object.keys(errors).length) {
       toast.info('Se esta procesando el formulario...');
@@ -45,17 +47,23 @@ const useForm = (
       });
 
       setLoading(false);
-      setForm(initialForm);
 
-      if (res.err || res.status > 400 || res instanceof DOMException) {
+      if (
+        res.err ||
+        res.status > 400 ||
+        res instanceof DOMException ||
+        res instanceof TypeError
+      ) {
         toast.error(
           `Error: ${res.err || 'Failed Petition'} Estado: ${res.status || 404}`
         );
       } else {
         if (process) err = process(res) || false;
 
-        if (!err) toast.success('Operación exitosa');
-        else toast.error('Hubo un error inténtelo más tarde');
+        if (!err) {
+          toast.success('Operación exitosa');
+          setForm(initialForm);
+        } else toast.error('Hubo un error inténtelo más tarde');
       }
     } else {
       if (errors.password) toast.error(errors.password);

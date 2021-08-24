@@ -133,8 +133,8 @@
   white-space: nowrap;
   background-color: #f4f4f4;
   min-width: 60px;
-  bottom: 1rem;
-  right: 0.6rem;
+  bottom: 0.72rem;
+  right: 0.5rem;
   text-decoration: underline;
 }
 
@@ -462,6 +462,7 @@
 
   .link-fixed {
     bottom: .5rem;
+    right: 1rem;
   }
 
   .fs-small-14 {
@@ -541,7 +542,7 @@
   }
 
   .card__main-principal {
-    grid-column: span 2;
+    grid-column: span 3;
   }
 
   .card__main-principal {

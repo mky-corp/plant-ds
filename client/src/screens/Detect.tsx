@@ -92,8 +92,6 @@ const Detect = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading]);
 
-  console.log(predictions);
-
   return (
     <section className='min-vh-100 d-flex flex-column'>
       <Modal

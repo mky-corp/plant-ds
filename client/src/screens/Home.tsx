@@ -214,7 +214,7 @@ const Home = () => {
                     rel='noreferrer'
                     className='fw-bold'
                   >
-                    gitHub
+                    GitHub
                   </a>
                   , y poder sugerir y aportar cambios que guste a este proyecto
                   y otros similares.
