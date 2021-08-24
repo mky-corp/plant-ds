@@ -80,7 +80,6 @@ const Detect = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading]);
 
-  console.log(isOpenLogin);
   return (
     <section className='min-vh-100 d-flex flex-column'>
       <Modal
@@ -102,6 +101,7 @@ const Detect = () => {
                 : 'Cargando el modelo…'}
             </h3>
             <Loader />
+            <p className='fs-small-12 text-center'>Esto puede tardar unos minutos...</p>
           </>
         )}
         {isOpenLogin && (
@@ -111,9 +111,7 @@ const Detect = () => {
           </>
         )}
         {isOpen && item.answer && (
-          <section
-            className='card__detect-modal d-flex flex-column flex-md-row align-items-center over-y'
-          >
+          <section className='card__detect-modal d-flex flex-column flex-md-row align-items-center over-y'>
             <div className='w-nav-auto m-1 m-md-3 d-flex flex-column align-content-center justify-content-center'>
               <img
                 className='img-thumbnail p-1 p-md-3'
@@ -130,7 +128,9 @@ const Detect = () => {
                   {item.answer.map(({ res, value }, idx) => (
                     <li className='list-unstyled py-1' key={idx}>
                       <h4>Con precisión {value}</h4>
-                      <p className='fs-small-14 pt-1 pt-md-3 text-justify'>{res}</p>
+                      <p className='fs-small-14 pt-1 pt-md-3 text-justify'>
+                        {res}
+                      </p>
                     </li>
                   ))}
                 </ul>
@@ -153,7 +153,7 @@ const Detect = () => {
                 Detección de las patologías
               </h1>
               <section className='py-3 mb-2 py-md-0'>
-                <p className='text-justify fs-small-14 px-4 pb-2 pb-md-0'>
+                <p className='text-justify fs-small-14 px-3 px-md-4 pb-2 pb-md-0'>
                   Puede darle al botón para identificar en todas las imágenes
                   subidas para su posible enfermedad o evaluarlas una por una.
                 </p>
@@ -165,8 +165,8 @@ const Detect = () => {
                   />
                 )}
                 {load && !predLoad && (
-                  <p>
-                    <b>Todas las imágenes han sido evaluadas</b>
+                  <p className='px-3 px-md-4 text-center'>
+                    <b className='fs-small-14 first-color'>Todas las plantas han sido evaluadas</b>
                   </p>
                 )}
               </section>

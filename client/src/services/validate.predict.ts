@@ -3,7 +3,6 @@ import { maped } from './data.storage';
 export const transformArray = (predict: number[]) => {
   const answer = [];
 
-  console.log(predict);
   for (let idx = 0; idx < predict.length; ++idx) {
     if (predict[idx] > 0.1) {
       answer.push({
