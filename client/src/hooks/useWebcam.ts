@@ -10,7 +10,7 @@ import { toast } from 'react-toastify';
 const useWebcam = () => {
   const webcamRef = useRef<Webcam>(null);
   const [webCam, setWebCam] = useState<boolean>(stateWebCam);
-  const { handleUint8Array } = useContext(FileContext);
+  const { handleImageWebCam } = useContext(FileContext);
   const history = useHistory();
   const width = w.innerWidth;
   const height = w.innerHeight;
@@ -21,12 +21,9 @@ const useWebcam = () => {
   };
 
   const handleImage = (url: string) => {
-    if (handleUint8Array) {
-      handleUint8Array(url);
-
+    if (handleImageWebCam) {
+      handleImageWebCam(url);
       history.push('/detect');
-    } else {
-      toast.warn('Espere a la carga completa..');
     }
   };
 

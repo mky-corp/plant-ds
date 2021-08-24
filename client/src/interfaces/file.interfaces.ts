@@ -8,6 +8,7 @@ interface IFileContext {
   handleDeleteAll?: (idx: number) => void;
   handleUint8Array?: (url: string) => void;
   handleImageChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleImageWebCam?: (e: string) => void;
   handleImageDropZone?: (e: File[]) => void;
 }
 

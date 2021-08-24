@@ -21,12 +21,15 @@ export const FileProvider = ({ children }: IPropsChildren) => {
     const newBuffers = buffers.filter((_, i) => idx !== i);
     const newNames = names.filter((_, i) => idx !== i);
 
+    saveImagesLs(newImages, newNames);
+    setBuffers(newBuffers);
+  };
+
+  const saveImagesLs = (newImages: string[], newNames: string[]) => {
     setImages(newImages);
     setNames(newNames);
     setDataInLs('names', newNames);
     setDataInLs('images', newImages);
-
-    setBuffers(newBuffers);
   };
 
   const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -57,11 +60,10 @@ export const FileProvider = ({ children }: IPropsChildren) => {
     const fileNames: string[] = names;
     const fileArray = Array.from(newFiles);
 
-    if (fileArray.length + images.length > 24) {
+    if (fileArray.length + images.length > 18)
       return toast.warn(
         'Se está sobrepasando el límite de imágenes que puede evaluar'
       );
-    }
 
     fileArray.forEach((file) => uploadImage(file, fileImages, fileNames));
     fileArray.forEach((file) => uploadBuffer(file, fileBuffers));
@@ -69,20 +71,24 @@ export const FileProvider = ({ children }: IPropsChildren) => {
   };
 
   const handleUint8Array = async (url: string, buffers: Uint8Array[] = []) => {
-    if (images.length && names.length) {
-      setImages([...images, url]);
-      setNames([...names, 'Capture Camera']);
-    } else {
-      setImages([url]);
-      setNames(['Capture Camera']);
-    }
+    buffers.push(await handleImageByString(url));
+    setBuffers(buffers);
+  };
 
+  const handleImageWebCam = async (url: string) => {
+    const newNames = [...names, 'Capture Image'];
+    const newImages = [...images, url];
+
+    saveImagesLs(newImages, newNames);
+
+    buffers.push(await handleImageByString(url));
+    setBuffers(buffers);
+  };
+
+  const handleImageByString = async (url: string) => {
     const file = await fetch(url);
     const image = await file.arrayBuffer();
-    const uint8Array = new Uint8Array(image);
-
-    buffers.push(uint8Array);
-    setBuffers(buffers);
+    return new Uint8Array(image);
   };
 
   const uploadImage = (
@@ -91,7 +97,8 @@ export const FileProvider = ({ children }: IPropsChildren) => {
     fileNames: string[]
   ) => {
     const fileReader = new FileReader();
-    if (file.type === 'image/png') return toast.info('Los archivos con otros formatos se están filtrando');
+    if (file.type === 'image/png')
+      return toast.info('Los archivos con otros formatos se están filtrando');
     fileReader.readAsDataURL(file);
 
     fileNames.push(file.name);
@@ -152,6 +159,7 @@ export const FileProvider = ({ children }: IPropsChildren) => {
         handleDeleteAll,
         handleUint8Array,
         handleImageChange,
+        handleImageWebCam,
         handleImageDropZone
       }}
     >

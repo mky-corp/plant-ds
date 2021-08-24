@@ -32,11 +32,18 @@ const Home = () => {
   return (
     <section className='vh-100 d-flex flex-column'>
       <Modal isOpen={isOpen} handleClose={closeModal}>
-        <section className='main__modal d-flex flex-column flex-md-row justify-content-around align-items-center'>
+        <section
+          className='main__modal d-flex flex-column flex-md-row 
+        justify-content-around align-items-center'
+        >
           <img className='ps-md-3' src={item.img} alt={item.title} />
           <section className='d-flex flex-column justify-content-center'>
-            <h3 className='letters-s-5 ps-md-3 pt-3 text-center first-color'>{item.title}</h3>
-            <p className='fs-small-12 ps-md-5 pt-3 text-justify'>{item.description}</p>
+            <h3 className='letters-s-5 ps-md-3 pt-3 text-center first-color'>
+              {item.title}
+            </h3>
+            <p className='fs-small-12 ps-md-5 pt-3 text-justify'>
+              {item.description}
+            </p>
           </section>
         </section>
       </Modal>
@@ -58,9 +65,7 @@ const Home = () => {
                justify-content-around justify-content-lg-center align-items-center'
             >
               <section className='w-main d-flex flex-column justify-content-center mb-4 mb-sm-0'>
-                <h2 className='h2 letters-s-5 fw-bold text-center'>
-                  PlantDS
-                </h2>
+                <h2 className='h2 letters-s-5 fw-bold text-center'>PlantDS</h2>
                 <p className='text-dark text-justify fs-text w-100 m-0 mb-md-4'>
                   {data.home.descMain}
                 </p>
@@ -96,9 +101,7 @@ const Home = () => {
         </section>
         <section id='plants' className='main__raison mb-5 pb-5'>
           <section className='d-flex justify-content-around px-4 px-md-0 pt-5 ps-md-5'>
-            <h2 className='fs-2'>
-              ¿Qué plantas detecta?
-            </h2>
+            <h2 className='fs-2'>¿Qué plantas detecta?</h2>
             <p />
             <p />
             <p />
@@ -126,9 +129,7 @@ const Home = () => {
         </section>
         <section id='detect' className='main__raison mb-5 pb-5'>
           <section className='d-flex justify-content-around px-4 px-md-0 pt-5 ps-md-5'>
-            <h2 className='fs-2'>
-              ¿Cómo los detecta?
-            </h2>
+            <h2 className='fs-2'>¿Cómo los detecta?</h2>
             <p />
             <p />
             <p />
@@ -164,16 +165,15 @@ const Home = () => {
         </section>
         <section id='about' className='main__raison mb-5 pb-5'>
           <section className='d-flex justify-content-around px-4 px-md-0 pt-5 ps-md-5'>
-            <h2 className='fs-2'>
-              Sobre nosotros
-            </h2>
+            <h2 className='fs-2'>Sobre nosotros</h2>
             <p />
             <p />
             <p />
           </section>
           <article className='main__grid-fit h-75'>
             {data.home.cardsAbout.map((item, idx) => (
-              <CardAbout key={idx} {...item} />))}
+              <CardAbout key={idx} {...item} />
+            ))}
           </article>
         </section>
       </main>

@@ -1,7 +1,9 @@
-import { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+import { HashLink as Link } from 'react-router-hash-link';
 import detect from '../assets/microscope-analysis.svg';
 import FooterHome from '../layouts/FooterHome/FooterHome';
+import { IPropsCardDetect } from '../interfaces/props.interfaces';
 
 // components
 import ModalSession from '../components/ModalSession/ModalSession';
@@ -17,10 +19,11 @@ import FileContext from '../context/FileContext';
 // hooks
 import useModal from '../hooks/useModal';
 import useTF from '../hooks/useTF';
+import { transformArray } from '../services/validate.predict';
 
 const Detect = () => {
   const history = useHistory();
-  const [ok, setOk] = useState(false);
+  const [ok, setOk] = useState<number>(-1);
   const [load, setLoad] = useState(false);
   const { buffers, names, images, handleDeleteAll } = useContext(FileContext);
   const { auth } = useContext(AuthContext);
@@ -32,8 +35,26 @@ const Detect = () => {
     predLoad,
     loading
   } = useTF();
+  const [isOpen, openModal, closeModal] = useModal();
+  const [item, setItem] = useState<IPropsCardDetect>({});
   const [isOpenLogin, openModalLogin] = useModal();
   const [isOpenLoad, openModalLoad, closeModalLoad] = useModal();
+
+  const handleOpen = (item: IPropsCardDetect) => {
+    setItem(item);
+    openModal();
+  };
+
+  const handlePredict = async (buffer: Uint8Array, idx: number) => {
+    await setOk(idx);
+    await predictBuffer(buffer, idx);
+    await setOk(-1);
+  };
+
+  const handleDelete = (idx: number) => {
+    handleDeleteAll && handleDeleteAll(idx);
+    deletePrediction(idx);
+  };
 
   useEffect(() => {
     if (!auth) return openModalLogin();
@@ -59,25 +80,69 @@ const Detect = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading]);
 
+  console.log(isOpenLogin);
   return (
     <section className='min-vh-100 d-flex flex-column'>
-      <Modal handleClose={() => history.push('/')} isOpen={isOpenLogin}>
-        <h3 className='text-center fs-5'>Necesitas Iniciar Sesión</h3>
-        <ModalSession />
-      </Modal>
-      <Modal unClose={true} isOpen={isOpenLoad}>
-        <h3 className='text-center fs-4'>
-          {predLoad
-            ? 'Se están evaluando todas las imágenes'
-            : 'Cargando el modelo…'}
-        </h3>
-        <Loader />
+      <Modal
+        unClose={!isOpenLogin && !isOpen}
+        handleClose={
+          isOpenLogin
+            ? () => history.push('/')
+            : false || isOpen
+            ? closeModal
+            : undefined
+        }
+        isOpen={isOpenLoad || isOpenLogin || isOpen}
+      >
+        {isOpenLoad && !isOpenLogin && (
+          <>
+            <h3 className='text-center fs-4'>
+              {predLoad
+                ? 'Se están evaluando todas las imágenes'
+                : 'Cargando el modelo…'}
+            </h3>
+            <Loader />
+          </>
+        )}
+        {isOpenLogin && (
+          <>
+            <h3 className='text-center fs-5'>Necesitas Iniciar Sesión</h3>
+            <ModalSession />
+          </>
+        )}
+        {isOpen && item.answer && (
+          <section
+            className='card__detect-modal d-flex flex-column flex-md-row align-items-center over-y'
+          >
+            <div className='w-nav-auto m-1 m-md-3 d-flex flex-column align-content-center justify-content-center'>
+              <img
+                className='img-thumbnail p-1 p-md-3'
+                src={item.img}
+                alt={`Plants detect ${item.name}`}
+              />
+              <h4 className='fs-5 first-color w-100 text-center pt-3 fw-bold'>
+                {item.name}
+              </h4>
+            </div>
+            <div className='mt-auto'>
+              {item.answer.length !== 0 && (
+                <ul className='px-1 px-md-3'>
+                  {item.answer.map(({ res, value }, idx) => (
+                    <li className='list-unstyled py-1' key={idx}>
+                      <h4>Con precisión {value}</h4>
+                      <p className='fs-small-14 pt-1 pt-md-3 text-justify'>{res}</p>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </section>
+        )}
       </Modal>
 
       <main className='flex-grow-1'>
         <article className='d-flex my-5 h-75 flex-column flex-lg-row align-items-center justify-content-around'>
-          <section
-            className='card__main-principal d-flex flex-column flex-md-row justify-content-evenly align-items-center'>
+          <section className='card__main-principal d-flex flex-column flex-md-row justify-content-evenly align-items-center'>
             <img
               className='w-50 h-50 pb-0 pb-md-3 pb-md-0 px-md-3'
               src={detect}
@@ -92,30 +157,41 @@ const Detect = () => {
                   Puede darle al botón para identificar en todas las imágenes
                   subidas para su posible enfermedad o evaluarlas una por una.
                 </p>
-                {(!load || predLoad) && <MainButton
-                  first={true}
-                  title='Detectar en todas'
-                  onClick={() => predictionBuffers(buffers)}
-                />}
-                {(load && !predLoad) && <p><b>Todas las imágenes han sido evaluadas</b></p>}
+                {(!load || predLoad) && (
+                  <MainButton
+                    idx={1}
+                    title='Detectar en todas'
+                    onClick={() => predictionBuffers(buffers)}
+                  />
+                )}
+                {load && !predLoad && (
+                  <p>
+                    <b>Todas las imágenes han sido evaluadas</b>
+                  </p>
+                )}
               </section>
             </section>
           </section>
         </article>
         <article className='main__grid-detect px-0 px-md-3 py-5'>
-          {images?.length ? (
-            images?.map((item, idx) => (
+          {images?.length && buffers ? (
+            images?.map((img, idx) => (
               <CardDetect
-                key={idx}
+                ok={ok}
                 idx={idx}
-                img={item}
-                setState={[setOk, ok]}
+                img={img}
+                key={idx}
                 name={names && names[idx]}
-                buffer={buffers && buffers[idx]}
-                onClick={predictBuffer}
-                onRemove={handleDeleteAll}
-                deletePred={deletePrediction}
-                predictions={predictions[idx]}
+                answer={transformArray(predictions[idx] || [])}
+                openAll={() =>
+                  handleOpen({
+                    img: img,
+                    name: names && names[idx],
+                    answer: transformArray(predictions[idx] || [])
+                  })
+                }
+                deleteAll={() => handleDelete(idx)}
+                predictAll={() => handlePredict(buffers[idx], idx)}
               />
             ))
           ) : (

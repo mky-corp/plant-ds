@@ -9,9 +9,8 @@
 
 @media screen and (min-width: 768px) {
   .card__detect {
-    min-width: 300px;
     min-height: min-content;
     min-width: min-content;
-    max-width: fit-content;
+    max-width: 720px;
   }
 }

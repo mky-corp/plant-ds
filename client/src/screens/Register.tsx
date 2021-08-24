@@ -143,9 +143,9 @@ const Register = () => {
               </section>
             ) : (
               <MainButton
-                title={register.continue}
-                first={true}
+                idx={1}
                 onClick={handleSecond}
+                title={register.continue}
               />
             )}
             <Link to='/login' className='text-center fs-small-12'>
