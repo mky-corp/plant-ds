@@ -1,6 +1,5 @@
 import { useHistory } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
-import { HashLink as Link } from 'react-router-hash-link';
 import detect from '../assets/microscope-analysis.svg';
 import FooterHome from '../layouts/FooterHome/FooterHome';
 import { IPropsCardDetect } from '../interfaces/props.interfaces';
@@ -25,9 +24,11 @@ const Detect = () => {
   const history = useHistory();
   const [ok, setOk] = useState<number>(-1);
   const [load, setLoad] = useState(false);
-  const { buffers, names, images, handleDeleteAll } = useContext(FileContext);
+  const { buffers, names, images, handleDeleteAll, resetAll } =
+    useContext(FileContext);
   const { auth } = useContext(AuthContext);
   const {
+    deleteAllPredictions,
     predictionBuffers,
     deletePrediction,
     predictBuffer,
@@ -54,6 +55,11 @@ const Detect = () => {
   const handleDelete = (idx: number) => {
     handleDeleteAll && handleDeleteAll(idx);
     deletePrediction(idx);
+  };
+
+  const handleRemoveAll = () => {
+    resetAll && resetAll();
+    deleteAllPredictions();
   };
 
   useEffect(() => {
@@ -101,7 +107,9 @@ const Detect = () => {
                 : 'Cargando el modelo…'}
             </h3>
             <Loader />
-            <p className='fs-small-12 text-center'>Esto puede tardar unos minutos...</p>
+            <p className='fs-small-12 text-center'>
+              Esto puede tardar unos minutos...
+            </p>
           </>
         )}
         {isOpenLogin && (
@@ -112,7 +120,7 @@ const Detect = () => {
         )}
         {isOpen && item.answer && (
           <section className='card__detect-modal d-flex flex-column flex-md-row align-items-center over-y'>
-            <div className='w-nav-auto m-1 m-md-3 d-flex flex-column align-content-center justify-content-center'>
+            <div className='w-card-detect m-1 m-md-3 d-flex flex-column align-content-center justify-content-center'>
               <img
                 className='img-thumbnail p-1 p-md-3'
                 src={item.img}
@@ -122,7 +130,7 @@ const Detect = () => {
                 {item.name}
               </h4>
             </div>
-            <div className='mt-auto'>
+            <div className='my-auto'>
               {item.answer.length !== 0 && (
                 <ul className='px-1 px-md-3'>
                   {item.answer.map(({ res, value }, idx) => (
@@ -157,18 +165,32 @@ const Detect = () => {
                   Puede darle al botón para identificar en todas las imágenes
                   subidas para su posible enfermedad o evaluarlas una por una.
                 </p>
-                {(!load || predLoad) && (
-                  <MainButton
-                    idx={1}
-                    title='Detectar en todas'
-                    onClick={() => predictionBuffers(buffers)}
-                  />
-                )}
-                {load && !predLoad && (
+                {((load && !predLoad) ||
+                  predictions?.length === names?.length) && (
                   <p className='px-3 px-md-4 text-center'>
-                    <b className='fs-small-14 first-color'>Todas las plantas han sido evaluadas</b>
+                    <b className='fs-small-14 first-color'>
+                      {!names?.length
+                        ? 'Carga imágenes para evaluarlas'
+                        : 'Todas las plantas han sido evaluadas'}
+                    </b>
                   </p>
                 )}
+                {(!load || predLoad) &&
+                  predictions?.length !== names?.length && (
+                    <MainButton
+                      idx={1}
+                      title='Detectar en todas'
+                      onClick={() => predictionBuffers(buffers)}
+                    />
+                  )}
+                {predictions?.length === names?.length &&
+                  names.length !== 0 && (
+                    <MainButton
+                      idx={3}
+                      title='Limpiar'
+                      onClick={handleRemoveAll}
+                    />
+                  )}
               </section>
             </section>
           </section>

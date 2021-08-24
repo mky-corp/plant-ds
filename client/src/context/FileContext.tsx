@@ -16,6 +16,11 @@ export const FileProvider = ({ children }: IPropsChildren) => {
     defaultFileState.buffers
   );
 
+  const resetAll = () => {
+    saveImagesLs([], []);
+    setBuffers([]);
+  };
+
   const handleDeleteAll = (idx: number) => {
     const newImages = images.filter((_, i) => idx !== i);
     const newBuffers = buffers.filter((_, i) => idx !== i);
@@ -156,6 +161,7 @@ export const FileProvider = ({ children }: IPropsChildren) => {
         images,
         buffers,
         progress,
+        resetAll,
         handleDeleteAll,
         handleUint8Array,
         handleImageChange,

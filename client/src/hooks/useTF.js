@@ -74,7 +74,9 @@ const useTF = () => {
   const predictModel = async (uint8) => {
     try {
       const rawImageData = uint8.buffer;
-      const imageTensor = imageToTensor(rawImageData).resizeBilinear([249, 249]);
+      const imageTensor = imageToTensor(rawImageData).resizeBilinear([
+        249, 249
+      ]);
       const tensor = imageTensor.reshape([1, 249, 249, 3]);
       const predict = await model.predict(tensor);
       const array = await predict.array();
@@ -90,6 +92,7 @@ const useTF = () => {
   const deletePrediction = (idx) =>
     setPredictions(predictions.filter((_, i) => i !== idx));
 
+  const deleteAllPredictions = () => setPredictions([]);
 
   /**
    * Función que recibe un arreglo de buffers para poder hacer la predicción de
@@ -167,13 +170,14 @@ const useTF = () => {
    * versión de tensorflow para el desarrollo web con javascript
    */
   return {
-    predictions,
-    predLoad,
-    loading,
     errors,
+    loading,
+    predLoad,
+    predictions,
     predictBuffer,
     deletePrediction,
-    predictionBuffers
+    predictionBuffers,
+    deleteAllPredictions
   };
 };
 

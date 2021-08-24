@@ -5,6 +5,7 @@ interface IFileContext {
   images: string[];
   buffers: Uint8Array[];
   progress?: number | string;
+  resetAll?: () => void;
   handleDeleteAll?: (idx: number) => void;
   handleUint8Array?: (url: string) => void;
   handleImageChange?: (e: ChangeEvent<HTMLInputElement>) => void;
