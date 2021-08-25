@@ -135,13 +135,13 @@ const Detect = () => {
                 src={item.img}
                 alt={`Plants detect ${item.name}`}
               />
-              <h4 className='fs-5 first-color letters-s-5 w-100 text-center pt-3 fw-bold'>
+              <h4 className='fs-5 first-color h-card-title mb-3 letters-s-5 h-100 fs-overflow text-center pt-3 fw-bold'>
                 {item.name}
               </h4>
             </div>
             <div className='my-auto'>
               {item.answer.length !== 0 && (
-                <ul className='px-1 px-md-3'>
+                <ul className='px-2 px-md-4'>
                   {item.answer.map(({ res, value }, idx) => (
                     <li className='list-unstyled py-1' key={idx}>
                       <h4>Con precisión {value}</h4>
@@ -175,16 +175,17 @@ const Detect = () => {
                   una. Se recomienda solo hojas de plantas para mejorar la
                   precisión.
                 </p>
-                {((load && !predLoad) ||
-                  predictions?.length === names?.length) && (
-                  <p className='px-3 px-md-4 text-center'>
-                    <b className='fs-small-14 first-color'>
-                      {!names?.length
-                        ? 'Carga imágenes para evaluarlas'
-                        : 'Todas las plantas han sido evaluadas'}
-                    </b>
-                  </p>
-                )}
+                {(load && !predLoad) ||
+                  (predictions?.length === names?.length &&
+                    !predictions.find((el: number[]) => el?.length === 0) && (
+                      <p className='px-3 px-md-4 text-center'>
+                        <b className='fs-small-14 first-color'>
+                          {!names?.length
+                            ? 'Carga imágenes para evaluarlas'
+                            : 'Todas las plantas han sido evaluadas'}
+                        </b>
+                      </p>
+                    ))}
                 <div className='d-flex pb-md-3'>
                   {predictions.length === 0 && names?.length === 0 ? (
                     <MainButton

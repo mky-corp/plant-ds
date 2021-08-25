@@ -128,6 +128,26 @@
   opacity: 0.8;
 }
 
+.btn-fixed {
+  position: absolute;
+  top: 0.8rem;
+  min-width: 64px;
+  max-width: 72px;
+  min-height: 64px;
+  left: 0.8rem;
+  border-radius: 50%;
+  border-color: var(--third-color) !important;
+  background: var(--first-color) !important;
+}
+
+.btn-fixed:focus {
+  box-shadow: 0 0 0 0 transparent !important;
+}
+
+.btn-fixed:hover {
+  opacity: 0.8;
+}
+
 .link-fixed,
 .link-fixed-detect {
   white-space: nowrap;
@@ -139,8 +159,8 @@
 }
 
 .link-fixed-detect {
-  bottom: 5.1rem;
-  right: 0.6rem;
+  bottom: 5.2rem;
+  right: 0.32rem;
 }
 
 .main__grid {
@@ -410,8 +430,8 @@
   transition: all 0.5s ease-in-out;
 }
 
-[id] {
-  scroll-margin-top: 12ex;
+.h-card-title {
+  max-height: 36px;
 }
 
 @media (min-width: 576px) {
@@ -448,6 +468,11 @@
     width: 512px;
     height: 480px;
   }
+
+  .btn-fixed {
+    top: 1rem;
+    left: 1rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -457,11 +482,11 @@
 
   .link-fixed-detect {
     bottom: 4.6rem;
-    right: 0.6rem;
+    right: 1.2rem;
   }
 
   .link-fixed {
-    bottom: .5rem;
+    bottom: 0.5rem;
     right: 1rem;
   }
 
@@ -572,6 +597,12 @@
   .button__link-main {
     margin: 0 0.4rem;
   }
+
+  .btn-fixed {
+    top: auto;
+    bottom: 2.4rem;
+    left: calc(50% - 36px);
+  }
 }
 
 @media screen and (min-width: 992px) {
@@ -603,6 +634,10 @@
 }
 
 @media screen and (min-width: 1200px) {
+  [id] {
+    scroll-margin-top: 8ex;
+  }
+
   .main__grid {
     grid-template: auto / repeat(3, 1fr);
   }

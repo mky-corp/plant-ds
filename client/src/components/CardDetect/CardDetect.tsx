@@ -23,7 +23,7 @@ const CardDetect = ({
         />
       </div>
       <div className='d-flex flex-column h-100 w-100 px-1 position-relative justify-content-evenly align-items-center'>
-        <h4 className='fs-small-14 w-title pt-3 fs-overflow fw-bold'>{name}</h4>
+        <h4 className='fs-small-14 w-title pt-3 fs-overflow first-color fw-bold'>{name}</h4>
         {ok === idx ? (
           <Loader />
         ) : (
@@ -34,7 +34,7 @@ const CardDetect = ({
               </div>
             )}
             {answer?.length !== 0 && (
-              <ul className='p-0 m-0 d-flex px-2 pt-2 px-md-0 pt-md-3 px-md-3'>
+              <ul className='p-0 m-0 d-flex flex-column pt-2 pt-md-3 pe-2 ps-2 pe-md-3 ps-md-0'>
                 {answer?.length &&
                   answer.map(({ res, value }, idx) => (
                     <li className='link-undecorate' key={idx}>
