@@ -15,6 +15,7 @@ import ButtonHome from '../components/ButtonHome/ButtonHome';
 import CardAbout from '../components/CardAbout/CardAbout';
 import CardMain from '../components/CardMain/CardMain';
 import CardTech from '../components/CardTech/CardTech';
+import UpArrow from '../components/UpArrow/UpArrow';
 import Modal from '../components/Modal/Modal';
 
 // layouts
@@ -32,6 +33,7 @@ const Home = () => {
 
   return (
     <section className='vh-100 d-flex flex-column'>
+      <UpArrow />
       <Modal isOpen={isOpen} handleClose={closeModal}>
         <section
           className='main__modal d-flex flex-column flex-md-row 
@@ -89,7 +91,7 @@ const Home = () => {
           </section>
         </div>
         <section className='main__raison mb-5 pb-5'>
-          <article className='main__grid mx-1 mx-md-5 mt-3 px-1 px-md-5 '>
+          <article className='main__grid mx-1 mx-md-3 mx-lg-5 mt-3 px-1 px-md-3 px-lg-5'>
             {data.home.cardsMain.map((item, idx) => (
               <CardMain key={idx} {...item} />
             ))}

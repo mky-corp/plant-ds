@@ -1,0 +1,27 @@
+.scroll-top-btn {
+  position: fixed;
+  z-index: 999;
+  bottom: calc(1rem + 1vh);
+  right: calc(1.6rem + 1.6vw);
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: var(--white-color);
+  color: var(--dark-color);
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  outline: 0;
+  border: 0;
+}
+
+.scroll-top-btn:hover {
+  background-color: var(--link-color);
+  color: var(--white-color);
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}

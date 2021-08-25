@@ -22,7 +22,7 @@ const CardMain = ({ img, href, title, onClick, description }: IPropsCardMain) =>
       <Card {...props} />
     </Link>
   ) : (
-    <button onClick={onClick} className='position-relative p-0 btn button-item'>
+    <button onClick={onClick} className='position-relative p-0 btn all-animations'>
       <Card {...props} />
       <p className='link-color fs-small-12 link-fixed position-absolute'>ver más</p>
     </button>
