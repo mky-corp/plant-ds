@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/plant-ds/static/css/main.3fbcec3c.chunk.css",
-    "main.js": "/plant-ds/static/js/main.1647804c.chunk.js",
-    "main.js.map": "/plant-ds/static/js/main.1647804c.chunk.js.map",
+    "main.js": "/plant-ds/static/js/main.f2fa38bc.chunk.js",
+    "main.js.map": "/plant-ds/static/js/main.f2fa38bc.chunk.js.map",
     "runtime-main.js": "/plant-ds/static/js/runtime-main.335cbec1.js",
     "runtime-main.js.map": "/plant-ds/static/js/runtime-main.335cbec1.js.map",
     "static/css/2.e779aa9d.chunk.css": "/plant-ds/static/css/2.e779aa9d.chunk.css",
@@ -54,6 +54,6 @@
     "static/css/2.e779aa9d.chunk.css",
     "static/js/2.a3e8e8b8.chunk.js",
     "static/css/main.3fbcec3c.chunk.css",
-    "static/js/main.1647804c.chunk.js"
+    "static/js/main.f2fa38bc.chunk.js"
   ]
 }
