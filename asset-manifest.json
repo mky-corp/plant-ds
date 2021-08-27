@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/plant-ds/static/css/main.10776a89.chunk.css",
-    "main.js": "/plant-ds/static/js/main.47889006.chunk.js",
-    "main.js.map": "/plant-ds/static/js/main.47889006.chunk.js.map",
+    "main.css": "/plant-ds/static/css/main.7350a342.chunk.css",
+    "main.js": "/plant-ds/static/js/main.ea620006.chunk.js",
+    "main.js.map": "/plant-ds/static/js/main.ea620006.chunk.js.map",
     "runtime-main.js": "/plant-ds/static/js/runtime-main.335cbec1.js",
     "runtime-main.js.map": "/plant-ds/static/js/runtime-main.335cbec1.js.map",
     "static/css/2.e779aa9d.chunk.css": "/plant-ds/static/css/2.e779aa9d.chunk.css",
@@ -12,7 +12,7 @@
     "static/js/3.bfe610a9.chunk.js.map": "/plant-ds/static/js/3.bfe610a9.chunk.js.map",
     "index.html": "/plant-ds/index.html",
     "static/css/2.e779aa9d.chunk.css.map": "/plant-ds/static/css/2.e779aa9d.chunk.css.map",
-    "static/css/main.10776a89.chunk.css.map": "/plant-ds/static/css/main.10776a89.chunk.css.map",
+    "static/css/main.7350a342.chunk.css.map": "/plant-ds/static/css/main.7350a342.chunk.css.map",
     "static/js/2.e5ab4834.chunk.js.LICENSE.txt": "/plant-ds/static/js/2.e5ab4834.chunk.js.LICENSE.txt",
     "static/media/apple.5b1bee33.jpg": "/plant-ds/static/media/apple.5b1bee33.jpg",
     "static/media/arrow-left.6d95b1fe.svg": "/plant-ds/static/media/arrow-left.6d95b1fe.svg",
@@ -53,7 +53,7 @@
     "static/js/runtime-main.335cbec1.js",
     "static/css/2.e779aa9d.chunk.css",
     "static/js/2.e5ab4834.chunk.js",
-    "static/css/main.10776a89.chunk.css",
-    "static/js/main.47889006.chunk.js"
+    "static/css/main.7350a342.chunk.css",
+    "static/js/main.ea620006.chunk.js"
   ]
 }
