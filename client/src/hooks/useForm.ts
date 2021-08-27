@@ -29,9 +29,7 @@ const useForm = (
 
   const handleSubmit = async (e: SyntheticEvent) => {
     e.preventDefault();
-    console.log(errors);
     setErrors(validateForm(form));
-    console.log(errors);
 
     if (!Object.keys(errors).length) {
       toast.info('Se esta procesando el formulario...');

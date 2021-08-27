@@ -144,9 +144,9 @@ const Detect = () => {
                 <ul className='px-2 px-md-4'>
                   {item.answer.map(({ res, value }, idx) => (
                     <li className='list-unstyled py-1' key={idx}>
-                      <h4>Con precisión {value}</h4>
+                      <h4>Con precisión al {value} %</h4>
                       <p className='fs-small-14 pt-1 pt-md-3 text-justify'>
-                        {res}
+                        <b>{res[0]}</b>: {res[1]}
                       </p>
                     </li>
                   ))}

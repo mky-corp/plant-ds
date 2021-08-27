@@ -5,9 +5,11 @@ export const transformArray = (predict: number[]) => {
 
   for (let idx = 0; idx < predict.length; ++idx) {
     if (predict[idx] > 0.1) {
+      const message = maped[idx].split(':');
+
       answer.push({
-        res: maped[idx],
-        value: `al ${(predict[idx] * 100).toFixed(2)} %`
+        res: message,
+        value: `${(predict[idx] * 100).toFixed(2)}`
       });
     }
   }

@@ -83,7 +83,7 @@ interface IPropsCardAbout {
 }
 
 interface predict {
-  res: string;
+  res: string[];
   value: string;
 }
 

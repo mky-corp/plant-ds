@@ -427,7 +427,7 @@
 }
 
 .h-card-title {
-  max-height: 36px;
+  max-height: 42px;
 }
 
 @media (min-width: 576px) {
@@ -477,12 +477,12 @@
   }
 
   .link-fixed-detect {
-    bottom: 4.6rem;
+    bottom: 4.4rem;
     right: 1.2rem;
   }
 
   .link-fixed {
-    bottom: 0.5rem;
+    bottom: 0.30rem;
     right: 1rem;
   }
 

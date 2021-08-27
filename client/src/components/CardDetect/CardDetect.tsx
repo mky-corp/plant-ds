@@ -23,7 +23,9 @@ const CardDetect = ({
         />
       </div>
       <div className='d-flex flex-column h-100 w-100 px-1 position-relative justify-content-evenly align-items-center'>
-        <h4 className='fs-small-14 w-title pt-3 fs-overflow first-color fw-bold'>{name}</h4>
+        <h4 className='fs-small-14 w-title pt-3 fs-overflow first-color fw-bold'>
+          {name}
+        </h4>
         {ok === idx ? (
           <Loader />
         ) : (
@@ -39,7 +41,7 @@ const CardDetect = ({
                   answer.map(({ res, value }, idx) => (
                     <li className='link-undecorate' key={idx}>
                       <p className='fs-small-12 fs-overflow text-justify'>
-                        {res} --- {value}
+                        <b>{res[0]}</b>:{res[1]} 
                       </p>
                     </li>
                   ))}

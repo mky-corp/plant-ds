@@ -1,10 +1,10 @@
 .scroll-top-btn {
   position: fixed;
   z-index: 999;
-  bottom: calc(1rem + 1vh);
-  right: calc(1.6rem + 1.6vw);
-  width: 3.2rem;
-  height: 3.2rem;
+  bottom: calc(2.4rem + 0.8vh);
+  right: calc(2.4rem + 1.6vw);
+  width: 4rem;
+  height: 4rem;
   border-radius: 50%;
   font-size: 2rem;
   font-weight: bold;
