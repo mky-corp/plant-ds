@@ -1,6 +1,6 @@
 {
-  "short_name": "PHG Plants",
-  "name": "Application Web PHG Plants",
+  "short_name": "PlantDS",
+  "name": "Application Web PlantDS",
   "icons": [
     {
       "src": "favicon/favicon.ico",

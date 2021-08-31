@@ -14,7 +14,7 @@ const HeaderHome = () => {
         className='home__display w-100 p-3 h-100 d-flex flex-column flex-lg-row
         justify-content-between justify-content-lg-around align-items-center'
       >
-        <a href='/'>
+        <a href='/plant-ds'>
           <section className='d-flex justify-content-between align-items-center'>
             <img
               className='header__logo-home me-4'

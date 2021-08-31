@@ -176,9 +176,9 @@ export const data = {
         href: 'https://developers.google.com/profile/u/100596963017130784226?utm_source=developers.google.com'
       },
       {
-        title: 'Org. UL',
+        title: 'UL Org.',
         img: ulLogo,
-        href: 'https://github.com/Uncle-Liquor'
+        href: 'https://github.com/uncle-liquor'
       },
       {
         title: 'UNCP',
