@@ -44,6 +44,8 @@ export const createUser = (req: Request, res: Response, next: NextFunction) => {
         password: hash
       });
 
+      _user.password = '...';
+
       res.status(201).json({ message: 'Se creo el usuario', _user });
     } catch (err: any) {
       res.status(500).json({ message: err.message, err });
@@ -51,16 +53,23 @@ export const createUser = (req: Request, res: Response, next: NextFunction) => {
   });
 };
 
-export const deleteUser = async (req: Request, res: Response, next: NextFunction) => {
+export const deleteUser = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   const id = req.params.id;
   const _user = await User.findByIdAndDelete(id);
 
   res.status(201).json({ message: 'Usuario eliminado', _user });
 };
 
-export const updateUser = async (req: Request, res: Response, next: NextFunction) => {
-  if (req.body.password)
-    return res.status(404).json({ error: 'Unauthorized' });
+export const updateUser = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  if (req.body.password) return res.status(404).json({ error: 'Unauthorized' });
 
   const id = req.params.id;
   const _user = await User.findByIdAndUpdate(id, req.body, { new: true });
