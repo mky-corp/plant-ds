@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.viewIndex=void 0;var viewIndex=function(a,b){b.render("index",{title:"Express"})};exports.viewIndex=viewIndex;

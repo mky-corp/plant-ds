@@ -1,0 +1,5 @@
+"use strict";var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:!0}),exports.normalizePort=exports.handleError=exports.handleNotFound=void 0;var _httpErrors=_interopRequireDefault(require("http-errors")),handleNotFound=function(a,b,c){c((0,_httpErrors["default"])(404))};exports.handleNotFound=handleNotFound;var handleError=function(a,b,c){// set locals, only providing error in development
+// render the error page
+c.locals.message=a.message,c.locals.error="development"===b.app.get("env")?a:{},c.status(a.status||500),c.render("error")};/**
+ * Normalize a port into a number, string, or false.
+ */exports.handleError=handleError;var normalizePort=function(a){var b=parseInt(a,10);return isNaN(b)?a:!!(0<=b)&&b};exports.normalizePort=normalizePort;

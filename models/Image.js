@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports["default"]=void 0;var _mongoose=require("mongoose"),ImageSchema=new _mongoose.Schema({name:{type:String,required:!0},description:{type:String,required:!0},state:{type:Boolean,default:!0}},{versionKey:!1,timestamps:!0}),_default=(0,_mongoose.model)("Images",ImageSchema);exports["default"]=_default;

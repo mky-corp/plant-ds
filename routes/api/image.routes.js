@@ -1,0 +1,2 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports["default"]=void 0;var _express=require("express"),_image=require("../../controllers/image.controllers"),router=(0,_express.Router)();router.get("/",_image.viewImage),router.post("/upload",_image.uploadImage),router.get("/:id",_image.getImage);/* POST most image create. */ // router.post('/', )
+var _default=router;exports["default"]=_default;
