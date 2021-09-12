@@ -1,6 +1,5 @@
-import React, {
+import {
   ChangeEvent,
-  Dispatch,
   FocusEvent,
   ReactNode,
   SyntheticEvent
